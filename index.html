@@ -17,99 +17,84 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
-        body { background-color: var(--bg-gray); color: var(--text-main); padding: 6px; line-height: 1.5; overflow-x: hidden; }
+        body { background-color: var(--bg-gray); color: var(--text-main); padding: 15px; line-height: 1.6; }
         .dashboard-container { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; width: 100%; }
 
         /* 頂部導覽列 */
-        .header-nav { display: flex; align-items: flex-start; justify-content: space-between; padding: 12px 15px; border-bottom: 1px solid var(--border-color); flex-direction: column; gap: 10px; }
-        .header-title-box h1 { color: var(--yahoo-purple); font-size: 24px; font-weight: 900; letter-spacing: 0.5px; margin-bottom: 2px; }
-        .today-date { font-size: 13px; font-weight: bold; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+        .header-nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 25px; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; gap: 15px; }
+        .header-title-box h1 { color: var(--yahoo-purple); font-size: 32px; font-weight: 900; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .today-date { font-size: 14px; font-weight: bold; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
         
-        .header-tabs { display: flex; gap: 6px; font-size: 12px; font-weight: bold; color: var(--text-muted); flex-wrap: wrap; width: 100%; }
-        .header-tabs .tab { padding: 4px 8px; border-radius: 4px; background: #f0f2f5; }
+        .header-tabs { display: flex; gap: 12px; font-size: 14px; font-weight: bold; color: var(--text-muted); }
+        .header-tabs .tab { padding: 6px 12px; border-radius: 6px; background: #f0f2f5; cursor: pointer; }
         .header-tabs .tab.active { background: var(--yahoo-purple-grad); color: white; }
 
-        /* 工具列 */
-        .toolbar { display: flex; padding: 8px 12px 0; border-bottom: 1px solid var(--border-color); background: #fff; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
-        .toolbar-tab { padding: 8px 12px; font-size: 13px; font-weight: bold; color: var(--text-muted); cursor: pointer; border: 2px solid transparent; border-bottom: none; border-radius: 6px 6px 0 0; transition: 0.3s; white-space: nowrap; flex-shrink: 0; }
+        /* 工具列 (電腦與手機皆可順暢點擊) */
+        .toolbar { display: flex; padding: 12px 20px 0; border-bottom: 1px solid var(--border-color); background: #fff; gap: 10px; overflow-x: auto; width: 100%; }
+        .toolbar-tab { padding: 12px 22px; font-size: 15px; font-weight: bold; color: var(--text-muted); cursor: pointer; border: 2px solid transparent; border-bottom: none; border-radius: 8px 8px 0 0; transition: 0.3s; white-space: nowrap; flex-shrink: 0; user-select: none; }
         .toolbar-tab.active { color: var(--yahoo-purple); border-color: var(--border-color); border-bottom-color: #fff; margin-bottom: -2px; background: #fff; }
 
         /* 總資產看板 */
-        .summary-section { padding: 15px; display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--border-color); }
-        .total-value-title { font-size: 13px; color: var(--text-muted); margin-right: 6px; font-weight: bold; }
-        .total-value { font-size: 26px; font-weight: 900; letter-spacing: -0.5px; }
-        .total-currency { font-size: 14px; font-weight: bold; color: var(--text-muted); margin-left: 4px; }
-        .pl-box { border-top: 1px solid var(--border-color); padding-top: 10px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: space-between; }
+        .summary-section { padding: 25px; display: flex; flex-wrap: wrap; gap: 25px; align-items: center; border-bottom: 1px solid var(--border-color); }
+        .total-value-title { font-size: 15px; color: var(--text-muted); margin-right: 8px; font-weight: bold; }
+        .total-value { font-size: 38px; font-weight: 900; letter-spacing: -0.5px; }
+        .total-currency { font-size: 16px; font-weight: bold; color: var(--text-muted); margin-left: 5px; }
+        .pl-box { border-left: 2px solid var(--border-color); padding-left: 25px; display: flex; gap: 30px; flex-wrap: wrap; }
         
-        /* 表格樣式 (通用 RWD 滾動) */
-        .table-responsive { overflow-x: auto; width: 100%; -webkit-overflow-scrolling: touch; }
-        table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        th { background: var(--yahoo-purple-grad); color: #ffffff; text-align: right; padding: 10px 8px; font-size: 13px; font-weight: bold; white-space: nowrap; cursor: pointer; user-select: none; }
+        /* 表格樣式 */
+        .table-responsive { overflow-x: auto; width: 100%; }
+        table { width: 100%; border-collapse: collapse; min-width: 700px; }
+        th { background: var(--yahoo-purple-grad); color: #ffffff; text-align: right; padding: 14px 12px; font-size: 15px; font-weight: bold; white-space: nowrap; cursor: pointer; user-select: none; }
         th:hover { background: #4f00b3; }
-        th:first-child, td:first-child { text-align: left; padding-left: 12px; }
-        td { padding: 10px 8px; border-bottom: 1px solid var(--border-color); text-align: right; font-size: 14px; vertical-align: middle; }
+        th:first-child, td:first-child { text-align: left; padding-left: 20px; }
+        td { padding: 14px 12px; border-bottom: 1px solid var(--border-color); text-align: right; font-size: 16px; vertical-align: middle; }
         
-        .stock-id { font-size: 16px; font-weight: 900; color: #0057b8; text-decoration: none; display: block; margin-bottom: 2px; }
-        .stock-name { font-size: 11px; color: var(--text-muted); display: block; font-weight: bold; }
-        .num-strong { font-family: "Arial", sans-serif; font-weight: 900; font-size: 15px; }
+        .stock-id { font-size: 20px; font-weight: 900; color: #0057b8; text-decoration: none; display: block; margin-bottom: 3px; }
+        .stock-name { font-size: 13px; color: var(--text-muted); display: block; font-weight: bold; }
+        .num-strong { font-family: "Arial", sans-serif; font-weight: 900; font-size: 17px; }
         .text-down { color: var(--down-green); }
         .text-up { color: var(--up-red); }
 
         /* 區塊標題 */
-        .section-title { font-size: 16px; font-weight: 900; padding: 15px 12px 10px; background: #fff; border-top: 8px solid var(--bg-gray); color: var(--text-main); display: flex; align-items: center; gap: 6px; }
+        .section-title { font-size: 18px; font-weight: 900; padding: 20px 20px 12px; background: #fff; border-top: 10px solid var(--bg-gray); color: var(--text-main); display: flex; align-items: center; gap: 8px; }
         
-        /* 走勢圖與游標 */
-        .chart-wrapper { position: relative; padding: 12px; width: 100%; background: #fff; border-top: 8px solid var(--bg-gray); }
-        .chart-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; flex-direction: column; gap: 6px; }
-        .chart-title-text { font-size: 16px; font-weight: 900; color: var(--text-main); margin: 0; }
-        .chart-legend { display: flex; gap: 10px; font-size: 12px; font-weight: bold; flex-wrap: wrap; }
-        #chartTooltip { position: absolute; display: none; background: rgba(0, 0, 0, 0.85); color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; pointer-events: none; transform: translate(-50%, -120%); z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.2); white-space: nowrap; line-height: 1.4; }
+        /* 走勢圖與游標 (雙保險定位) */
+        .chart-wrapper { position: relative; padding: 20px; width: 100%; background: #fff; border-top: 10px solid var(--bg-gray); }
+        .chart-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+        .chart-title-text { font-size: 18px; font-weight: 900; color: var(--text-main); margin: 0; }
+        .chart-legend { display: flex; gap: 20px; font-size: 14px; font-weight: bold; flex-wrap: wrap; }
         
-        .chart-container-box { position: relative; width: 100%; height: 160px; margin-bottom: 8px; }
-        .chart-performance { font-size: 15px; font-weight: 900; color: var(--down-green); padding: 8px 12px 12px; background: #fff; margin-top: 5px; border-bottom: 1px solid var(--border-color); }
+        #chartTooltip { position: absolute; display: none; background: rgba(0, 0, 0, 0.88); color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: bold; pointer-events: none; transform: translate(-50%, -130%); z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.25); white-space: nowrap; line-height: 1.5; }
+        
+        .chart-container-box { position: relative; width: 100%; height: 210px; margin-bottom: 10px; }
+        .chart-performance { font-size: 17px; font-weight: 900; color: var(--down-green); padding: 10px 20px 20px; background: #fff; margin-top: 5px; border-bottom: 1px solid var(--border-color); }
 
         /* 深度報告卡片樣式 */
-        .report-container { padding: 0 12px 15px; display: flex; flex-direction: column; gap: 12px; background: #fff; }
-        .report-card { background: #fff; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
-        .report-header { background: var(--bg-gray); padding: 10px 14px; font-size: 14px; font-weight: 900; color: var(--yahoo-purple); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 6px; }
-        .report-body { padding: 12px; font-size: 13px; color: #333; }
-        .report-body ul { margin-left: 15px; margin-top: 6px; display: flex; flex-direction: column; gap: 4px; }
-        .report-body li { line-height: 1.4; }
-        .highlight-box { background: var(--yahoo-light-purple); color: var(--yahoo-purple); padding: 10px 12px; border-radius: 6px; font-weight: bold; margin-top: 10px; font-size: 13px; line-height: 1.4; border-left: 4px solid var(--yahoo-purple); }
+        .report-container { padding: 0 20px 25px; display: flex; flex-direction: column; gap: 15px; background: #fff; }
+        .report-card { background: #fff; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .report-header { background: var(--bg-gray); padding: 12px 18px; font-size: 16px; font-weight: 900; color: var(--yahoo-purple); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 8px; }
+        .report-body { padding: 18px; font-size: 15px; color: #333; }
+        .report-body ul { margin-left: 20px; margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+        .report-body li { line-height: 1.5; }
+        .highlight-box { background: var(--yahoo-light-purple); color: var(--yahoo-purple); padding: 12px 15px; border-radius: 6px; font-weight: bold; margin-top: 12px; font-size: 14px; line-height: 1.5; border-left: 4px solid var(--yahoo-purple); }
         
-        .insight-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
-        .insight-item { background: #f9f9f9; padding: 10px; border-radius: 6px; border-left: 4px solid #0057b8; font-size: 13px; }
+        .insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 12px; }
+        .insight-item { background: #f9f9f9; padding: 14px; border-radius: 6px; border-left: 4px solid #0057b8; font-size: 14px; }
         .insight-item.orange { border-left-color: #e68a00; }
         .insight-item.green { border-left-color: #00a600; }
-        .insight-item h4 { margin: 0 0 4px 0; color: var(--text-main); font-size: 14px; }
+        .insight-item h4 { margin: 0 0 6px 0; color: var(--text-main); font-size: 15px; }
 
-        /* 股息表與明細表格專屬響應式優化 */
-        .div-subtitle { font-size: 15px; font-weight: 900; margin: 12px; color: var(--text-main); }
-        .tag-div { background-color: #e8f5e9; color: #2e7d32; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; }
-        .tag-buy { background-color: #ffe5e5; color: #d32f2f; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; }
-
-        /* 讓持股明細的表格在手機上可以完美左右滑動且不擠壓 */
-        .details-table-responsive { overflow-x: auto; width: 100%; -webkit-overflow-scrolling: touch; padding: 0 12px 15px; }
-        .details-table { width: 100%; border-collapse: collapse; min-width: 480px; }
-        .details-table th, .details-table td { padding: 10px 8px; font-size: 13px; }
+        /* 股息表與明細表格 */
+        .div-subtitle { font-size: 18px; font-weight: 900; margin: 20px; color: var(--text-main); }
+        .tag-div { background-color: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 4px; font-size: 13px; font-weight: bold; }
+        .tag-buy { background-color: #ffe5e5; color: #d32f2f; padding: 3px 8px; border-radius: 4px; font-size: 13px; font-weight: bold; }
+        .details-table-responsive { overflow-x: auto; width: 100%; padding: 0 20px 25px; }
+        .details-table { width: 100%; border-collapse: collapse; min-width: 550px; }
+        .details-table th, .details-table td { padding: 12px 10px; font-size: 15px; }
 
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* 平板以上螢幕微調 */
-        @media (min-width: 768px) {
-            body { padding: 15px; }
-            .header-nav { flex-direction: row; align-items: center; padding: 20px 25px; }
-            .header-tabs { width: auto; flex-wrap: nowrap; font-size: 15px; }
-            .summary-section { flex-direction: row; padding: 25px; }
-            .pl-box { border-top: none; border-left: 2px solid var(--border-color); padding-top: 0; padding-left: 30px; width: auto; }
-            .chart-header { flex-direction: row; align-items: center; }
-            .chart-container-box { height: 210px; }
-            .insight-grid { grid-template-columns: repeat(2, 1fr); }
-            .report-body { padding: 16px; font-size: 14px; }
-            .details-table th, .details-table td { font-size: 15px; padding: 12px 10px; }
-        }
     </style>
 </head>
 <body>
@@ -151,7 +136,7 @@
                     </div>
                     <div>
                         <div class="total-value-title">未實現損益 (未含應收配息)</div>
-                        <div class="text-down num-strong" style="font-size:18px;">▼ 47,260.00 (1.39%)</div>
+                        <div class="text-down num-strong" style="font-size:22px;">▼ 47,260.00 (1.39%)</div>
                     </div>
                 </div>
             </div>
@@ -263,12 +248,12 @@
                         <polyline points="0,20 200,30 400,90 600,120 800,150 1000,190" fill="none" stroke="#00a600" stroke-width="3" stroke-dasharray="8,8" />
                         <polyline points="0,20 200,25 400,35 600,45 800,60 1000,75" fill="none" stroke="#6001d2" stroke-width="4" />
                         
-                        <rect x="0" y="0" width="100" height="200" fill="transparent" class="hover-zone" data-idx="0"/>
-                        <rect x="100" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="1"/>
-                        <rect x="300" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="2"/>
-                        <rect x="500" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="3"/>
-                        <rect x="700" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="4"/>
-                        <rect x="900" y="0" width="100" height="200" fill="transparent" class="hover-zone" data-idx="5"/>
+                        <rect x="0" y="0" width="166" height="240" fill="transparent" class="hover-zone" data-idx="0"/>
+                        <rect x="166" y="0" width="166" height="240" fill="transparent" class="hover-zone" data-idx="1"/>
+                        <rect x="332" y="0" width="166" height="240" fill="transparent" class="hover-zone" data-idx="2"/>
+                        <rect x="498" y="0" width="166" height="240" fill="transparent" class="hover-zone" data-idx="3"/>
+                        <rect x="664" y="0" width="166" height="240" fill="transparent" class="hover-zone" data-idx="4"/>
+                        <rect x="830" y="0" width="170" height="240" fill="transparent" class="hover-zone" data-idx="5"/>
 
                         <text x="0" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="start">11/10</text>
                         <text x="200" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="middle">11/12</text>
@@ -283,7 +268,7 @@
 
             <div class="section-title">📰 Yahoo 股市焦點 & 市場動態</div>
             <div class="report-container" id="yahoo-news-container" style="padding-top: 10px;">
-                <div style="padding: 12px; color: #5a6673; font-weight: bold;">⏳ 正在載入最新市場焦點...</div>
+                <div style="padding: 15px; color: #5a6673; font-weight: bold;">⏳ 正在載入最新市場焦點...</div>
             </div>
 
         </div>
@@ -297,22 +282,22 @@
                 <div class="report-card">
                     <div class="report-header">🌍 一、今日市場總覽</div>
                     <div class="report-body">
-                        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 10px;">
+                        <div style="display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 15px;">
                             <div>
-                                <span style="font-size: 12px; color: #666;">加權指數收盤</span><br>
-                                <span style="font-size: 18px; font-weight: 900; color: var(--down-green);">40,092.11 (▼ 947.97)</span>
+                                <span style="font-size: 14px; color: #666;">加權指數收盤</span><br>
+                                <span style="font-size: 24px; font-weight: 900; color: var(--down-green);">40,092.11 (▼ 947.97)</span>
                             </div>
                             <div>
-                                <span style="font-size: 12px; color: #666;">成交金額</span><br>
-                                <span style="font-size: 18px; font-weight: 900;">9,617.95 億</span>
+                                <span style="font-size: 14px; color: #666;">成交金額</span><br>
+                                <span style="font-size: 24px; font-weight: 900;">9,617.95 億</span>
                             </div>
                         </div>
                         <ul>
-                            <li>今日高低震盪達 1,747.39 點，收盤仍勉強守住 40,000 點關卡[cite: 23]。</li>
-                            <li>上漲 238 家、下跌 799 家，市場跌勢相當廣泛。台積電收 2,170 元 (下跌 2.03%)[cite: 23]。</li>
+                            <li>今日高低震盪達 1,747.39 點，收盤仍勉強守住 40,000 點關卡[cite: 24]。</li>
+                            <li>上漲 238 家、下跌 799 家，市場跌勢相當廣泛。台積電收 2,170 元 (下跌 2.03%)[cite: 24]。</li>
                         </ul>
                         <div class="highlight-box">
-                            💡 盤勢解讀：這不只是少數大型股回檔，而是科技股賣壓擴散，加上外資持續調節[cite: 23]。關鍵在於 40,000 點能否站穩，以及外資期貨淨空單 (增至 97,896 口) 的賣壓是否收斂[cite: 23]。
+                            💡 盤勢解讀：這不只是少數大型股回檔，而是科技股賣壓擴散，加上外資持續調節[cite: 24]。關鍵在於 40,000 點能否站穩，以及外資期貨淨空單 (增至 97,896 口) 的賣壓是否收斂[cite: 24]。
                         </div>
                     </div>
                 </div>
@@ -320,7 +305,7 @@
                 <div class="report-card">
                     <div class="report-header">🛡️ 二、ETF 抗跌表現與除息影響</div>
                     <div class="report-body">
-                        <p>今天台股收跌近千點 (-2.31%)[cite: 23]，但您五檔追蹤的 ETF 跌幅都小於大盤。您的持倉市值相較起算基準減少了 47,260 元 (-1.39%)。</p>
+                        <p>今天台股收跌近千點 (-2.31%)[cite: 24]，但您五檔追蹤的 ETF 跌幅都小於大盤。您的持倉市值相較起算基準減少了 47,260 元 (-1.39%)。</p>
                         <div class="insight-grid">
                             <div class="insight-item green">
                                 <h4>00713 元大台灣高息低波</h4>
@@ -328,11 +313,11 @@
                             </div>
                             <div class="insight-item blue">
                                 <h4>00878 國泰永續高股息</h4>
-                                今日除息 1.25 元[cite: 29]。您持有的 17 張若符合資格，預計 12/11 將發放 <strong>21,250 元</strong> 配息權益。若加回此權益，資金縮水幅度縮減至僅 -0.77%。
+                                今日除息 1.25 元[cite: 24]。您持有的 17 張若符合資格，預計 12/11 將發放 <strong>21,250 元</strong> 配息權益。若加回此權益，資金縮水幅度縮減至僅 -0.77%。
                             </div>
                         </div>
                         <div class="highlight-box">
-                            ⚠️ 帳務提醒：不能把 00878 整段價差都視為市場下跌造成的損失，未調整市價差額包含了除息調整[cite: 23]。
+                            ⚠️ 帳務提醒：不能把 00878 整段價差都視為市場下跌造成的損失，未調整市價差額包含了除息調整[cite: 24]。
                         </div>
                     </div>
                 </div>
@@ -351,10 +336,10 @@
                 <div class="report-card">
                     <div class="report-header">🎯 四、明日觀察重點與結論</div>
                     <div class="report-body">
-                        <ol style="margin-left: 16px; line-height: 1.7; font-weight: bold; color: var(--yahoo-purple);">
+                        <ol style="margin-left: 20px; line-height: 1.8; font-weight: bold; color: var(--yahoo-purple);">
                             <li>Nvidia 財報與 AI 產業情緒 (台灣時間 11/18 上午反應)。</li>
-                            <li>加權指數 40,000 點整數關卡支撐力道[cite: 23]。</li>
-                            <li>外資現貨與期貨部位 (留意 11 月台指期結算前後調整)[cite: 23]。</li>
+                            <li>加權指數 40,000 點整數關卡支撐力道[cite: 24]。</li>
+                            <li>外資現貨與期貨部位 (留意 11 月台指期結算前後調整)[cite: 24]。</li>
                         </ol>
                         <div class="highlight-box">
                             📌 結論：高股息 ETF 組合短期內比大盤抗跌，長線存股無須隨大盤恐慌殺低。可利用未來領取的現金股息（如 12 月的 00878）逢低分批加碼。
@@ -365,7 +350,7 @@
             </div>
         </div>
 
-        <!-- ================= 分頁 3：持股明細 (全面響應式優化) ================= -->
+        <!-- ================= 分頁 3：持股明細 ================= -->
         <div id="tab-details" class="tab-content">
             
             <div class="section-title" style="border-top:none;">💰 2026年 (民國115年) 股息與交易明細統計</div>
@@ -387,38 +372,38 @@
                         <tr><td style="font-weight:bold;">00878 國泰永續高股息</td><td class="text-down num-strong">$18,470</td><td class="num-strong" style="color:var(--text-muted);">-</td></tr>
                         <tr><td style="font-weight:bold;">00713 元大台灣高息低波</td><td class="text-down num-strong">$12,490</td><td class="num-strong" style="color:var(--text-muted);">-</td></tr>
                         <tr style="background-color: #fafafa;">
-                            <td style="font-size:15px; font-weight:900;">年度累計現金流</td>
-                            <td class="text-down num-strong" style="font-size:16px;">$125,470</td>
-                            <td class="text-up num-strong" style="font-size:16px;">$196,555</td>
+                            <td style="font-size:18px; font-weight:900;">年度累計現金流</td>
+                            <td class="text-down num-strong" style="font-size:19px;">$125,470</td>
+                            <td class="text-up num-strong" style="font-size:19px;">$196,555</td>
                         </tr>
                     </tbody>
                 </table>
-                <div style="margin-top: 6px; font-size: 12px; color: var(--text-muted);">
+                <div style="margin-top: 8px; font-size: 13px; color: var(--text-muted);">
                     註：00878 今日 (11/17) 除息之 1.25 元尚未到發放日，暫不納入實收股息。
                 </div>
             </div>
 
-            <div class="div-subtitle" style="margin-top: 20px;">🗓️ 依日期紀錄 (滾動累計)</div>
+            <div class="div-subtitle" style="margin-top: 30px;">🗓️ 依日期紀錄 (滾動累計)</div>
             <div class="details-table-responsive">
                 <table class="details-table" style="border: 2px solid var(--border-color);">
                     <thead style="background-color: #fafafa;">
                         <tr>
-                            <th style="color:#1d1e1f; background:#f0e6ff; text-align:left; padding-left:10px;">日期</th>
+                            <th style="color:#1d1e1f; background:#f0e6ff; text-align:left; padding-left:12px;">日期</th>
                             <th style="color:#1d1e1f; background:#f0e6ff; text-align:center;">類別</th>
                             <th style="color:#1d1e1f; background:#f0e6ff; text-align:left;">標的</th>
                             <th style="color:#1d1e1f; background:#f0e6ff;">金額</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/10/15</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00919</td><td class="text-down num-strong">+$27,490</td></tr>
-                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/10/15</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00918</td><td class="text-down num-strong">+$20,990</td></tr>
-                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/10/13</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00713</td><td class="text-down num-strong">+$12,490</td></tr>
-                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/09/18</td><td style="text-align:center;"><span class="tag-buy">賣出</span></td><td style="font-weight:bold; text-align:left;">0056 / 00919</td><td class="text-up num-strong">+$86,721</td></tr>
-                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/09/15</td><td style="text-align:center;"><span class="tag-buy">賣出</span></td><td style="font-weight:bold; text-align:left;">0056</td><td class="text-up num-strong">+$109,834</td></tr>
-                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/09/11</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00878</td><td class="text-down num-strong">+$17,160</td></tr>
-                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/08/10</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">0056</td><td class="text-down num-strong">+$31,040</td></tr>
-                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/07/14</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00919</td><td class="text-down num-strong">+$14,990</td></tr>
-                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/06/12</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00878</td><td class="text-down num-strong">+$1,310</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:12px;">115/10/15</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00919</td><td class="text-down num-strong">+$27,490</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:12px;">115/10/15</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00918</td><td class="text-down num-strong">+$20,990</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:12px;">115/10/13</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00713</td><td class="text-down num-strong">+$12,490</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:12px;">115/09/18</td><td style="text-align:center;"><span class="tag-buy">賣出</span></td><td style="font-weight:bold; text-align:left;">0056 / 00919</td><td class="text-up num-strong">+$86,721</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:12px;">115/09/15</td><td style="text-align:center;"><span class="tag-buy">賣出</span></td><td style="font-weight:bold; text-align:left;">0056</td><td class="text-up num-strong">+$109,834</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:12px;">115/09/11</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00878</td><td class="text-down num-strong">+$17,160</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:12px;">115/08/10</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">0056</td><td class="text-down num-strong">+$31,040</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:12px;">115/07/14</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00919</td><td class="text-down num-strong">+$14,990</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:12px;">115/06/12</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00878</td><td class="text-down num-strong">+$1,310</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -436,20 +421,25 @@
             const days = ['日', '一', '二', '三', '四', '五', '六'];
             document.getElementById('today-date').innerText = `🗓️ ${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日 星期${days[d.getDay()]}`;
 
-            // 2. 安全分頁切換邏輯
+            // 2. 安全分頁切換邏輯 (完整相容電腦與手機點擊)
             const tabs = document.querySelectorAll('.toolbar-tab');
             const contents = document.querySelectorAll('.tab-content');
 
             tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
                     this.classList.add('active');
-                    document.getElementById(this.getAttribute('data-target')).classList.add('active');
+                    const targetId = this.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
                 });
             });
 
-            // 3. 走勢圖 Hover 顯示數字浮動提示
+            // 3. 走勢圖 Hover 顯示數字浮動提示 (精準座標計算)
             const chartData = [
                 { date: '11/10', lu: '0.00%', taiex: '0.00%' },
                 { date: '11/11', lu: '-0.36%', taiex: '-1.20%' },
@@ -493,15 +483,4 @@
                             const date = new Date(item.pubDate).toLocaleString('zh-TW', {month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'});
                             const cleanTitle = item.title.replace(' - Yahoo奇摩股市', '').replace(' - Yahoo', '');
                             container.innerHTML += `
-                                <a href="${item.link}" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid var(--yahoo-purple); border-radius: 8px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">
-                                    <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 ${date} | Yahoo 財經即時</div>
-                                    <div style="font-size:16px; font-weight:900; color:var(--text-main);">${cleanTitle}</div>
-                                </a>
-                            `;
-                        });
-                        return;
-                    }
-                    throw new Error('No items');
-                } catch(e) {
-                    container.innerHTML = `
-                        <a href="https://fnc.ebc.net.tw/fncnews/stock/221858" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-
+                                <a href="${item.link}" target="_blank" style="text-decoration: none; padding: 14px 18px; margin-bottom: 12px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid var(--yahoo-purple); border-radius: 8px; display: flex; flex-direction: column; gap: 6
