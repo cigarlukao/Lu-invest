@@ -41,7 +41,7 @@
         .total-currency { font-size: 14px; font-weight: bold; color: var(--text-muted); margin-left: 4px; }
         .pl-box { border-top: 1px solid var(--border-color); padding-top: 10px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: space-between; }
         
-        /* 表格樣式 */
+        /* 表格樣式 (通用 RWD 滾動) */
         .table-responsive { overflow-x: auto; width: 100%; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; min-width: 600px; }
         th { background: var(--yahoo-purple-grad); color: #ffffff; text-align: right; padding: 10px 8px; font-size: 13px; font-weight: bold; white-space: nowrap; cursor: pointer; user-select: none; }
@@ -58,14 +58,13 @@
         /* 區塊標題 */
         .section-title { font-size: 16px; font-weight: 900; padding: 15px 12px 10px; background: #fff; border-top: 8px solid var(--bg-gray); color: var(--text-main); display: flex; align-items: center; gap: 6px; }
         
-        /* 走勢圖與游標 (徹底解決手機重疊問題) */
+        /* 走勢圖與游標 */
         .chart-wrapper { position: relative; padding: 12px; width: 100%; background: #fff; border-top: 8px solid var(--bg-gray); }
         .chart-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; flex-direction: column; gap: 6px; }
         .chart-title-text { font-size: 16px; font-weight: 900; color: var(--text-main); margin: 0; }
         .chart-legend { display: flex; gap: 10px; font-size: 12px; font-weight: bold; flex-wrap: wrap; }
         #chartTooltip { position: absolute; display: none; background: rgba(0, 0, 0, 0.85); color: #fff; padding: 8px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; pointer-events: none; transform: translate(-50%, -120%); z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.2); white-space: nowrap; line-height: 1.4; }
         
-        /* 賦予固定的上下空間，徹底阻絕重疊 */
         .chart-container-box { position: relative; width: 100%; height: 160px; margin-bottom: 8px; }
         .chart-performance { font-size: 15px; font-weight: 900; color: var(--down-green); padding: 8px 12px 12px; background: #fff; margin-top: 5px; border-bottom: 1px solid var(--border-color); }
 
@@ -84,9 +83,15 @@
         .insight-item.green { border-left-color: #00a600; }
         .insight-item h4 { margin: 0 0 4px 0; color: var(--text-main); font-size: 14px; }
 
-        /* 股息表樣式 */
+        /* 股息表與明細表格專屬響應式優化 */
         .div-subtitle { font-size: 15px; font-weight: 900; margin: 12px; color: var(--text-main); }
         .tag-div { background-color: #e8f5e9; color: #2e7d32; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .tag-buy { background-color: #ffe5e5; color: #d32f2f; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+
+        /* 讓持股明細的表格在手機上可以完美左右滑動且不擠壓 */
+        .details-table-responsive { overflow-x: auto; width: 100%; -webkit-overflow-scrolling: touch; padding: 0 12px 15px; }
+        .details-table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        .details-table th, .details-table td { padding: 10px 8px; font-size: 13px; }
 
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
@@ -103,6 +108,7 @@
             .chart-container-box { height: 210px; }
             .insight-grid { grid-template-columns: repeat(2, 1fr); }
             .report-body { padding: 16px; font-size: 14px; }
+            .details-table th, .details-table td { font-size: 15px; padding: 12px 10px; }
         }
     </style>
 </head>
@@ -248,7 +254,6 @@
 
                 <div id="chartTooltip"></div>
                 
-                <!-- 獨立容器，杜絕重疊 -->
                 <div class="chart-container-box">
                     <svg viewBox="0 0 1000 240" preserveAspectRatio="none" style="width:100%; height:100%; border-bottom: 2px solid #e0e4e9; border-left: 2px solid #e0e4e9; overflow:visible;">
                         <line x1="0" y1="50" x2="1000" y2="50" stroke="#f0f0f0" stroke-width="1.5" />
@@ -276,7 +281,6 @@
                 <div class="chart-performance">防禦韌性展現：本週跑贏大盤 +4.74%</div>
             </div>
 
-            <!-- 新聞區塊 -->
             <div class="section-title">📰 Yahoo 股市焦點 & 市場動態</div>
             <div class="report-container" id="yahoo-news-container" style="padding-top: 10px;">
                 <div style="padding: 12px; color: #5a6673; font-weight: bold;">⏳ 正在載入最新市場焦點...</div>
@@ -361,14 +365,14 @@
             </div>
         </div>
 
-        <!-- ================= 分頁 3：持股明細 ================= -->
+        <!-- ================= 分頁 3：持股明細 (全面響應式優化) ================= -->
         <div id="tab-details" class="tab-content">
             
             <div class="section-title" style="border-top:none;">💰 2026年 (民國115年) 股息與交易明細統計</div>
             
             <div class="div-subtitle">📌 依 ETF 小計 (累計收益)</div>
-            <div class="table-responsive" style="padding: 0 12px;">
-                <table style="border: 2px solid var(--border-color);">
+            <div class="details-table-responsive">
+                <table class="details-table" style="border: 2px solid var(--border-color);">
                     <thead style="background-color: #fafafa;">
                         <tr>
                             <th style="color:#1d1e1f; background:#f0e6ff;">ETF 名稱</th>
@@ -383,9 +387,9 @@
                         <tr><td style="font-weight:bold;">00878 國泰永續高股息</td><td class="text-down num-strong">$18,470</td><td class="num-strong" style="color:var(--text-muted);">-</td></tr>
                         <tr><td style="font-weight:bold;">00713 元大台灣高息低波</td><td class="text-down num-strong">$12,490</td><td class="num-strong" style="color:var(--text-muted);">-</td></tr>
                         <tr style="background-color: #fafafa;">
-                            <td style="font-size:16px; font-weight:900;">年度累計現金流</td>
-                            <td class="text-down num-strong" style="font-size:17px;">$125,470</td>
-                            <td class="text-up num-strong" style="font-size:17px;">$196,555</td>
+                            <td style="font-size:15px; font-weight:900;">年度累計現金流</td>
+                            <td class="text-down num-strong" style="font-size:16px;">$125,470</td>
+                            <td class="text-up num-strong" style="font-size:16px;">$196,555</td>
                         </tr>
                     </tbody>
                 </table>
@@ -395,18 +399,26 @@
             </div>
 
             <div class="div-subtitle" style="margin-top: 20px;">🗓️ 依日期紀錄 (滾動累計)</div>
-            <div class="table-responsive" style="padding: 0 12px 20px;">
-                <table style="border: 2px solid var(--border-color);">
+            <div class="details-table-responsive">
+                <table class="details-table" style="border: 2px solid var(--border-color);">
+                    <thead style="background-color: #fafafa;">
+                        <tr>
+                            <th style="color:#1d1e1f; background:#f0e6ff; text-align:left; padding-left:10px;">日期</th>
+                            <th style="color:#1d1e1f; background:#f0e6ff; text-align:center;">類別</th>
+                            <th style="color:#1d1e1f; background:#f0e6ff; text-align:left;">標的</th>
+                            <th style="color:#1d1e1f; background:#f0e6ff;">金額</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                        <tr><td style="font-weight:bold; color:#666;">115/10/15</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00919</td><td class="text-down num-strong">+$27,490</td></tr>
-                        <tr><td style="font-weight:bold; color:#666;">115/10/15</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00918</td><td class="text-down num-strong">+$20,990</td></tr>
-                        <tr><td style="font-weight:bold; color:#666;">115/10/13</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00713</td><td class="text-down num-strong">+$12,490</td></tr>
-                        <tr><td style="font-weight:bold; color:#666;">115/09/18</td><td><span class="tag-buy">賣出</span></td><td style="font-weight:bold;">0056 / 00919</td><td class="text-up num-strong">+$86,721</td></tr>
-                        <tr><td style="font-weight:bold; color:#666;">115/09/15</td><td><span class="tag-buy">賣出</span></td><td style="font-weight:bold;">0056</td><td class="text-up num-strong">+$109,834</td></tr>
-                        <tr><td style="font-weight:bold; color:#666;">115/09/11</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00878</td><td class="text-down num-strong">+$17,160</td></tr>
-                        <tr><td style="font-weight:bold; color:#666;">115/08/10</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">0056</td><td class="text-down num-strong">+$31,040</td></tr>
-                        <tr><td style="font-weight:bold; color:#666;">115/07/14</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00919</td><td class="text-down num-strong">+$14,990</td></tr>
-                        <tr><td style="font-weight:bold; color:#666;">115/06/12</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00878</td><td class="text-down num-strong">+$1,310</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/10/15</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00919</td><td class="text-down num-strong">+$27,490</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/10/15</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00918</td><td class="text-down num-strong">+$20,990</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/10/13</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00713</td><td class="text-down num-strong">+$12,490</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/09/18</td><td style="text-align:center;"><span class="tag-buy">賣出</span></td><td style="font-weight:bold; text-align:left;">0056 / 00919</td><td class="text-up num-strong">+$86,721</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/09/15</td><td style="text-align:center;"><span class="tag-buy">賣出</span></td><td style="font-weight:bold; text-align:left;">0056</td><td class="text-up num-strong">+$109,834</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/09/11</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00878</td><td class="text-down num-strong">+$17,160</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/08/10</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">0056</td><td class="text-down num-strong">+$31,040</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/07/14</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00919</td><td class="text-down num-strong">+$14,990</td></tr>
+                        <tr><td style="font-weight:bold; color:#666; text-align:left; padding-left:10px;">115/06/12</td><td style="text-align:center;"><span class="tag-div">股息</span></td><td style="font-weight:bold; text-align:left;">00878</td><td class="text-down num-strong">+$1,310</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -470,8 +482,7 @@
                 const container = document.getElementById('yahoo-news-container');
                 try {
                     const query = encodeURIComponent('site:tw.stock.yahoo.com 台股 OR ETF OR 股息');
-                    const rssUrl = `https://news.google.com/rss/search?q=${query}&hl=zh-TW&gl=TW&ceid=TW:zh-Hant`;
-                    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+                    const rssUrl = `https://news.google.com/rss/search?q=${query}&hl=zh-TW&gl=TW&ceid=TW:zh-Hant`; const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
                     
                     const res = await fetch(apiUrl);
                     const data = await res.json();
@@ -493,62 +504,4 @@
                     throw new Error('No items');
                 } catch(e) {
                     container.innerHTML = `
-                        <a href="https://fnc.ebc.net.tw/fncnews/stock/221858" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid #008000; border-radius: 8px; display: flex; flex-direction: column; gap: 6px;">
-                            <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 2026/11/17 | 東森財經新聞</div>
-                            <div style="font-size:16px; font-weight:900; color:var(--text-main);">台股收跌近千點陷4萬點保衛戰，五檔高股息ETF展現強韌抗跌力道</div>
-                        </a>
-                        <a href="https://wantrich.chinatimes.com/news/20261102900002-420401" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid #e68a00; border-radius: 8px; display: flex; flex-direction: column; gap: 6px;">
-                            <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 2026/11/17 | 旺得富理財網</div>
-                            <div style="font-size:16px; font-weight:900; color:var(--text-main);">00878今日除息1.25元！達人解析震盪市中長線存股與再投入紀律</div>
-                        </a>
-                    `;
-                }
-            }
-            fetchYahooNews();
-
-        });
-
-        // 5. 安全表格點擊排序功能
-        let sortDirection = {};
-        function sortTable(columnIndex) {
-            const table = document.getElementById("etfTable");
-            const tbody = table.querySelector("tbody");
-            const rows = Array.from(tbody.querySelectorAll("tr"));
-            
-            sortDirection[columnIndex] = !sortDirection[columnIndex];
-            const isAscending = sortDirection[columnIndex];
-
-            rows.sort((rowA, rowB) => {
-                const cellA_td = rowA.querySelectorAll("td")[columnIndex];
-                const cellB_td = rowB.querySelectorAll("td")[columnIndex];
-                
-                let cellA = "";
-                let cellB = "";
-                
-                if (columnIndex === 0) {
-                    cellA = cellA_td.querySelector('.stock-id').innerText.trim();
-                    cellB = cellB_td.querySelector('.stock-id').innerText.trim();
-                } else {
-                    const valA = cellA_td.querySelector('.sort-val');
-                    const valB = cellB_td.querySelector('.sort-val');
-                    cellA = valA ? valA.innerText.trim() : cellA_td.innerText.trim();
-                    cellB = valB ? valB.innerText.trim() : cellB_td.innerText.trim();
-                }
-
-                cellA = cellA.replace(/張|▼|▲|%|,/g, '').trim();
-                cellB = cellB.replace(/張|▼|▲|%|,/g, '').trim();
-
-                const numA = parseFloat(cellA);
-                const numB = parseFloat(cellB);
-
-                if (!isNaN(numA) && !isNaN(numB)) {
-                    return isAscending ? numA - numB : numB - numA;
-                } else {
-                    return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
-                }
-            });
-            rows.forEach(row => tbody.appendChild(row));
-        }
-    </script>
-</body>
-</html>
+                        <a href="https://fnc.ebc.net.tw/fncnews/stock/221858" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-
