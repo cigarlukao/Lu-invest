@@ -7,7 +7,7 @@
     <style>
         :root {
             --yahoo-purple: #6001d2;
-            --yahoo-light-purple: #f0e6ff;
+            --yahoo-purple-grad: linear-gradient(135deg, #6001d2, #8438df);
             --up-red: #ff333a;
             --down-green: #00a600;
             --bg-gray: #f5f8fa;
@@ -18,47 +18,75 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
         body { background-color: var(--bg-gray); color: var(--text-main); padding: 20px; }
-        .dashboard-container { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); overflow: hidden; }
+        .dashboard-container { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
 
-        /* 頂部導覽列 */
-        .header-nav { display: flex; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border-color); }
-        .header-nav h1 { color: var(--yahoo-purple); font-size: 24px; font-weight: 900; margin-right: 30px; letter-spacing: 0.5px; }
-        .header-tabs { display: flex; gap: 20px; font-size: 15px; font-weight: bold; color: var(--text-muted); }
-        .header-tabs .tab.active { background-color: var(--yahoo-purple); color: white; padding: 4px 10px; border-radius: 4px; }
+        /* 頂部導覽列 (標題大幅加大) */
+        .header-nav { display: flex; align-items: center; padding: 20px 25px; border-bottom: 1px solid var(--border-color); }
+        .header-nav h1 { color: var(--yahoo-purple); font-size: 38px; font-weight: 900; margin-right: 40px; letter-spacing: 1px; text-shadow: 1px 1px 2px rgba(96,1,210,0.1); }
+        .header-tabs { display: flex; gap: 20px; font-size: 16px; font-weight: bold; color: var(--text-muted); }
+        .header-tabs .tab.active { background: var(--yahoo-purple-grad); color: white; padding: 6px 14px; border-radius: 6px; box-shadow: 0 2px 6px rgba(96,1,210,0.3); }
 
-        /* 工具列 (安全分頁按鈕) */
-        .toolbar { display: flex; padding: 15px 20px 0; border-bottom: 1px solid var(--border-color); background: #fff; gap: 15px; }
-        .toolbar-tab { padding: 10px 20px; font-size: 15px; font-weight: bold; color: var(--text-muted); cursor: pointer; border: 1px solid transparent; border-bottom: none; border-radius: 6px 6px 0 0; transition: 0.3s; }
-        .toolbar-tab.active { color: var(--text-main); border-color: var(--border-color); border-bottom-color: #fff; margin-bottom: -1px; background: #fff; }
+        /* 工具列 (分頁按鈕) */
+        .toolbar { display: flex; padding: 15px 25px 0; border-bottom: 1px solid var(--border-color); background: #fff; gap: 15px; }
+        .toolbar-tab { padding: 12px 25px; font-size: 16px; font-weight: bold; color: var(--text-muted); cursor: pointer; border: 2px solid transparent; border-bottom: none; border-radius: 8px 8px 0 0; transition: 0.3s; }
+        .toolbar-tab.active { color: var(--yahoo-purple); border-color: var(--border-color); border-bottom-color: #fff; margin-bottom: -2px; background: #fff; }
 
         /* 總資產看板 */
-        .summary-section { padding: 20px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; border-bottom: 1px solid var(--border-color); }
-        .total-value-title { font-size: 14px; color: var(--text-muted); margin-right: 10px; }
-        .total-value { font-size: 32px; font-weight: 800; }
-        .total-currency { font-size: 16px; font-weight: bold; color: var(--text-muted); margin-left: 5px; }
-        .pl-box { border-left: 1px solid var(--border-color); padding-left: 20px; display: flex; gap: 30px; }
+        .summary-section { padding: 25px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; border-bottom: 1px solid var(--border-color); }
+        .total-value-title { font-size: 16px; color: var(--text-muted); margin-right: 10px; font-weight: bold; }
+        .total-value { font-size: 42px; font-weight: 900; letter-spacing: -0.5px; }
+        .total-currency { font-size: 18px; font-weight: bold; color: var(--text-muted); margin-left: 5px; }
+        .pl-box { border-left: 2px solid var(--border-color); padding-left: 30px; display: flex; gap: 40px; }
         
-        /* 表格共用樣式 */
+        /* 表格共用樣式 (大氣升級版) */
         .table-responsive { overflow-x: auto; width: 100%; }
-        table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        th { background-color: #f9f9f9; color: var(--text-muted); text-align: right; padding: 12px 10px; border-bottom: 1px solid var(--border-color); white-space: nowrap; }
-        th:first-child, td:first-child { text-align: left; padding-left: 20px; }
-        td { padding: 12px 10px; border-bottom: 1px solid var(--border-color); text-align: right; font-weight: bold; }
-        .stock-name { color: #0057b8; text-decoration: none; }
-        .stock-id { font-size: 12px; color: var(--text-muted); display: block; font-weight: normal; margin-top: 2px; }
+        table { width: 100%; border-collapse: collapse; }
+        
+        /* 霸氣漸層表頭，加入排序游標 */
+        th { 
+            background: var(--yahoo-purple-grad); 
+            color: #ffffff; 
+            text-align: right; 
+            padding: 16px 12px; 
+            font-size: 16px; 
+            font-weight: bold;
+            white-space: nowrap; 
+            cursor: pointer;
+            transition: 0.2s;
+            user-select: none;
+        }
+        th:hover { background: #4f00b3; }
+        th:first-child, td:first-child { text-align: left; padding-left: 25px; }
+        
+        /* ETF 字體與數字全面加大加粗 */
+        td { padding: 16px 12px; border-bottom: 1px solid var(--border-color); text-align: right; font-size: 18px; }
+        
+        .stock-name { color: #0057b8; text-decoration: none; font-size: 18px; font-weight: 900; }
+        .stock-id { font-size: 14px; color: var(--text-muted); display: block; font-weight: bold; margin-top: 4px; }
+        
+        /* 數字字體特別強調 */
+        .num-strong { font-family: "Arial", sans-serif; font-weight: 900; font-size: 19px; }
         .text-down { color: var(--down-green); }
         .text-up { color: var(--up-red); }
 
-        /* 區塊與圖表樣式 */
-        .section-title { font-size: 18px; font-weight: bold; padding: 20px; background: #fff; border-top: 8px solid var(--bg-gray); }
-        .chart-container { padding: 0 20px 20px; height: 280px; width: 100%; background: #fff; }
+        /* 區塊標題 */
+        .section-title { font-size: 20px; font-weight: 900; padding: 25px 25px 15px; background: #fff; border-top: 10px solid var(--bg-gray); color: var(--yahoo-purple); }
         
-        /* 股息專屬樣式 */
-        .div-subtitle { font-size: 16px; font-weight: bold; margin: 20px; }
-        .tag-buy { background-color: #ffe5e5; color: #d32f2f; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
-        .tag-div { background-color: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+        /* 圖表與浮動提示 (Tooltip) */
+        .chart-wrapper { position: relative; padding: 0 25px 25px; height: 300px; width: 100%; background: #fff; }
+        #chartTooltip {
+            position: absolute; display: none; background: rgba(0, 0, 0, 0.85); color: #fff;
+            padding: 10px 15px; border-radius: 6px; font-size: 14px; font-weight: bold;
+            pointer-events: none; transform: translate(-50%, -120%); z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); white-space: nowrap; line-height: 1.6;
+        }
 
-        /* 分頁隱藏機制 */
+        /* 股息表樣式 */
+        .div-subtitle { font-size: 18px; font-weight: 900; margin: 25px; color: var(--text-main); }
+        .tag-buy { background-color: #ffe5e5; color: #d32f2f; padding: 4px 10px; border-radius: 4px; font-size: 14px; font-weight: bold; }
+        .tag-div { background-color: #e8f5e9; color: #2e7d32; padding: 4px 10px; border-radius: 4px; font-size: 14px; font-weight: bold; }
+
+        /* 分頁機制 */
         .tab-content { display: none; }
         .tab-content.active { display: block; }
     </style>
@@ -78,7 +106,7 @@
             </div>
         </div>
 
-        <!-- 安全分頁按鈕 -->
+        <!-- 分頁按鈕 -->
         <div class="toolbar">
             <div class="toolbar-tab active" data-target="tab-summary">摘要資料</div>
             <div class="toolbar-tab" data-target="tab-details">持股明細 (股息統計)</div>
@@ -95,63 +123,133 @@
                 <div class="pl-box">
                     <div>
                         <div class="total-value-title">已實現損益</div>
-                        <div style="font-weight:bold;">-</div>
+                        <div class="num-strong">-</div>
                     </div>
                     <div>
                         <div class="total-value-title">未實現損益</div>
-                        <div class="text-down" style="font-size:20px; font-weight:bold;">▼ 162,560.00 (4.64%)</div>
+                        <div class="text-down num-strong" style="font-size:24px;">▼ 162,560.00 (4.64%)</div>
                     </div>
                 </div>
             </div>
 
+            <!-- 可點擊排序的 ETF 表格 -->
             <div class="table-responsive">
-                <table>
+                <table id="etfTable">
                     <thead>
-                        <tr><th>股名/股號</th><th>持有張數</th><th>股價</th><th>漲跌</th><th>漲跌幅(%)</th><th>買進</th><th>賣出</th><th>成交量(張)</th></tr>
+                        <tr>
+                            <th onclick="sortTable(0)">股名/股號 ⇅</th>
+                            <th onclick="sortTable(1)">持有張數 ⇅</th>
+                            <th onclick="sortTable(2)">股價 ⇅</th>
+                            <th onclick="sortTable(3)">漲跌 ⇅</th>
+                            <th onclick="sortTable(4)">漲跌幅(%) ⇅</th>
+                            <th onclick="sortTable(5)">買進 ⇅</th>
+                            <th onclick="sortTable(6)">賣出 ⇅</th>
+                            <th onclick="sortTable(7)">成交量(張) ⇅</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td><a href="#" class="stock-name">群益台灣精選高息</a><span class="stock-id">00919.TW</span></td><td style="color:var(--text-main); font-size:15px;">25 張</td><td class="text-down">30.50</td><td class="text-down">▼ 0.11</td><td class="text-down">▼ 0.36%</td><td>30.38</td><td>30.39</td><td>65,636</td></tr>
-                        <tr><td><a href="#" class="stock-name">元大高股息</a><span class="stock-id">0056.TW</span></td><td style="color:var(--text-main); font-size:15px;">21 張</td><td class="text-down">50.60</td><td class="text-down">▼ 0.68</td><td class="text-down">▼ 1.34%</td><td>49.92</td><td>49.93</td><td>69,210</td></tr>
-                        <tr><td><a href="#" class="stock-name">國泰永續高股息</a><span class="stock-id">00878.TW <span style="background:#00a600; color:white; font-size:10px; padding:1px 4px; border-radius:2px;">權</span></span></td><td style="color:var(--text-main); font-size:15px;">17 張</td><td class="text-down">32.43</td><td class="text-down">▼ 0.32</td><td class="text-down">▼ 1.03%</td><td>30.86</td><td>30.88</td><td>110,502</td></tr>
-                        <tr><td><a href="#" class="stock-name">大華優利高填息30</a><span class="stock-id">00918.TW</span></td><td style="color:var(--text-main); font-size:15px;">12 張</td><td class="text-down">32.06</td><td class="text-down">▼ 0.17</td><td class="text-down">▼ 0.53%</td><td>31.89</td><td>31.94</td><td>23,862</td></tr>
-                        <tr><td><a href="#" class="stock-name">元大台灣高息低波</a><span class="stock-id">00713.TW</span></td><td style="color:var(--text-main); font-size:15px;">10 張</td><td class="text-down">62.95</td><td class="text-down">▼ 0.15</td><td class="text-down">▼ 0.24%</td><td>62.75</td><td>62.80</td><td>5,331</td></tr>
+                        <tr>
+                            <td><a href="#" class="stock-name">群益台灣精選高息</a><span class="stock-id">00919.TW</span></td>
+                            <td style="color:var(--text-main); font-weight:bold;">25 張</td>
+                            <td class="text-down num-strong">30.50</td>
+                            <td class="text-down num-strong">▼ 0.11</td>
+                            <td class="text-down num-strong">▼ 0.36%</td>
+                            <td class="num-strong">30.38</td>
+                            <td class="num-strong">30.39</td>
+                            <td class="num-strong">65,636</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="stock-name">元大高股息</a><span class="stock-id">0056.TW</span></td>
+                            <td style="color:var(--text-main); font-weight:bold;">21 張</td>
+                            <td class="text-down num-strong">50.60</td>
+                            <td class="text-down num-strong">▼ 0.68</td>
+                            <td class="text-down num-strong">▼ 1.34%</td>
+                            <td class="num-strong">49.92</td>
+                            <td class="num-strong">49.93</td>
+                            <td class="num-strong">69,210</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="stock-name">國泰永續高股息</a><span class="stock-id">00878.TW <span style="background:#00a600; color:white; font-size:11px; padding:2px 5px; border-radius:4px; margin-left:4px;">權</span></span></td>
+                            <td style="color:var(--text-main); font-weight:bold;">17 張</td>
+                            <td class="text-down num-strong">32.43</td>
+                            <td class="text-down num-strong">▼ 0.32</td>
+                            <td class="text-down num-strong">▼ 1.03%</td>
+                            <td class="num-strong">30.86</td>
+                            <td class="num-strong">30.88</td>
+                            <td class="num-strong">110,502</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="stock-name">大華優利高填息30</a><span class="stock-id">00918.TW</span></td>
+                            <td style="color:var(--text-main); font-weight:bold;">12 張</td>
+                            <td class="text-down num-strong">32.06</td>
+                            <td class="text-down num-strong">▼ 0.17</td>
+                            <td class="text-down num-strong">▼ 0.53%</td>
+                            <td class="num-strong">31.89</td>
+                            <td class="num-strong">31.94</td>
+                            <td class="num-strong">23,862</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="stock-name">元大台灣高息低波</a><span class="stock-id">00713.TW</span></td>
+                            <td style="color:var(--text-main); font-weight:bold;">10 張</td>
+                            <td class="text-down num-strong">62.95</td>
+                            <td class="text-down num-strong">▼ 0.15</td>
+                            <td class="text-down num-strong">▼ 0.24%</td>
+                            <td class="num-strong">62.75</td>
+                            <td class="num-strong">62.80</td>
+                            <td class="num-strong">5,331</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- 走勢圖 (已補上日期) -->
+            <!-- 具備 Hover 數值的走勢圖 -->
             <div class="section-title">📈 走勢對照圖 (近一週)</div>
-            <div class="chart-container">
-                <svg viewBox="0 0 1000 240" preserveAspectRatio="none" style="width:100%; height:100%; border-bottom: 1px solid #e0e4e9; border-left: 1px solid #e0e4e9; overflow:visible;">
-                    <line x1="0" y1="50" x2="1000" y2="50" stroke="#f0f0f0" stroke-width="1" />
-                    <line x1="0" y1="100" x2="1000" y2="100" stroke="#f0f0f0" stroke-width="1" />
-                    <line x1="0" y1="150" x2="1000" y2="150" stroke="#f0f0f0" stroke-width="1" />
+            <div class="chart-wrapper" id="chartArea">
+                <div id="chartTooltip"></div>
+                <svg viewBox="0 0 1000 240" preserveAspectRatio="none" style="width:100%; height:100%; border-bottom: 2px solid #e0e4e9; border-left: 2px solid #e0e4e9; overflow:visible;">
                     
+                    <!-- 網格線 -->
+                    <line x1="0" y1="50" x2="1000" y2="50" stroke="#f0f0f0" stroke-width="1.5" />
+                    <line x1="0" y1="100" x2="1000" y2="100" stroke="#f0f0f0" stroke-width="1.5" />
+                    <line x1="0" y1="150" x2="1000" y2="150" stroke="#f0f0f0" stroke-width="1.5" />
+                    
+                    <!-- 台灣加權指數 (綠虛線) -->
                     <polyline points="0,50 200,60 400,120 600,150 800,170 1000,190" fill="none" stroke="#00a600" stroke-width="3" stroke-dasharray="8,8" />
+                    <!-- LU's 投資組合 (紫實線) -->
                     <polyline points="0,50 200,45 400,70 600,90 800,130 1000,160" fill="none" stroke="#6001d2" stroke-width="4" />
                     
-                    <text x="0" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="start">11/11</text>
-                    <text x="200" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="middle">11/12</text>
-                    <text x="400" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="middle">11/13</text>
-                    <text x="600" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="middle">11/14</text>
-                    <text x="800" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="middle">11/15</text>
-                    <text x="1000" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="end">11/16</text>
+                    <!-- 隱藏的 Hover 感應區塊 -->
+                    <rect x="0" y="0" width="100" height="200" fill="transparent" class="hover-zone" data-idx="0"/>
+                    <rect x="100" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="1"/>
+                    <rect x="300" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="2"/>
+                    <rect x="500" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="3"/>
+                    <rect x="700" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="4"/>
+                    <rect x="900" y="0" width="100" height="200" fill="transparent" class="hover-zone" data-idx="5"/>
 
+                    <!-- X軸日期 -->
+                    <text x="0" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="start">11/11</text>
+                    <text x="200" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="middle">11/12</text>
+                    <text x="400" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="middle">11/13</text>
+                    <text x="600" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="middle">11/14</text>
+                    <text x="800" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="middle">11/15</text>
+                    <text x="1000" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="end">11/16</text>
+
+                    <!-- 圖例 -->
                     <text x="20" y="20" fill="#6001d2" font-size="16" font-weight="bold">── LU's 投資組合</text>
                     <text x="200" y="20" fill="#00a600" font-size="16" font-weight="bold">- - 台灣加權大盤</text>
                 </svg>
             </div>
 
-            <!-- ★ 真正即時串流的外部財經新聞 (TradingView 專業模組) -->
-            <div class="section-title">📰 每日最新市場動態 (即時串流更新)</div>
-            <div style="padding: 0 20px 20px; height: 400px; width: 100%;">
+            <!-- ★ 繁體中文台灣財經新聞 (綁定 TWSE:TAIEX) -->
+            <div class="section-title">📰 每日台股最新動態 (繁中即時串流)</div>
+            <div style="padding: 0 25px 25px; height: 450px; width: 100%;">
                 <!-- TradingView Widget BEGIN -->
                 <div class="tradingview-widget-container">
                   <div class="tradingview-widget-container__widget"></div>
                   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
                   {
-                  "feedMode": "market",
-                  "market": "stock",
+                  "feedMode": "symbol",
+                  "symbol": "TWSE:TAIEX",
                   "isTransparent": true,
                   "displayMode": "regular",
                   "width": "100%",
@@ -172,37 +270,43 @@
             <div class="section-title" style="border-top:none;">💰 2026年 (民國115年) 股息與交易明細統計</div>
             
             <div class="div-subtitle">📌 依 ETF 小計 (累計收益)</div>
-            <div class="table-responsive" style="padding: 0 20px;">
-                <table style="border: 1px solid var(--border-color);">
+            <div class="table-responsive" style="padding: 0 25px;">
+                <table style="border: 2px solid var(--border-color);">
                     <thead style="background-color: #fafafa;">
-                        <tr><th>ETF 名稱</th><th>實收股息</th><th>賣出入帳</th></tr>
+                        <tr>
+                            <th style="color:#1d1e1f; background:#f0e6ff;">ETF 名稱</th>
+                            <th style="color:#1d1e1f; background:#f0e6ff;">實收股息</th>
+                            <th style="color:#1d1e1f; background:#f0e6ff;">賣出入帳</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td>0056 元大高股息</td><td class="text-down">$31,040</td><td class="text-up">$164,801</td></tr>
-                        <tr><td>00919 群益台灣精選高息</td><td class="text-down">$42,480</td><td class="text-up">$31,754</td></tr>
-                        <tr><td>00918 大華優利高填息30</td><td class="text-down">$20,990</td><td style="color:var(--text-muted);">-</td></tr>
-                        <tr><td>00878 國泰永續高股息</td><td class="text-down">$18,470</td><td style="color:var(--text-muted);">-</td></tr>
-                        <tr><td>00713 元大台灣高息低波</td><td class="text-down">$12,490</td><td style="color:var(--text-muted);">-</td></tr>
-                        <tr style="background-color: #fafafa; font-size:16px;">
-                            <td>年度累計實收現金流</td><td class="text-down">$125,470</td><td class="text-up">$196,555</td>
+                        <tr><td style="font-weight:bold;">0056 元大高股息</td><td class="text-down num-strong">$31,040</td><td class="text-up num-strong">$164,801</td></tr>
+                        <tr><td style="font-weight:bold;">00919 群益台灣精選高息</td><td class="text-down num-strong">$42,480</td><td class="text-up num-strong">$31,754</td></tr>
+                        <tr><td style="font-weight:bold;">00918 大華優利高填息30</td><td class="text-down num-strong">$20,990</td><td class="num-strong" style="color:var(--text-muted);">-</td></tr>
+                        <tr><td style="font-weight:bold;">00878 國泰永續高股息</td><td class="text-down num-strong">$18,470</td><td class="num-strong" style="color:var(--text-muted);">-</td></tr>
+                        <tr><td style="font-weight:bold;">00713 元大台灣高息低波</td><td class="text-down num-strong">$12,490</td><td class="num-strong" style="color:var(--text-muted);">-</td></tr>
+                        <tr style="background-color: #fafafa;">
+                            <td style="font-size:20px; font-weight:900;">年度累計實收現金流</td>
+                            <td class="text-down num-strong" style="font-size:22px;">$125,470</td>
+                            <td class="text-up num-strong" style="font-size:22px;">$196,555</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="div-subtitle" style="margin-top: 30px;">🗓️ 依日期紀錄 (滾動累計)</div>
-            <div class="table-responsive" style="padding: 0 20px 30px;">
-                <table style="border: 1px solid var(--border-color);">
+            <div class="div-subtitle" style="margin-top: 40px;">🗓️ 依日期紀錄 (滾動累計)</div>
+            <div class="table-responsive" style="padding: 0 25px 40px;">
+                <table style="border: 2px solid var(--border-color);">
                     <tbody>
-                        <tr><td style="font-weight:normal; color:#666;">115/10/15</td><td><span class="tag-div">股息</span></td><td>00919</td><td class="text-down">+$27,490</td></tr>
-                        <tr><td style="font-weight:normal; color:#666;">115/10/15</td><td><span class="tag-div">股息</span></td><td>00918</td><td class="text-down">+$20,990</td></tr>
-                        <tr><td style="font-weight:normal; color:#666;">115/10/13</td><td><span class="tag-div">股息</span></td><td>00713</td><td class="text-down">+$12,490</td></tr>
-                        <tr><td style="font-weight:normal; color:#666;">115/09/18</td><td><span class="tag-buy">賣出</span></td><td>0056 / 00919</td><td class="text-up">+$86,721</td></tr>
-                        <tr><td style="font-weight:normal; color:#666;">115/09/15</td><td><span class="tag-buy">賣出</span></td><td>0056</td><td class="text-up">+$109,834</td></tr>
-                        <tr><td style="font-weight:normal; color:#666;">115/09/11</td><td><span class="tag-div">股息</span></td><td>00878</td><td class="text-down">+$17,160</td></tr>
-                        <tr><td style="font-weight:normal; color:#666;">115/08/10</td><td><span class="tag-div">股息</span></td><td>0056</td><td class="text-down">+$31,040</td></tr>
-                        <tr><td style="font-weight:normal; color:#666;">115/07/14</td><td><span class="tag-div">股息</span></td><td>00919</td><td class="text-down">+$14,990</td></tr>
-                        <tr><td style="font-weight:normal; color:#666;">115/06/12</td><td><span class="tag-div">股息</span></td><td>00878</td><td class="text-down">+$1,310</td></tr>
+                        <tr><td style="font-weight:bold; color:#666;">115/10/15</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00919</td><td class="text-down num-strong">+$27,490</td></tr>
+                        <tr><td style="font-weight:bold; color:#666;">115/10/15</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00918</td><td class="text-down num-strong">+$20,990</td></tr>
+                        <tr><td style="font-weight:bold; color:#666;">115/10/13</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00713</td><td class="text-down num-strong">+$12,490</td></tr>
+                        <tr><td style="font-weight:bold; color:#666;">115/09/18</td><td><span class="tag-buy">賣出</span></td><td style="font-weight:bold;">0056 / 00919</td><td class="text-up num-strong">+$86,721</td></tr>
+                        <tr><td style="font-weight:bold; color:#666;">115/09/15</td><td><span class="tag-buy">賣出</span></td><td style="font-weight:bold;">0056</td><td class="text-up num-strong">+$109,834</td></tr>
+                        <tr><td style="font-weight:bold; color:#666;">115/09/11</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00878</td><td class="text-down num-strong">+$17,160</td></tr>
+                        <tr><td style="font-weight:bold; color:#666;">115/08/10</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">0056</td><td class="text-down num-strong">+$31,040</td></tr>
+                        <tr><td style="font-weight:bold; color:#666;">115/07/14</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00919</td><td class="text-down num-strong">+$14,990</td></tr>
+                        <tr><td style="font-weight:bold; color:#666;">115/06/12</td><td><span class="tag-div">股息</span></td><td style="font-weight:bold;">00878</td><td class="text-down num-strong">+$1,310</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -211,25 +315,92 @@
 
     </div>
 
-    <!-- 腳本區：安全分頁切換邏輯 -->
+    <!-- 腳本區：安全分頁、點擊排序、與游標浮動提示 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. 安全分頁切換邏輯
             const tabs = document.querySelectorAll('.toolbar-tab');
             const contents = document.querySelectorAll('.tab-content');
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
-                    // 移除所有 active
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
-                    
-                    // 啟動點擊的目標
                     this.classList.add('active');
-                    const targetId = this.getAttribute('data-target');
-                    document.getElementById(targetId).classList.add('active');
+                    document.getElementById(this.getAttribute('data-target')).classList.add('active');
+                });
+            });
+
+            // 2. 走勢圖 Hover 顯示數字浮動提示 (Tooltip)
+            const chartData = [
+                { date: '11/11', lu: '0.00%', taiex: '0.00%' },
+                { date: '11/12', lu: '+0.40%', taiex: '+0.20%' },
+                { date: '11/13', lu: '-0.80%', taiex: '-1.50%' },
+                { date: '11/14', lu: '-1.20%', taiex: '-2.80%' },
+                { date: '11/15', lu: '-2.10%', taiex: '-4.20%' },
+                { date: '11/16', lu: '-3.29%', taiex: '-5.80%' }
+            ];
+            
+            const zones = document.querySelectorAll('.hover-zone');
+            const tooltip = document.getElementById('chartTooltip');
+            const chartArea = document.getElementById('chartArea');
+
+            zones.forEach(zone => {
+                zone.addEventListener('mousemove', function(e) {
+                    const idx = this.getAttribute('data-idx');
+                    const data = chartData[idx];
+                    
+                    tooltip.style.display = 'block';
+                    tooltip.style.left = e.offsetX + 'px';
+                    tooltip.style.top = e.offsetY + 'px';
+                    
+                    tooltip.innerHTML = `
+                        <div style="color:#fff; margin-bottom:4px;">📅 日期：${data.date}</div>
+                        <div style="color:#c894ff;">■ LU's 組合：${data.lu}</div>
+                        <div style="color:#66ff66;">■ 台灣加權：${data.taiex}</div>
+                    `;
+                });
+                
+                zone.addEventListener('mouseleave', function() {
+                    tooltip.style.display = 'none';
                 });
             });
         });
+
+        // 3. 表格點擊排序功能
+        let sortDirection = {};
+        function sortTable(columnIndex) {
+            const table = document.getElementById("etfTable");
+            const tbody = table.querySelector("tbody");
+            const rows = Array.from(tbody.querySelectorAll("tr"));
+            
+            // 切換排序方向
+            sortDirection[columnIndex] = !sortDirection[columnIndex];
+            const isAscending = sortDirection[columnIndex];
+
+            rows.sort((rowA, rowB) => {
+                let cellA = rowA.querySelectorAll("td")[columnIndex].innerText.trim();
+                let cellB = rowB.querySelectorAll("td")[columnIndex].innerText.trim();
+
+                // 移除不需要的符號以便進行數字比對
+                cellA = cellA.replace(/張|▼|▲|%|,/g, '').trim();
+                cellB = cellB.replace(/張|▼|▲|%|,/g, '').trim();
+
+                const numA = parseFloat(cellA);
+                const numB = parseFloat(cellB);
+
+                // 判斷是文字還是數字
+                if (!isNaN(numA) && !isNaN(numB)) {
+                    return isAscending ? numA - numB : numB - numA;
+                } else {
+                    return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+                }
+            });
+
+            // 更新表格
+            rows.forEach(row => tbody.appendChild(row));
+        }
     </script>
 
 </body>
