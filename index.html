@@ -20,13 +20,16 @@
         body { background-color: var(--bg-gray); color: var(--text-main); padding: 20px; }
         .dashboard-container { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; }
 
-        /* 頂部導覽列 (標題大幅加大) */
+        /* 頂部導覽列 (加入日期) */
         .header-nav { display: flex; align-items: center; padding: 20px 25px; border-bottom: 1px solid var(--border-color); }
-        .header-nav h1 { color: var(--yahoo-purple); font-size: 38px; font-weight: 900; margin-right: 40px; letter-spacing: 1px; text-shadow: 1px 1px 2px rgba(96,1,210,0.1); }
+        .header-title-box { margin-right: 40px; }
+        .header-title-box h1 { color: var(--yahoo-purple); font-size: 38px; font-weight: 900; letter-spacing: 1px; text-shadow: 1px 1px 2px rgba(96,1,210,0.1); margin-bottom: 5px; }
+        .today-date { font-size: 15px; font-weight: bold; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+        
         .header-tabs { display: flex; gap: 20px; font-size: 16px; font-weight: bold; color: var(--text-muted); }
         .header-tabs .tab.active { background: var(--yahoo-purple-grad); color: white; padding: 6px 14px; border-radius: 6px; box-shadow: 0 2px 6px rgba(96,1,210,0.3); }
 
-        /* 工具列 (分頁按鈕) */
+        /* 工具列 */
         .toolbar { display: flex; padding: 15px 25px 0; border-bottom: 1px solid var(--border-color); background: #fff; gap: 15px; }
         .toolbar-tab { padding: 12px 25px; font-size: 16px; font-weight: bold; color: var(--text-muted); cursor: pointer; border: 2px solid transparent; border-bottom: none; border-radius: 8px 8px 0 0; transition: 0.3s; }
         .toolbar-tab.active { color: var(--yahoo-purple); border-color: var(--border-color); border-bottom-color: #fff; margin-bottom: -2px; background: #fff; }
@@ -38,55 +41,42 @@
         .total-currency { font-size: 18px; font-weight: bold; color: var(--text-muted); margin-left: 5px; }
         .pl-box { border-left: 2px solid var(--border-color); padding-left: 30px; display: flex; gap: 40px; }
         
-        /* 表格共用樣式 (大氣升級版) */
+        /* 表格樣式 */
         .table-responsive { overflow-x: auto; width: 100%; }
         table { width: 100%; border-collapse: collapse; }
-        
-        /* 霸氣漸層表頭，加入排序游標 */
-        th { 
-            background: var(--yahoo-purple-grad); 
-            color: #ffffff; 
-            text-align: right; 
-            padding: 16px 12px; 
-            font-size: 16px; 
-            font-weight: bold;
-            white-space: nowrap; 
-            cursor: pointer;
-            transition: 0.2s;
-            user-select: none;
-        }
+        th { background: var(--yahoo-purple-grad); color: #ffffff; text-align: right; padding: 16px 12px; font-size: 16px; font-weight: bold; white-space: nowrap; cursor: pointer; user-select: none; }
         th:hover { background: #4f00b3; }
         th:first-child, td:first-child { text-align: left; padding-left: 25px; }
-        
-        /* ETF 字體與數字全面加大加粗 */
         td { padding: 16px 12px; border-bottom: 1px solid var(--border-color); text-align: right; font-size: 18px; }
-        
         .stock-name { color: #0057b8; text-decoration: none; font-size: 18px; font-weight: 900; }
         .stock-id { font-size: 14px; color: var(--text-muted); display: block; font-weight: bold; margin-top: 4px; }
-        
-        /* 數字字體特別強調 */
         .num-strong { font-family: "Arial", sans-serif; font-weight: 900; font-size: 19px; }
         .text-down { color: var(--down-green); }
         .text-up { color: var(--up-red); }
 
         /* 區塊標題 */
-        .section-title { font-size: 20px; font-weight: 900; padding: 25px 25px 15px; background: #fff; border-top: 10px solid var(--bg-gray); color: var(--yahoo-purple); }
+        .section-title { font-size: 20px; font-weight: 900; padding: 25px 25px 15px; background: #fff; border-top: 10px solid var(--bg-gray); color: var(--text-main); display: flex; align-items: center; gap: 10px; }
         
-        /* 圖表與浮動提示 (Tooltip) */
-        .chart-wrapper { position: relative; padding: 0 25px 25px; height: 300px; width: 100%; background: #fff; }
-        #chartTooltip {
-            position: absolute; display: none; background: rgba(0, 0, 0, 0.85); color: #fff;
-            padding: 10px 15px; border-radius: 6px; font-size: 14px; font-weight: bold;
-            pointer-events: none; transform: translate(-50%, -120%); z-index: 10;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); white-space: nowrap; line-height: 1.6;
-        }
+        /* 走勢圖與游標 */
+        .chart-wrapper { position: relative; padding: 0 25px 5px; height: 300px; width: 100%; background: #fff; }
+        #chartTooltip { position: absolute; display: none; background: rgba(0, 0, 0, 0.85); color: #fff; padding: 10px 15px; border-radius: 6px; font-size: 14px; font-weight: bold; pointer-events: none; transform: translate(-50%, -120%); z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.2); white-space: nowrap; line-height: 1.6; }
+        .chart-performance { padding: 0 25px 25px; font-size: 18px; font-weight: 900; color: var(--down-green); }
+
+        /* 財經簡報專屬樣式 (完美還原截圖) */
+        .briefing-list { padding: 0 25px 30px; display: flex; flex-direction: column; gap: 20px; background: #fff; }
+        .briefing-card { padding: 0 0 0 20px; border-left: 6px solid #ccc; display: flex; flex-direction: column; gap: 12px; }
+        .briefing-card.green { border-left-color: #008000; }
+        .briefing-card.orange { border-left-color: #e68a00; }
+        .briefing-card.blue { border-left-color: #0057b8; }
+        .briefing-title { font-size: 18px; font-weight: 900; color: var(--text-main); }
+        .briefing-text { font-size: 16px; color: var(--text-muted); line-height: 1.6; background-color: #f9f9f9; padding: 12px 16px; border-radius: 6px; }
+        .briefing-impact { font-size: 15px; color: var(--yahoo-purple); font-weight: bold; background-color: var(--yahoo-light-purple); padding: 12px 16px; border-radius: 6px; line-height: 1.5; }
 
         /* 股息表樣式 */
         .div-subtitle { font-size: 18px; font-weight: 900; margin: 25px; color: var(--text-main); }
         .tag-buy { background-color: #ffe5e5; color: #d32f2f; padding: 4px 10px; border-radius: 4px; font-size: 14px; font-weight: bold; }
         .tag-div { background-color: #e8f5e9; color: #2e7d32; padding: 4px 10px; border-radius: 4px; font-size: 14px; font-weight: bold; }
 
-        /* 分頁機制 */
         .tab-content { display: none; }
         .tab-content.active { display: block; }
     </style>
@@ -95,9 +85,12 @@
 
     <div class="dashboard-container">
         
-        <!-- 頂部 Header -->
+        <!-- 頂部 Header (加入當日日期) -->
         <div class="header-nav">
-            <h1>LU's 投資理財</h1>
+            <div class="header-title-box">
+                <h1>LU's 投資理財</h1>
+                <div class="today-date" id="today-date">🗓️ 載入日期中...</div>
+            </div>
             <div class="header-tabs">
                 <span class="tab">首頁</span>
                 <span class="tab active">自選股</span>
@@ -106,7 +99,6 @@
             </div>
         </div>
 
-        <!-- 分頁按鈕 -->
         <div class="toolbar">
             <div class="toolbar-tab active" data-target="tab-summary">摘要資料</div>
             <div class="toolbar-tab" data-target="tab-details">持股明細 (股息統計)</div>
@@ -132,7 +124,6 @@
                 </div>
             </div>
 
-            <!-- 可點擊排序的 ETF 表格 -->
             <div class="table-responsive">
                 <table id="etfTable">
                     <thead>
@@ -202,23 +193,19 @@
                 </table>
             </div>
 
-            <!-- 具備 Hover 數值的走勢圖 -->
-            <div class="section-title">📈 走勢對照圖 (近一週)</div>
+            <!-- 走勢圖與游標功能 (保留) -->
+            <div class="section-title">📉 走勢對照圖 (近一週)</div>
             <div class="chart-wrapper" id="chartArea">
                 <div id="chartTooltip"></div>
                 <svg viewBox="0 0 1000 240" preserveAspectRatio="none" style="width:100%; height:100%; border-bottom: 2px solid #e0e4e9; border-left: 2px solid #e0e4e9; overflow:visible;">
                     
-                    <!-- 網格線 -->
                     <line x1="0" y1="50" x2="1000" y2="50" stroke="#f0f0f0" stroke-width="1.5" />
                     <line x1="0" y1="100" x2="1000" y2="100" stroke="#f0f0f0" stroke-width="1.5" />
                     <line x1="0" y1="150" x2="1000" y2="150" stroke="#f0f0f0" stroke-width="1.5" />
                     
-                    <!-- 台灣加權指數 (綠虛線) -->
-                    <polyline points="0,50 200,60 400,120 600,150 800,170 1000,190" fill="none" stroke="#00a600" stroke-width="3" stroke-dasharray="8,8" />
-                    <!-- LU's 投資組合 (紫實線) -->
-                    <polyline points="0,50 200,45 400,70 600,90 800,130 1000,160" fill="none" stroke="#6001d2" stroke-width="4" />
+                    <polyline points="0,0 200,10 400,70 600,100 800,120 1000,180" fill="none" stroke="#00a600" stroke-width="3" stroke-dasharray="8,8" />
+                    <polyline points="0,0 200,20 400,40 600,60 800,90 1000,100" fill="none" stroke="#6001d2" stroke-width="4" />
                     
-                    <!-- 隱藏的 Hover 感應區塊 -->
                     <rect x="0" y="0" width="100" height="200" fill="transparent" class="hover-zone" data-idx="0"/>
                     <rect x="100" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="1"/>
                     <rect x="300" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="2"/>
@@ -226,7 +213,6 @@
                     <rect x="700" y="0" width="200" height="200" fill="transparent" class="hover-zone" data-idx="4"/>
                     <rect x="900" y="0" width="100" height="200" fill="transparent" class="hover-zone" data-idx="5"/>
 
-                    <!-- X軸日期 -->
                     <text x="0" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="start">11/11</text>
                     <text x="200" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="middle">11/12</text>
                     <text x="400" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="middle">11/13</text>
@@ -234,37 +220,40 @@
                     <text x="800" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="middle">11/15</text>
                     <text x="1000" y="230" fill="#5a6673" font-size="15" font-weight="bold" text-anchor="end">11/16</text>
 
-                    <!-- 圖例 -->
-                    <text x="20" y="20" fill="#6001d2" font-size="16" font-weight="bold">── LU's 投資組合</text>
-                    <text x="200" y="20" fill="#00a600" font-size="16" font-weight="bold">- - 台灣加權大盤</text>
+                    <text x="20" y="20" fill="#6001d2" font-size="16" font-weight="bold">── LU's 投資組合 (-3.29%)</text>
+                    <text x="250" y="20" fill="#00a600" font-size="16" font-weight="bold">- - 台灣加權大盤 (-6.00%)</text>
                 </svg>
             </div>
+            <!-- 新增跑贏大盤文字 -->
+            <div class="chart-performance">防禦表現：跑贏大盤 +2.71%</div>
 
-            <!-- ★ 繁體中文台灣財經新聞 (綁定 TWSE:TAIEX) -->
-            <div class="section-title">📰 每日台股最新動態 (繁中即時串流)</div>
-            <div style="padding: 0 25px 25px; height: 450px; width: 100%;">
-                <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container">
-                  <div class="tradingview-widget-container__widget"></div>
-                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-                  {
-                  "feedMode": "symbol",
-                  "symbol": "TWSE:TAIEX",
-                  "isTransparent": true,
-                  "displayMode": "regular",
-                  "width": "100%",
-                  "height": "100%",
-                  "colorTheme": "light",
-                  "locale": "zh_TW"
-                  }
-                  </script>
+            <!-- ★ 今日財經簡報 & 環境變數 (完美手刻版，不用擔心被擋) -->
+            <div class="section-title">📰 今日財經簡報 & 環境變數</div>
+            <div class="briefing-list">
+                
+                <div class="briefing-card green">
+                    <div class="briefing-title">1. 外資單日賣超逾千億，投信逆勢護盤金融股</div>
+                    <div class="briefing-text">台股重挫承壓，外資大砍逾千億元；投信則持續站在買方，買超近 200 億元，資金主要集中於防禦型金融股。</div>
+                    <div class="briefing-impact">投組影響：您的「高息低波」組合（如 00713 僅微跌 1.18%）發揮保護傘效果，且 00878 金融比重高、受投信買盤支撐。</div>
                 </div>
-                <!-- TradingView Widget END -->
+
+                <div class="briefing-card orange">
+                    <div class="briefing-title">2. 資金輪動加速，高股息展現下檔抗跌韌性</div>
+                    <div class="briefing-text">下半年市場波動加劇，高股息 ETF 年化波動度約 21.6%，顯著低於市值型 ETF 的 30.5%，成為震盪市資金避風港。</div>
+                    <div class="briefing-impact">投組影響：分散配置 5 檔不同選股邏輯的高股息 ETF，有效降低單一產業回檔衝擊，維持穩定領息節奏。</div>
+                </div>
+
+                <div class="briefing-card blue">
+                    <div class="briefing-title">3. 國際政經與匯率波動成近期核心變數</div>
+                    <div class="briefing-text">新台幣匯率波動與美股科技財報調整牽動外資熱錢動向，權值股短線震盪加劇。</div>
+                    <div class="briefing-impact">環境提醒：長線存股無須隨大盤恐慌殺低，可利用領取的現金股息逢低分批加碼，降低持有成本。</div>
+                </div>
+
             </div>
 
         </div>
 
-        <!-- ================= 分頁 2：持股明細 (股息統計) ================= -->
+        <!-- ================= 分頁 2：持股明細 ================= -->
         <div id="tab-details" class="tab-content">
             
             <div class="section-title" style="border-top:none;">💰 2026年 (民國115年) 股息與交易明細統計</div>
@@ -315,11 +304,16 @@
 
     </div>
 
-    <!-- 腳本區：安全分頁、點擊排序、與游標浮動提示 -->
+    <!-- 腳本區：日期、分頁、排序、游標功能 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 1. 安全分頁切換邏輯
+            // 1. 自動載入當天日期
+            const d = new Date();
+            const days = ['日', '一', '二', '三', '四', '五', '六'];
+            document.getElementById('today-date').innerText = `🗓️ ${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日 星期${days[d.getDay()]}`;
+
+            // 2. 安全分頁切換邏輯
             const tabs = document.querySelectorAll('.toolbar-tab');
             const contents = document.querySelectorAll('.tab-content');
 
@@ -332,19 +326,18 @@
                 });
             });
 
-            // 2. 走勢圖 Hover 顯示數字浮動提示 (Tooltip)
+            // 3. 走勢圖 Hover 顯示數字浮動提示 (Tooltip)
             const chartData = [
                 { date: '11/11', lu: '0.00%', taiex: '0.00%' },
                 { date: '11/12', lu: '+0.40%', taiex: '+0.20%' },
                 { date: '11/13', lu: '-0.80%', taiex: '-1.50%' },
                 { date: '11/14', lu: '-1.20%', taiex: '-2.80%' },
                 { date: '11/15', lu: '-2.10%', taiex: '-4.20%' },
-                { date: '11/16', lu: '-3.29%', taiex: '-5.80%' }
+                { date: '11/16', lu: '-3.29%', taiex: '-6.00%' }
             ];
             
             const zones = document.querySelectorAll('.hover-zone');
             const tooltip = document.getElementById('chartTooltip');
-            const chartArea = document.getElementById('chartArea');
 
             zones.forEach(zone => {
                 zone.addEventListener('mousemove', function(e) {
@@ -368,14 +361,13 @@
             });
         });
 
-        // 3. 表格點擊排序功能
+        // 4. 表格點擊排序功能
         let sortDirection = {};
         function sortTable(columnIndex) {
             const table = document.getElementById("etfTable");
             const tbody = table.querySelector("tbody");
             const rows = Array.from(tbody.querySelectorAll("tr"));
             
-            // 切換排序方向
             sortDirection[columnIndex] = !sortDirection[columnIndex];
             const isAscending = sortDirection[columnIndex];
 
@@ -383,25 +375,20 @@
                 let cellA = rowA.querySelectorAll("td")[columnIndex].innerText.trim();
                 let cellB = rowB.querySelectorAll("td")[columnIndex].innerText.trim();
 
-                // 移除不需要的符號以便進行數字比對
                 cellA = cellA.replace(/張|▼|▲|%|,/g, '').trim();
                 cellB = cellB.replace(/張|▼|▲|%|,/g, '').trim();
 
                 const numA = parseFloat(cellA);
                 const numB = parseFloat(cellB);
 
-                // 判斷是文字還是數字
                 if (!isNaN(numA) && !isNaN(numB)) {
                     return isAscending ? numA - numB : numB - numA;
                 } else {
                     return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
                 }
             });
-
-            // 更新表格
             rows.forEach(row => tbody.appendChild(row));
         }
     </script>
-
 </body>
 </html>
