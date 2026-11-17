@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LU's投資 - 股市儀表板</title>
+    <title>LU's 投資理財 - 股市儀表板</title>
     <style>
         :root {
             --yahoo-purple: #6001d2;
@@ -22,7 +22,7 @@
 
         /* 頂部導覽列 */
         .header-nav { display: flex; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border-color); }
-        .header-nav h1 { color: var(--yahoo-purple); font-size: 24px; font-weight: 800; margin-right: 30px; }
+        .header-nav h1 { color: var(--yahoo-purple); font-size: 24px; font-weight: 900; margin-right: 30px; letter-spacing: 0.5px; }
         .header-tabs { display: flex; gap: 20px; font-size: 15px; font-weight: bold; color: var(--text-muted); }
         .header-tabs .tab.active { background-color: var(--yahoo-purple); color: white; padding: 4px 10px; border-radius: 4px; }
 
@@ -49,17 +49,10 @@
         .text-down { color: var(--down-green); }
         .text-up { color: var(--up-red); }
 
-        /* 區塊與新聞樣式 */
+        /* 區塊與圖表樣式 */
         .section-title { font-size: 18px; font-weight: bold; padding: 20px; background: #fff; border-top: 8px solid var(--bg-gray); }
-        .chart-container { padding: 0 20px 20px; height: 250px; width: 100%; background: #fff; }
-        .news-list { padding: 0 20px 20px; display: flex; flex-direction: column; gap: 15px; }
-        .news-card { border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; text-decoration: none; color: inherit; display: block; transition: 0.2s; }
-        .news-card:hover { border-color: #b0b5ba; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
-        .news-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
-        .news-meta span { background-color: var(--bg-gray); padding: 3px 8px; border-radius: 4px; margin-right: 8px; }
-        .news-title { font-size: 16px; font-weight: bold; margin-bottom: 8px; color: #0057b8; }
-        .news-desc { font-size: 14px; color: var(--text-muted); }
-
+        .chart-container { padding: 0 20px 20px; height: 280px; width: 100%; background: #fff; }
+        
         /* 股息專屬樣式 */
         .div-subtitle { font-size: 16px; font-weight: bold; margin: 20px; }
         .tag-buy { background-color: #ffe5e5; color: #d32f2f; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
@@ -76,7 +69,7 @@
         
         <!-- 頂部 Header -->
         <div class="header-nav">
-            <h1>LU's投資</h1>
+            <h1>LU's 投資理財</h1>
             <div class="header-tabs">
                 <span class="tab">首頁</span>
                 <span class="tab active">自選股</span>
@@ -85,13 +78,13 @@
             </div>
         </div>
 
-        <!-- 安全分頁按鈕 (移除 onclick，改由底部 JS 監聽) -->
+        <!-- 安全分頁按鈕 -->
         <div class="toolbar">
             <div class="toolbar-tab active" data-target="tab-summary">摘要資料</div>
             <div class="toolbar-tab" data-target="tab-details">持股明細 (股息統計)</div>
         </div>
 
-        <!-- ================= 分頁 1：摘要資料 (總覽、走勢、新聞) ================= -->
+        <!-- ================= 分頁 1：摘要資料 ================= -->
         <div id="tab-summary" class="tab-content active">
             
             <div class="summary-section">
@@ -114,45 +107,61 @@
             <div class="table-responsive">
                 <table>
                     <thead>
-                        <tr><th>股名/股號</th><th>股價</th><th>漲跌</th><th>漲跌幅(%)</th><th>買進</th><th>賣出</th><th>成交量</th></tr>
+                        <tr><th>股名/股號</th><th>持有張數</th><th>股價</th><th>漲跌</th><th>漲跌幅(%)</th><th>買進</th><th>賣出</th><th>成交量(張)</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><a href="#" class="stock-name">群益台灣精選高息</a><span class="stock-id">00919</span></td><td class="text-down">30.39</td><td class="text-down">▼ 0.11</td><td class="text-down">▼ 0.36%</td><td>30.38</td><td>30.39</td><td>65,636</td></tr>
-                        <tr><td><a href="#" class="stock-name">元大高股息</a><span class="stock-id">0056</span></td><td class="text-down">49.92</td><td class="text-down">▼ 0.68</td><td class="text-down">▼ 1.34%</td><td>49.92</td><td>49.93</td><td>69,210</td></tr>
-                        <tr><td><a href="#" class="stock-name">國泰永續高股息</a><span class="stock-id">00878 <span style="background:#00a600; color:white; font-size:10px; padding:1px 4px; border-radius:2px;">權</span></span></td><td class="text-down">30.86</td><td class="text-down">▼ 0.32</td><td class="text-down">▼ 1.03%</td><td>30.86</td><td>30.88</td><td>110,502</td></tr>
-                        <tr><td><a href="#" class="stock-name">大華優利高填息30</a><span class="stock-id">00918</span></td><td class="text-down">31.89</td><td class="text-down">▼ 0.17</td><td class="text-down">▼ 0.53%</td><td>31.89</td><td>31.94</td><td>23,862</td></tr>
-                        <tr><td><a href="#" class="stock-name">元大台灣高息低波</a><span class="stock-id">00713</span></td><td class="text-down">62.80</td><td class="text-down">▼ 0.15</td><td class="text-down">▼ 0.24%</td><td>62.75</td><td>62.80</td><td>5,331</td></tr>
+                        <tr><td><a href="#" class="stock-name">群益台灣精選高息</a><span class="stock-id">00919.TW</span></td><td style="color:var(--text-main); font-size:15px;">25 張</td><td class="text-down">30.50</td><td class="text-down">▼ 0.11</td><td class="text-down">▼ 0.36%</td><td>30.38</td><td>30.39</td><td>65,636</td></tr>
+                        <tr><td><a href="#" class="stock-name">元大高股息</a><span class="stock-id">0056.TW</span></td><td style="color:var(--text-main); font-size:15px;">21 張</td><td class="text-down">50.60</td><td class="text-down">▼ 0.68</td><td class="text-down">▼ 1.34%</td><td>49.92</td><td>49.93</td><td>69,210</td></tr>
+                        <tr><td><a href="#" class="stock-name">國泰永續高股息</a><span class="stock-id">00878.TW <span style="background:#00a600; color:white; font-size:10px; padding:1px 4px; border-radius:2px;">權</span></span></td><td style="color:var(--text-main); font-size:15px;">17 張</td><td class="text-down">32.43</td><td class="text-down">▼ 0.32</td><td class="text-down">▼ 1.03%</td><td>30.86</td><td>30.88</td><td>110,502</td></tr>
+                        <tr><td><a href="#" class="stock-name">大華優利高填息30</a><span class="stock-id">00918.TW</span></td><td style="color:var(--text-main); font-size:15px;">12 張</td><td class="text-down">32.06</td><td class="text-down">▼ 0.17</td><td class="text-down">▼ 0.53%</td><td>31.89</td><td>31.94</td><td>23,862</td></tr>
+                        <tr><td><a href="#" class="stock-name">元大台灣高息低波</a><span class="stock-id">00713.TW</span></td><td style="color:var(--text-main); font-size:15px;">10 張</td><td class="text-down">62.95</td><td class="text-down">▼ 0.15</td><td class="text-down">▼ 0.24%</td><td>62.75</td><td>62.80</td><td>5,331</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- 純 HTML 原生 SVG 走勢圖 (完全不需要外部套件) -->
-            <div class="section-title">📈 走勢對照圖 (本週)</div>
+            <!-- 走勢圖 (已補上日期) -->
+            <div class="section-title">📈 走勢對照圖 (近一週)</div>
             <div class="chart-container">
-                <svg viewBox="0 0 1000 200" preserveAspectRatio="none" style="width:100%; height:100%; border-bottom: 1px solid #e0e4e9; border-left: 1px solid #e0e4e9;">
-                    <!-- 網格線 -->
+                <svg viewBox="0 0 1000 240" preserveAspectRatio="none" style="width:100%; height:100%; border-bottom: 1px solid #e0e4e9; border-left: 1px solid #e0e4e9; overflow:visible;">
                     <line x1="0" y1="50" x2="1000" y2="50" stroke="#f0f0f0" stroke-width="1" />
                     <line x1="0" y1="100" x2="1000" y2="100" stroke="#f0f0f0" stroke-width="1" />
                     <line x1="0" y1="150" x2="1000" y2="150" stroke="#f0f0f0" stroke-width="1" />
                     
-                    <!-- 台灣加權指數 (綠色虛線) -->
                     <polyline points="0,50 200,60 400,120 600,150 800,170 1000,190" fill="none" stroke="#00a600" stroke-width="3" stroke-dasharray="8,8" />
-                    
-                    <!-- LU's 投資組合 (紫色實線) -->
                     <polyline points="0,50 200,45 400,70 600,90 800,130 1000,160" fill="none" stroke="#6001d2" stroke-width="4" />
                     
-                    <!-- 圖例說明 -->
+                    <text x="0" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="start">11/11</text>
+                    <text x="200" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="middle">11/12</text>
+                    <text x="400" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="middle">11/13</text>
+                    <text x="600" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="middle">11/14</text>
+                    <text x="800" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="middle">11/15</text>
+                    <text x="1000" y="230" fill="#5a6673" font-size="14" font-weight="bold" text-anchor="end">11/16</text>
+
                     <text x="20" y="20" fill="#6001d2" font-size="16" font-weight="bold">── LU's 投資組合</text>
                     <text x="200" y="20" fill="#00a600" font-size="16" font-weight="bold">- - 台灣加權大盤</text>
                 </svg>
             </div>
 
-            <!-- ★ 動態外部新聞區塊 (將由 JS 自動連線 Google News 抓取) -->
-            <div class="section-title">📰 最新市場焦點 (即時外部抓取)</div>
-            <div class="news-list" id="dynamic-news-list">
-                <div style="padding: 20px; text-align: center; color: #5a6673;">
-                    ⏳ 正在從外部伺服器載入最新台股與 ETF 新聞，請稍候...
+            <!-- ★ 真正即時串流的外部財經新聞 (TradingView 專業模組) -->
+            <div class="section-title">📰 每日最新市場動態 (即時串流更新)</div>
+            <div style="padding: 0 20px 20px; height: 400px; width: 100%;">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                  <div class="tradingview-widget-container__widget"></div>
+                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+                  {
+                  "feedMode": "market",
+                  "market": "stock",
+                  "isTransparent": true,
+                  "displayMode": "regular",
+                  "width": "100%",
+                  "height": "100%",
+                  "colorTheme": "light",
+                  "locale": "zh_TW"
+                  }
+                  </script>
                 </div>
+                <!-- TradingView Widget END -->
             </div>
 
         </div>
@@ -162,7 +171,6 @@
             
             <div class="section-title" style="border-top:none;">💰 2026年 (民國115年) 股息與交易明細統計</div>
             
-            <!-- 依 ETF 小計 -->
             <div class="div-subtitle">📌 依 ETF 小計 (累計收益)</div>
             <div class="table-responsive" style="padding: 0 20px;">
                 <table style="border: 1px solid var(--border-color);">
@@ -182,7 +190,6 @@
                 </table>
             </div>
 
-            <!-- 依日期紀錄 -->
             <div class="div-subtitle" style="margin-top: 30px;">🗓️ 依日期紀錄 (滾動累計)</div>
             <div class="table-responsive" style="padding: 0 20px 30px;">
                 <table style="border: 1px solid var(--border-color);">
@@ -204,11 +211,9 @@
 
     </div>
 
-    <!-- 腳本區：使用最高兼容性的寫法，突破桌面版 App 的限制 -->
+    <!-- 腳本區：安全分頁切換邏輯 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // 1. 安全的分頁切換邏輯 (避開 onclick 阻擋)
             const tabs = document.querySelectorAll('.toolbar-tab');
             const contents = document.querySelectorAll('.tab-content');
 
@@ -224,55 +229,6 @@
                     document.getElementById(targetId).classList.add('active');
                 });
             });
-
-            // 2. 真正從外部抓取即時新聞 (利用 RSS to JSON API 繞過跨網域限制)
-            async function fetchRealTimeNews() {
-                try {
-                    // 透過 Google News RSS 抓取「台股 ETF 高股息」最新資訊
-                    const rssUrl = encodeURIComponent('https://news.google.com/rss/search?q=台股+ETF+高股息&hl=zh-TW&gl=TW&ceid=TW:zh-Hant');
-                    const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + rssUrl;
-                    
-                    const response = await fetch(apiUrl);
-                    const data = await response.json();
-                    
-                    if (data.status === 'ok' && data.items && data.items.length > 0) {
-                        const newsContainer = document.getElementById('dynamic-news-list');
-                        newsContainer.innerHTML = ''; // 清除載入中文字
-                        
-                        // 只取最新 3 則
-                        for (let i = 0; i < 3; i++) {
-                            const item = data.items[i];
-                            
-                            // 格式化外部真實新聞的時間
-                            const dateObj = new Date(item.pubDate);
-                            const formattedDate = dateObj.toLocaleDateString('zh-TW', { month: '2-digit', day: '2-digit' }) + ' ' + 
-                                                  dateObj.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
-                            
-                            // 將外部資料塞入網頁
-                            newsContainer.innerHTML += `
-                                <a href="${item.link}" target="_blank" class="news-card">
-                                    <div class="news-meta">
-                                        <span>📅 ${formattedDate}</span>
-                                        <span>即時快訊</span>
-                                    </div>
-                                    <div class="news-title">${item.title}</div>
-                                    <div class="news-desc">點擊閱讀外部完整新聞報導...</div>
-                                </a>
-                            `;
-                        }
-                    }
-                } catch (error) {
-                    // 若使用者的 App 連外網也被徹底阻擋，提供優雅的降級顯示
-                    document.getElementById('dynamic-news-list').innerHTML = `
-                        <div style="padding: 20px; color: #ff333a;">
-                            無法連線至外部新聞伺服器。請確認您的電腦版 App 是否允許外部網路存取。
-                        </div>
-                    `;
-                }
-            }
-
-            // 執行外部新聞抓取
-            fetchRealTimeNews();
         });
     </script>
 
