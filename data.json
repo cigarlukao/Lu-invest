@@ -6,7 +6,60 @@
   "taiex": {
     "close": 40194.91,
     "change": 102.8,
-    "change_pct": 0.26
+    "change_pct": 0.26,
+    "high": 40938.2,
+    "low": 39260.99,
+    "range": 1677.21
+  },
+  "macro": {
+    "tsmc": {
+      "close": 2175.0,
+      "change": 5.0,
+      "change_pct": 0.23,
+      "high": 2210.0,
+      "low": 2150.0,
+      "range": 60.0
+    },
+    "us10y": {
+      "close": 5.1,
+      "change": -0.02,
+      "change_pct": -0.39,
+      "high": 5.15,
+      "low": 5.09,
+      "range": 0.06
+    },
+    "dxy": {
+      "close": 103.76,
+      "change": 0.27,
+      "change_pct": 0.26,
+      "high": 103.86,
+      "low": 103.59,
+      "range": 0.27
+    },
+    "usdtwd": {
+      "close": 32.9,
+      "change": -0.06,
+      "change_pct": -0.18,
+      "high": 33.02,
+      "low": 32.81,
+      "range": 0.21
+    },
+    "nasdaq": {
+      "close": 24328.38,
+      "change": -181.38,
+      "change_pct": -0.74,
+      "high": 24547.66,
+      "low": 23989.09,
+      "range": 558.57
+    },
+    "sox": {
+      "close": 9642.88,
+      "change": 32.23,
+      "change_pct": 0.34,
+      "high": 9745.95,
+      "low": 9295.02,
+      "range": 450.93
+    }
   },
   "etfs": [
     {
@@ -97,7 +150,7 @@
       "taiex": -9.18
     }
   ],
-  "updated_at": "2026年11月18日 18:44",
+  "updated_at": "2026年11月18日 18:56",
   "news": [
     {
       "title": "快訊／台股開盤「下個月有新制」！明年7月還有2優化措施 零股改1秒撮合、千金股1元1跳股市",
