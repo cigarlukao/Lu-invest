@@ -2,28 +2,36 @@ name: 自動更新股市儀表板
 
 on:
   schedule:
-    # 每天台灣時間下午 4:30（UTC 08:30）自動執行
+    # 週一至週五台灣時間 14:30 (收盤後) 與 16:30 各自動抓取一次
+    - cron: '30 6 * * 1-5'
     - cron: '30 8 * * 1-5'
-  workflow_dispatch: # 支援隨時手動點擊執行
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  keep-alive:
+  update-dashboard:
     runs-on: ubuntu-latest
     steps:
       - name: 簽出專案
         uses: actions/checkout@v4
 
-      - name: 更新最後同步時間
-        run: |
-          date -u "+%Y-%m-%d %H:%M:%S UTC" > sync-log.txt
+      - name: 安裝 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      - name: 自動提交更新
+      - name: 安裝 yfinance 套件
+        run: pip install yfinance
+
+      - name: 執行爬蟲更新 data.json
+        run: python update_data.py
+
+      - name: 提交並推送最新資料 (自動觸發網頁更新)
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          git add sync-log.txt
-          git commit -m "系統自動同步狀態 [skip ci]" || exit 0
+          git add data.json
+          git commit -m "自動更新台股收盤與新聞資料" || exit 0
           git push
