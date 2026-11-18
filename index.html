@@ -446,161 +446,191 @@
     <!-- 腳本區 -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // 1. 自動載入當天日期
-            const d = new Date();
-            const days = ['日', '一', '二', '三', '四', '五', '六'];
-            document.getElementById('today-date').innerText = `🗓️ ${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日 星期${days[d.getDay()]}`;
-
-            // 2. 安全分頁切換邏輯
+            // 1. 分頁切換邏輯
             const tabs = document.querySelectorAll('.toolbar-tab');
             const contents = document.querySelectorAll('.tab-content');
-
             tabs.forEach(tab => {
                 tab.addEventListener('click', function(e) {
                     e.preventDefault();
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
                     this.classList.add('active');
-                    const targetId = this.getAttribute('data-target');
-                    const targetContent = document.getElementById(targetId);
-                    if (targetContent) {
-                        targetContent.classList.add('active');
-                    }
+                    const target = document.getElementById(this.getAttribute('data-target'));
+                    if (target) target.classList.add('active');
                 });
             });
 
-            // 3. 走勢圖 Hover 顯示數字浮動提示 (完美修復)
-            const chartData = [
-                { date: '11/10', lu: '0.00%', taiex: '0.00%' },
-                { date: '11/11', lu: '-0.36%', taiex: '-1.20%' },
-                { date: '11/12', lu: '-0.80%', taiex: '-2.50%' },
-                { date: '11/13', lu: '-1.00%', taiex: '-4.10%' },
-                { date: '11/16', lu: '-1.15%', taiex: '-5.00%' },
-                { date: '11/17', lu: '-1.39%', taiex: '-6.13%' }
-            ];
-            const zones = document.querySelectorAll('.hover-zone');
-            const tooltip = document.getElementById('chartTooltip');
-
-            zones.forEach(zone => {
-                zone.addEventListener('mousemove', function(e) {
-                    const idx = this.getAttribute('data-idx');
-                    const data = chartData[idx];
-                    tooltip.style.display = 'block';
-                    tooltip.style.left = e.offsetX + 'px';
-                    tooltip.style.top = e.offsetY + 'px';
-                    tooltip.innerHTML = `
-                        <div style="color:#fff; margin-bottom:4px;">📅 日期：${data.date}</div>
-                        <div style="color:#c894ff;">■ LU's 組合：${data.lu}</div>
-                        <div style="color:#66ff66;">■ 台灣加權：${data.taiex}</div>
-                    `;
-                });
-                zone.addEventListener('mouseleave', function() { tooltip.style.display = 'none'; });
-
-                // 手機觸控點擊支援
-                zone.addEventListener('click', function(e) {
-                    const idx = this.getAttribute('data-idx');
-                    const data = chartData[idx];
-                    tooltip.style.display = 'block';
-                    tooltip.style.left = e.offsetX + 'px';
-                    tooltip.style.top = e.offsetY + 'px';
-                    tooltip.innerHTML = `
-                        <div style="color:#fff; margin-bottom:4px;">📅 日期：${data.date}</div>
-                        <div style="color:#c894ff;">■ LU's 組合：${data.lu}</div>
-                        <div style="color:#66ff66;">■ 台灣加權：${data.taiex}</div>
-                    `;
-                    e.stopPropagation();
-                });
-            });
-
-            document.addEventListener('click', function() {
-                if(tooltip) tooltip.style.display = 'none';
-            });
-
-            // 4. 智慧雙保險新聞載入機制
-            async function fetchYahooNews() {
-                const container = document.getElementById('yahoo-news-container');
+            // 2. 動態讀取 GitHub Actions 自動產生的 data.json
+            async function loadLiveData() {
                 try {
-                    const query = encodeURIComponent('site:tw.stock.yahoo.com 台股 OR ETF OR 股息');
-                    const rssUrl = `https://news.google.com/rss/search?q=${query}&hl=zh-TW&gl=TW&ceid=TW:zh-Hant`;
-                    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-                    
-                    const res = await fetch(apiUrl);
+                    const res = await fetch('./data.json?t=' + Date.now());
+                    if (!res.ok) throw new Error('尚無 data.json');
                     const data = await res.json();
-                    
-                    if (data.status === 'ok' && data.items.length > 0) {
-                        container.innerHTML = '';
-                        data.items.slice(0, 3).forEach(item => {
-                            const date = new Date(item.pubDate).toLocaleString('zh-TW', {month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'});
-                            const cleanTitle = item.title.replace(' - Yahoo奇摩股市', '').replace(' - Yahoo', '');
-                            container.innerHTML += `
-                                <a href="${item.link}" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid var(--yahoo-purple); border-radius: 8px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">
-                                    <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 ${date} | Yahoo 財經即時</div>
-                                    <div style="font-size:16px; font-weight:900; color:var(--text-main);">${cleanTitle}</div>
+
+                    // 更新標題日期與最後更新時間
+                    document.getElementById('today-date').innerText = `🗓️ 資料日期：${data.trade_date} (更新於 ${data.updated_at})`;
+
+                    // 更新總市值與基準損益
+                    const totalEl = document.querySelector('.total-value');
+                    if (totalEl) totalEl.innerText = '$' + data.total_value.toLocaleString();
+
+                    const plEl = document.querySelector('.pl-box .num-strong[style]');
+                    if (plEl) {
+                        const isUp = data.baseline_diff >= 0;
+                        const arrow = isUp ? '▲' : '▼';
+                        plEl.className = (isUp ? 'text-up' : 'text-down') + ' num-strong';
+                        plEl.innerText = `${arrow} ${Math.abs(data.baseline_diff).toLocaleString()} (${Math.abs(data.baseline_diff_pct).toFixed(2)}%)`;
+                    }
+
+                    // 更新五檔 ETF 表格
+                    const tbody = document.querySelector('#etfTable tbody');
+                    if (tbody && data.etfs) {
+                        tbody.innerHTML = data.etfs.map(etf => {
+                            const isUp = etf.change > 0;
+                            const isFlat = etf.change === 0;
+                            const colorCls = isFlat ? '' : (isUp ? 'text-up' : 'text-down');
+                            const arrow = isFlat ? '-' : (isUp ? '▲' : '▼');
+                            return `
+                                <tr>
+                                    <td>
+                                        <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:4px;">
+                                            <a href="https://tw.stock.yahoo.com/quote/${etf.id}" target="_blank" class="stock-id">${etf.id}</a>
+                                        </div>
+                                        <span class="stock-name">${etf.name}</span>
+                                    </td>
+                                    <td class="sort-val" style="color:var(--text-main); font-weight:bold;">${etf.lots} 張</td>
+                                    <td class="${colorCls} num-strong sort-val">${etf.close.toFixed(2)}</td>
+                                    <td class="${colorCls} num-strong sort-val">${arrow} ${Math.abs(etf.change).toFixed(2)}</td>
+                                    <td class="${colorCls} num-strong sort-val">${arrow} ${Math.abs(etf.change_pct).toFixed(2)}%</td>
+                                    <td class="num-strong sort-val">${etf.weight.toFixed(2)}%</td>
+                                    <td class="num-strong sort-val">${etf.market_val.toLocaleString()}</td>
+                                    <td class="num-strong sort-val">${etf.volume.toLocaleString()}</td>
+                                </tr>
+                            `;
+                        }).join('');
+                    }
+
+                    // 重畫 SVG 走勢圖與游標
+                    if (data.chart && data.chart.length >= 2) {
+                        renderChart(data.chart);
+                    }
+
+                    // 渲染由背景抓好的 Yahoo 新聞 (無 CORS 問題)
+                    const newsBox = document.getElementById('yahoo-news-container');
+                    if (newsBox && data.news && data.news.length > 0) {
+                        newsBox.innerHTML = data.news.slice(0, 4).map(item => {
+                            const dt = item.pubDate ? new Date(item.pubDate).toLocaleString('zh-TW', {month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'}) : data.trade_date;
+                            return `
+                                <a href="${item.link}" target="_blank" style="text-decoration:none; padding:12px 15px; margin-bottom:10px; background:#fff; border:1px solid var(--border-color); border-left:6px solid var(--yahoo-purple); border-radius:8px; display:flex; flex-direction:column; gap:6px; box-shadow:0 2px 5px rgba(0,0,0,0.03);">
+                                    <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 ${dt} | Yahoo 財經</div>
+                                    <div style="font-size:16px; font-weight:900; color:var(--text-main);">${item.title}</div>
                                 </a>
                             `;
-                        });
-                        return;
+                        }).join('');
                     }
-                    throw new Error('No items');
-                } catch(e) {
-                    container.innerHTML = `
-                        <a href="https://fnc.ebc.net.tw/fncnews/stock/221858" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid #008000; border-radius: 8px; display: flex; flex-direction: column; gap: 6px;">
-                            <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 2026/11/17 | 東森財經新聞</div>
-                            <div style="font-size:16px; font-weight:900; color:var(--text-main);">台股收跌近千點陷4萬點保衛戰，五檔高股息ETF展現強韌抗跌力道</div>
-                        </a>
-                        <a href="https://wantrich.chinatimes.com/news/20261102900002-420401" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid #e68a00; border-radius: 8px; display: flex; flex-direction: column; gap: 6px;">
-                            <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 2026/11/17 | 旺得富理財網</div>
-                            <div style="font-size:16px; font-weight:900; color:var(--text-main);">00878今日除息1.25元！達人解析震盪市中長線存股與再投入紀律</div>
-                        </a>
-                    `;
+                } catch (err) {
+                    console.log('使用預設靜態資料顯示:', err);
                 }
             }
-            fetchYahooNews();
 
+            function renderChart(points) {
+                const n = points.length;
+                const allVals = points.flatMap(p => [p.lu, p.taiex]);
+                const minV = Math.min(...allVals);
+                const maxV = Math.max(...allVals);
+                const pad = Math.max(0.5, (maxV - minV) * 0.15);
+                const yMin = minV - pad;
+                const yMax = maxV + pad;
+
+                const toX = i => Math.round((i / (n - 1)) * 1000);
+                const toY = v => Math.round(20 + ((yMax - v) / (yMax - yMin)) * 160);
+
+                const luPts = points.map((p, i) => `${toX(i)},${toY(p.lu)}`).join(' ');
+                const taiexPts = points.map((p, i) => `${toX(i)},${toY(p.taiex)}`).join(' ');
+
+                const last = points[n - 1];
+                const diff = (last.lu - last.taiex).toFixed(2);
+
+                const legendSpans = document.querySelectorAll('.chart-legend span');
+                if (legendSpans.length >= 2) {
+                    legendSpans[0].innerText = `── LU's 組合 (${last.lu >= 0 ? '+' : ''}${last.lu.toFixed(2)}%)`;
+                    legendSpans[1].innerText = `- - 大盤 (${last.taiex >= 0 ? '+' : ''}${last.taiex.toFixed(2)}%)`;
+                }
+                const perfEl = document.querySelector('.chart-performance');
+                if (perfEl) {
+                    perfEl.innerText = `防禦韌性展現：本週${diff >= 0 ? '跑贏' : '落後'}大盤 ${diff >= 0 ? '+' : ''}${diff}%`;
+                }
+
+                const zoneW = 1000 / n;
+                const zonesHtml = points.map((p, i) =>
+                    `<rect x="${Math.round(i * zoneW)}" y="0" width="${Math.ceil(zoneW)}" height="200" fill="transparent" class="hover-zone" data-idx="${i}"/>`
+                ).join('');
+
+                const labelsHtml = points.map((p, i) => {
+                    const anchor = i === 0 ? 'start' : (i === n - 1 ? 'end' : 'middle');
+                    return `<text x="${toX(i)}" y="220" fill="#5a6673" font-size="13" font-weight="bold" text-anchor="${anchor}">${p.date}</text>`;
+                }).join('');
+
+                const svgBox = document.querySelector('.chart-container-box');
+                svgBox.innerHTML = `
+                    <svg viewBox="0 0 1000 200" preserveAspectRatio="none" style="width:100%; height:100%; border-bottom:2px solid #e0e4e9; border-left:2px solid #e0e4e9; overflow:visible;">
+                        <line x1="0" y1="40" x2="1000" y2="40" stroke="#f0f0f0" stroke-width="1.5" />
+                        <line x1="0" y1="100" x2="1000" y2="100" stroke="#f0f0f0" stroke-width="1.5" />
+                        <line x1="0" y1="160" x2="1000" y2="160" stroke="#f0f0f0" stroke-width="1.5" />
+                        <polyline points="${taiexPts}" fill="none" stroke="#00a600" stroke-width="3" stroke-dasharray="8,8" />
+                        <polyline points="${luPts}" fill="none" stroke="#6001d2" stroke-width="4" />
+                        ${zonesHtml}
+                        ${labelsHtml}
+                    </svg>
+                `;
+
+                const tooltip = document.getElementById('chartTooltip');
+                svgBox.querySelectorAll('.hover-zone').forEach(zone => {
+                    const showTip = function(e) {
+                        const d = points[this.getAttribute('data-idx')];
+                        tooltip.style.display = 'block';
+                        tooltip.style.left = e.offsetX + 'px';
+                        tooltip.style.top = e.offsetY + 'px';
+                        tooltip.innerHTML = `
+                            <div style="color:#fff; margin-bottom:4px;">📅 日期：${d.date}</div>
+                            <div style="color:#c894ff;">■ LU's 組合：${d.lu >= 0 ? '+' : ''}${d.lu.toFixed(2)}%</div>
+                            <div style="color:#66ff66;">■ 台灣加權：${d.taiex >= 0 ? '+' : ''}${d.taiex.toFixed(2)}%</div>
+                        `;
+                    };
+                    zone.addEventListener('mousemove', showTip);
+                    zone.addEventListener('mouseleave', () => tooltip.style.display = 'none');
+                    zone.addEventListener('click', function(e) { showTip.call(this, e); e.stopPropagation(); });
+                });
+            }
+
+            document.addEventListener('click', () => {
+                const tooltip = document.getElementById('chartTooltip');
+                if (tooltip) tooltip.style.display = 'none';
+            });
+
+            loadLiveData();
         });
 
-        // 5. 安全表格點擊排序功能
+        // 3. 表格點擊排序
         let sortDirection = {};
         function sortTable(columnIndex) {
-            const table = document.getElementById("etfTable");
-            const tbody = table.querySelector("tbody");
+            const tbody = document.querySelector("#etfTable tbody");
             const rows = Array.from(tbody.querySelectorAll("tr"));
-            
             sortDirection[columnIndex] = !sortDirection[columnIndex];
-            const isAscending = sortDirection[columnIndex];
-
-            rows.sort((rowA, rowB) => {
-                const cellA_td = rowA.querySelectorAll("td")[columnIndex];
-                const cellB_td = rowB.querySelectorAll("td")[columnIndex];
-                
-                let cellA = "";
-                let cellB = "";
-                
-                if (columnIndex === 0) {
-                    cellA = cellA_td.querySelector('.stock-id').innerText.trim();
-                    cellB = cellB_td.querySelector('.stock-id').innerText.trim();
-                } else {
-                    const valA = cellA_td.querySelector('.sort-val');
-                    const valB = cellB_td.querySelector('.sort-val');
-                    cellA = valA ? valA.innerText.trim() : cellA_td.innerText.trim();
-                    cellB = valB ? valB.innerText.trim() : cellB_td.innerText.trim();
-                }
-
-                cellA = cellA.replace(/張|▼|▲|%|,/g, '').trim();
-                cellB = cellB.replace(/張|▼|▲|%|,/g, '').trim();
-
-                const numA = parseFloat(cellA);
-                const numB = parseFloat(cellB);
-
-                if (!isNaN(numA) && !isNaN(numB)) {
-                    return isAscending ? numA - numB : numB - numA;
-                } else {
-                    return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
-                }
+            const isAsc = sortDirection[columnIndex];
+            rows.sort((a, b) => {
+                const tdA = a.querySelectorAll("td")[columnIndex];
+                const tdB = b.querySelectorAll("td")[columnIndex];
+                let valA = columnIndex === 0 ? tdA.querySelector('.stock-id').innerText : tdA.innerText;
+                let valB = columnIndex === 0 ? tdB.querySelector('.stock-id').innerText : tdB.innerText;
+                valA = valA.replace(/張|▼|▲|%|,/g, '').trim();
+                valB = valB.replace(/張|▼|▲|%|,/g, '').trim();
+                const numA = parseFloat(valA), numB = parseFloat(valB);
+                if (!isNaN(numA) && !isNaN(numB)) return isAsc ? numA - numB : numB - numA;
+                return isAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
             });
-            rows.forEach(row => tbody.appendChild(row));
+            rows.forEach(r => tbody.appendChild(r));
         }
-    </script>
+</script>
 </body>
 </html>
