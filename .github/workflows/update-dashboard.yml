@@ -2,42 +2,27 @@ name: 自動更新股市儀表板
 
 on:
   schedule:
-    # 每天台灣時間下午 4:30（UTC 08:30）自動執行
     - cron: '30 8 * * 1-5'
-  workflow_dispatch: # 允許您隨時在 GitHub 網站手動點擊執行
+  workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
-  update-and-deploy:
+  update-dashboard:
     runs-on: ubuntu-latest
     steps:
-      - name: 簽出專案程式碼
+      - name: 簽出專案
         uses: actions/checkout@v4
 
-      - name: 設定 Node.js 環境
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: 執行資料更新與自動化編譯
+      - name: 更新狀態檔
         run: |
-          echo "正在更新 2026/11/18 最新收盤與走勢圖資料..."
-          
-          # 取得今天的日期並更新 index.html 裡的日期顯示
-          CURRENT_DATE=$(date "+%Y年%m月%d日")
-          echo "今天是: $CURRENT_DATE"
+          echo "Last updated on $(date)" > last-update.txt
 
-          # 這裡可以加入您的自動更新標記
-          echo "<!-- Auto-updated on $(date) -->" >> index.html
-
-      - name: 自動提交並推送到 GitHub
+      - name: 提交並推送更新
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          git add index.html
-          git commit -m "自動更新今日股市與走勢圖資料 [skip ci]" || exit 0
+          git add .
+          git commit -m "自動更新儀表板狀態 [skip ci]" || exit 0
           git push
