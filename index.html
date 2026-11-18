@@ -41,15 +41,15 @@
         .total-currency { font-size: 13px; font-weight: bold; color: var(--text-muted); margin-left: 3px; }
         .pl-box { border-top: 1px solid var(--border-color); padding-top: 8px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; }
         
-        /* 首頁表格 (完美手機適配縮排) */
+        /* 首頁表格 (強化手機 RWD 與縮排) */
         .table-responsive { overflow-x: auto; width: 100%; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; min-width: 580px; }
         th { background: var(--yahoo-purple-grad); color: #ffffff; text-align: right; padding: 8px 6px; font-size: 12px; font-weight: bold; white-space: nowrap; cursor: pointer; user-select: none; }
         th:first-child, td:first-child { text-align: left; padding-left: 10px; }
         td { padding: 8px 6px; border-bottom: 1px solid var(--border-color); text-align: right; font-size: 13px; vertical-align: middle; }
         
-        .stock-id { font-size: 15px; font-weight: 900; color: #0057b8; text-decoration: none; display: block; margin-bottom: 1px; }
-        .stock-name { font-size: 11px; color: var(--text-muted); display: block; font-weight: bold; }
+        .stock-id { font-size: 14px; font-weight: 900; color: #0057b8; text-decoration: none; display: inline-block; margin-right: 4px; }
+        .stock-name { font-size: 11px; color: var(--text-muted); display: block; font-weight: bold; margin-top: 1px; }
         .num-strong { font-family: "Arial", sans-serif; font-weight: 900; font-size: 14px; }
         .text-down { color: var(--down-green); }
         .text-up { color: var(--up-red); }
@@ -57,7 +57,7 @@
         /* 區塊標題 */
         .section-title { font-size: 15px; font-weight: 900; padding: 12px 10px 8px; background: #fff; border-top: 6px solid var(--bg-gray); color: var(--text-main); display: flex; align-items: center; gap: 4px; }
         
-        /* 走勢圖與雙模式游標 (支援手機觸控點擊與滑鼠懸停) */
+        /* 走勢圖與雙模組游標 */
         .chart-wrapper { position: relative; padding: 10px; width: 100%; background: #fff; border-top: 6px solid var(--bg-gray); }
         .chart-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; flex-direction: column; gap: 4px; }
         .chart-title-text { font-size: 15px; font-weight: 900; color: var(--text-main); margin: 0; }
@@ -112,6 +112,8 @@
             .insight-grid { grid-template-columns: repeat(2, 1fr); }
             .report-body { padding: 16px; font-size: 14px; }
             .details-table th, .details-table td { font-size: 14px; padding: 10px 8px; }
+            .stock-id { font-size: 20px; }
+            .stock-name { font-size: 13px; }
         }
     </style>
 </head>
@@ -176,7 +178,9 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a href="https://tw.stock.yahoo.com/quote/0056.TW" target="_blank" class="stock-id">0056.TW</a>
+                                <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:4px;">
+                                    <a href="https://tw.stock.yahoo.com/quote/0056.TW" target="_blank" class="stock-id">0056.TW</a>
+                                </div>
                                 <span class="stock-name">元大高股息</span>
                             </td>
                             <td class="sort-val" style="color:var(--text-main); font-weight:bold;">21 張</td>
@@ -189,7 +193,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <a href="https://tw.stock.yahoo.com/quote/00919.TW" target="_blank" class="stock-id">00919.TW</a>
+                                <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:4px;">
+                                    <a href="https://tw.stock.yahoo.com/quote/00919.TW" target="_blank" class="stock-id">00919.TW</a>
+                                </div>
                                 <span class="stock-name">群益台灣精選高息</span>
                             </td>
                             <td class="sort-val" style="color:var(--text-main); font-weight:bold;">25 張</td>
@@ -202,7 +208,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <a href="https://tw.stock.yahoo.com/quote/00713.TW" target="_blank" class="stock-id">00713.TW</a>
+                                <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:4px;">
+                                    <a href="https://tw.stock.yahoo.com/quote/00713.TW" target="_blank" class="stock-id">00713.TW</a>
+                                </div>
                                 <span class="stock-name">元大台灣高息低波</span>
                             </td>
                             <td class="sort-val" style="color:var(--text-main); font-weight:bold;">10 張</td>
@@ -215,11 +223,11 @@
                         </tr>
                         <tr>
                             <td>
-                                <div style="display:flex; align-items:baseline; gap:5px;">
-                                    <a href="https://tw.stock.yahoo.com/quote/00878.TW" target="_blank" class="stock-id" style="margin:0;">00878.TW</a>
+                                <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:4px;">
+                                    <a href="https://tw.stock.yahoo.com/quote/00878.TW" target="_blank" class="stock-id">00878.TW</a>
                                     <span style="background:#00a600; color:white; font-size:10px; padding:1px 4px; border-radius:3px; font-weight:bold;">除息</span>
                                 </div>
-                                <span class="stock-name" style="margin-top:2px;">國泰永續高股息</span>
+                                <span class="stock-name">國泰永續高股息</span>
                             </td>
                             <td class="sort-val" style="color:var(--text-main); font-weight:bold;">17 張</td>
                             <td class="text-down num-strong sort-val">30.86</td>
@@ -231,7 +239,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <a href="https://tw.stock.yahoo.com/quote/00918.TW" target="_blank" class="stock-id">00918.TW</a>
+                                <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:4px;">
+                                    <a href="https://tw.stock.yahoo.com/quote/00918.TW" target="_blank" class="stock-id">00918.TW</a>
+                                </div>
                                 <span class="stock-name">大華優利高填息30</span>
                             </td>
                             <td class="sort-val" style="color:var(--text-main); font-weight:bold;">12 張</td>
@@ -287,7 +297,7 @@
 
             <div class="section-title">📰 Yahoo 股市焦點 & 市場動態</div>
             <div class="report-container" id="yahoo-news-container" style="padding-top: 8px;">
-                <div style="padding: 12px; color: #5a6673; font-weight: bold;">⏳ 正在載入最新市場焦點...</div>
+                <div style="padding: 15px; color: #5a6673; font-weight: bold;">⏳ 正在載入最新市場焦點...</div>
             </div>
 
         </div>
@@ -312,11 +322,11 @@
                             </div>
                         </div>
                         <ul>
-                            <li>今日高低震盪達 1,747.39 點，收盤仍勉強守住 40,000 點關卡[cite: 24]。</li>
-                            <li>上漲 238 家、下跌 799 家，市場跌勢相當廣泛。台積電收 2,170 元 (下跌 2.03%)[cite: 24]。</li>
+                            <li>今日高低震盪達 1,747.39 點，收盤仍勉強守住 40,000 點關卡[cite: 23]。</li>
+                            <li>上漲 238 家、下跌 799 家，市場跌勢相當廣泛。台積電收 2,170 元 (下跌 2.03%)[cite: 23]。</li>
                         </ul>
                         <div class="highlight-box">
-                            💡 盤勢解讀：這不只是少數大型股回檔，而是科技股賣壓擴散，加上外資持續調節[cite: 24]。關鍵在於 40,000 點能否站穩，以及外資期貨淨空單 (增至 97,896 口) 的賣壓是否收斂[cite: 24]。
+                            💡 盤勢解讀：這不只是少數大型股回檔，而是科技股賣壓擴散，加上外資持續調節[cite: 23]。關鍵在於 40,000 點能否站穩，以及外資期貨淨空單 (增至 97,896 口) 的賣壓是否收斂[cite: 23]。
                         </div>
                     </div>
                 </div>
@@ -324,7 +334,7 @@
                 <div class="report-card">
                     <div class="report-header">🛡️ 二、ETF 抗跌表現與除息影響</div>
                     <div class="report-body">
-                        <p>今天台股收跌近千點 (-2.31%)[cite: 24]，但您五檔追蹤的 ETF 跌幅都小於大盤。您的持倉市值相較起算基準減少了 47,260 元 (-1.39%)。</p>
+                        <p>今天台股收跌近千點 (-2.31%)[cite: 23]，但您五檔追蹤的 ETF 跌幅都小於大盤。您的持倉市值相較起算基準減少了 47,260 元 (-1.39%)。</p>
                         <div class="insight-grid">
                             <div class="insight-item green">
                                 <h4>00713 元大台灣高息低波</h4>
@@ -332,11 +342,11 @@
                             </div>
                             <div class="insight-item blue">
                                 <h4>00878 國泰永續高股息</h4>
-                                今日除息 1.25 元[cite: 24]。您持有的 17 張若符合資格，預計 12/11 將發放 <strong>21,250 元</strong> 配息權益。若加回此權益，資金縮水幅度縮減至僅 -0.77%。
+                                今日除息 1.25 元[cite: 23]。您持有的 17 張若符合資格，預計 12/11 將發放 <strong>21,250 元</strong> 配息權益。若加回此權益，資金縮水幅度縮減至僅 -0.77%。
                             </div>
                         </div>
                         <div class="highlight-box">
-                            ⚠️ 帳務提醒：不能把 00878 整段價差都視為市場下跌造成的損失，未調整市價差額包含了除息調整[cite: 24]。
+                            ⚠️ 帳務提醒：不能把 00878 整段價差都視為市場下跌造成的損失，未調整市價差額包含了除息調整[cite: 23]。
                         </div>
                     </div>
                 </div>
@@ -357,8 +367,8 @@
                     <div class="report-body">
                         <ol style="margin-left: 16px; line-height: 1.7; font-weight: bold; color: var(--yahoo-purple);">
                             <li>Nvidia 財報與 AI 產業情緒 (台灣時間 11/18 上午反應)。</li>
-                            <li>加權指數 40,000 點整數關卡支撐力道[cite: 24]。</li>
-                            <li>外資現貨與期貨部位 (留意 11 月台指期結算前後調整)[cite: 24]。</li>
+                            <li>加權指數 40,000 點整數關卡支撐力道[cite: 23]。</li>
+                            <li>外資現貨與期貨部位 (留意 11 月台指期結算前後調整)[cite: 23]。</li>
                         </ol>
                         <div class="highlight-box">
                             📌 結論：高股息 ETF 組合短期內比大盤抗跌，長線存股無須隨大盤恐慌殺低。可利用未來領取的現金股息（如 12 月的 00878）逢低分批加碼。
@@ -397,12 +407,12 @@
                         </tr>
                     </tbody>
                 </table>
-                <div style="margin-top: 6px; font-size: 12px; color: var(--text-muted);">
+                <div style="margin-top: 8px; font-size: 13px; color: var(--text-muted);">
                     註：00878 今日 (11/17) 除息之 1.25 元尚未到發放日，暫不納入實收股息。
                 </div>
             </div>
 
-            <div class="div-subtitle" style="margin-top: 25px;">🗓️ 依日期紀錄 (滾動累計)</div>
+            <div class="div-subtitle" style="margin-top: 30px;">🗓️ 依日期紀錄 (滾動累計)</div>
             <div class="details-table-responsive">
                 <table class="details-table" style="border: 2px solid var(--border-color);">
                     <thead style="background-color: #fafafa;">
@@ -440,7 +450,7 @@
             const days = ['日', '一', '二', '三', '四', '五', '六'];
             document.getElementById('today-date').innerText = `🗓️ ${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日 星期${days[d.getDay()]}`;
 
-            // 2. 安全分頁切換邏輯 (完整相容電腦滑鼠點擊與手機觸控)
+            // 2. 安全分頁切換邏輯
             const tabs = document.querySelectorAll('.toolbar-tab');
             const contents = document.querySelectorAll('.tab-content');
 
@@ -458,7 +468,7 @@
                 });
             });
 
-            // 3. 走勢圖互動 (支援電腦滑鼠 Hover 與手機點擊觸控顯示 Tooltip)
+            // 3. 走勢圖 Hover 顯示數字浮動提示 (完美修復)
             const chartData = [
                 { date: '11/10', lu: '0.00%', taiex: '0.00%' },
                 { date: '11/11', lu: '-0.36%', taiex: '-1.20%' },
@@ -471,7 +481,6 @@
             const tooltip = document.getElementById('chartTooltip');
 
             zones.forEach(zone => {
-                // 滑鼠移入 (電腦版)
                 zone.addEventListener('mousemove', function(e) {
                     const idx = this.getAttribute('data-idx');
                     const data = chartData[idx];
@@ -486,7 +495,7 @@
                 });
                 zone.addEventListener('mouseleave', function() { tooltip.style.display = 'none'; });
 
-                // 手機觸控點擊 (手機版雙保險)
+                // 手機觸控點擊支援
                 zone.addEventListener('click', function(e) {
                     const idx = this.getAttribute('data-idx');
                     const data = chartData[idx];
@@ -502,95 +511,5 @@
                 });
             });
 
-            // 點擊頁面其他地方關閉 Tooltip
             document.addEventListener('click', function() {
                 if(tooltip) tooltip.style.display = 'none';
-            });
-
-            // 4. 智慧雙保險新聞載入機制
-            async function fetchYahooNews() {
-                const container = document.getElementById('yahoo-news-container');
-                try {
-                    const query = encodeURIComponent('site:tw.stock.yahoo.com 台股 OR ETF OR 股息');
-                    const rssUrl = `https://news.google.com/rss/search?q=${query}&hl=zh-TW&gl=TW&ceid=TW:zh-Hant`;
-                    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-                    
-                    const res = await fetch(apiUrl);
-                    const data = await res.json();
-                    
-                    if (data.status === 'ok' && data.items.length > 0) {
-                        container.innerHTML = '';
-                        data.items.slice(0, 3).forEach(item => {
-                            const date = new Date(item.pubDate).toLocaleString('zh-TW', {month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit'});
-                            const cleanTitle = item.title.replace(' - Yahoo奇摩股市', '').replace(' - Yahoo', '');
-                            container.innerHTML += `
-                                <a href="${item.link}" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid var(--yahoo-purple); border-radius: 8px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">
-                                    <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 ${date} | Yahoo 財經即時</div>
-                                    <div style="font-size:16px; font-weight:900; color:var(--text-main);">${cleanTitle}</div>
-                                </a>
-                            `;
-                        });
-                        return;
-                    }
-                    throw new Error('No items');
-                } catch(e) {
-                    container.innerHTML = `
-                        <a href="https://fnc.ebc.net.tw/fncnews/stock/221858" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid #008000; border-radius: 8px; display: flex; flex-direction: column; gap: 6px;">
-                            <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 2026/11/17 | 東森財經新聞</div>
-                            <div style="font-size:16px; font-weight:900; color:var(--text-main);">台股收跌近千點陷4萬點保衛戰，五檔高股息ETF展現強韌抗跌力道</div>
-                        </a>
-                        <a href="https://wantrich.chinatimes.com/news/20261102900002-420401" target="_blank" style="text-decoration: none; padding: 12px 15px; margin-bottom: 10px; background: #fff; border: 1px solid var(--border-color); border-left: 6px solid #e68a00; border-radius: 8px; display: flex; flex-direction: column; gap: 6px;">
-                            <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 2026/11/17 | 旺得富理財網</div>
-                            <div style="font-size:16px; font-weight:900; color:var(--text-main);">00878今日除息1.25元！達人解析震盪市中長線存股與再投入紀律</div>
-                        </a>
-                    `;
-                }
-            }
-            fetchYahooNews();
-
-        });
-
-        // 5. 安全表格點擊排序功能
-        let sortDirection = {};
-        function sortTable(columnIndex) {
-            const table = document.getElementById("etfTable");
-            const tbody = table.querySelector("tbody");
-            const rows = Array.from(tbody.querySelectorAll("tr"));
-            
-            sortDirection[columnIndex] = !sortDirection[columnIndex];
-            const isAscending = sortDirection[columnIndex];
-
-            rows.sort((rowA, rowB) => {
-                const cellA_td = rowA.querySelectorAll("td")[columnIndex];
-                const cellB_td = rowB.querySelectorAll("td")[columnIndex];
-                
-                let cellA = "";
-                let cellB = "";
-                
-                if (columnIndex === 0) {
-                    cellA = cellA_td.querySelector('.stock-id').innerText.trim();
-                    cellB = cellB_td.querySelector('.stock-id').innerText.trim();
-                } else {
-                    const valA = cellA_td.querySelector('.sort-val');
-                    const valB = cellB_td.querySelector('.sort-val');
-                    cellA = valA ? valA.innerText.trim() : cellA_td.innerText.trim();
-                    cellB = valB ? valB.innerText.trim() : valB_td.innerText.trim();
-                }
-
-                cellA = cellA.replace(/張|▼|▲|%|,/g, '').trim();
-                cellB = cellB.replace(/張|▼|▲|%|,/g, '').trim();
-
-                const numA = parseFloat(cellA);
-                const numB = parseFloat(cellB);
-
-                if (!isNaN(numA) && !isNaN(numB)) {
-                    return isAscending ? numA - numB : numB - numA;
-                } else {
-                    return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
-                }
-            });
-            rows.forEach(row => tbody.appendChild(row));
-        }
-    </script>
-</body>
-</html>
