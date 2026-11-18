@@ -5,7 +5,6 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 import yfinance as yf
 
-# 您的五檔 ETF 持倉設定 (張數)
 HOLDINGS = [
     {"id": "0056.TW", "name": "元大高股息", "lots": 21},
     {"id": "00919.TW", "name": "群益台灣精選高息", "lots": 25},
@@ -14,6 +13,31 @@ HOLDINGS = [
     {"id": "00918.TW", "name": "大華優利高填息30", "lots": 12},
 ]
 BASELINE_VALUE = 3390630  # 追蹤起算基準市值 (11/16)
+
+def get_quote(symbol):
+    try:
+        hist = yf.Ticker(symbol).history(period="5d").dropna(subset=["Close"])
+        if len(hist) == 0:
+            return None
+        latest = hist.iloc[-1]
+        prev = hist.iloc[-2] if len(hist) >= 2 else latest
+        close = round(float(latest["Close"]), 2)
+        prev_close = float(prev["Close"])
+        change = round(close - prev_close, 2)
+        change_pct = round((change / prev_close) * 100, 2) if prev_close else 0.0
+        high = round(float(latest["High"]), 2)
+        low = round(float(latest["Low"]), 2)
+        return {
+            "close": close,
+            "change": change,
+            "change_pct": change_pct,
+            "high": high,
+            "low": low,
+            "range": round(high - low, 2),
+        }
+    except Exception as e:
+        print(f"抓取 {symbol} 失敗: {e}")
+        return None
 
 def fetch_stock_data():
     histories = {}
@@ -50,7 +74,7 @@ def fetch_stock_data():
     for etf in etf_results:
         etf["weight"] = round((etf["market_val"] / total_value) * 100, 2) if total_value else 0.0
 
-    # 抓取台灣加權指數 (^TWII) 計算近 6 個交易日對照走勢
+    # 台灣加權指數 (^TWII)
     taiex_hist = yf.Ticker("^TWII").history(period="15d").dropna(subset=["Close"])
     recent_dates = taiex_hist.index[-6:]
 
@@ -63,7 +87,6 @@ def fetch_stock_data():
         p_val = 0.0
         for item in HOLDINGS:
             h = histories[item["id"]]
-            # 取該日或該日之前最近一筆收盤價
             sub = h.loc[:dt]
             c = float(sub.iloc[-1]["Close"]) if len(sub) > 0 else float(h.iloc[0]["Close"])
             p_val += c * item["lots"] * 1000
@@ -80,10 +103,24 @@ def fetch_stock_data():
         })
 
     latest_date_str = recent_dates[-1].strftime("%Y/%m/%d")
-    taiex_latest = round(float(taiex_hist.iloc[-1]["Close"]), 2)
-    taiex_prev = float(taiex_hist.iloc[-2]["Close"])
-    taiex_diff = round(taiex_latest - taiex_prev, 2)
+    taiex_latest_row = taiex_hist.iloc[-1]
+    taiex_prev_row = taiex_hist.iloc[-2]
+    taiex_close = round(float(taiex_latest_row["Close"]), 2)
+    taiex_prev = float(taiex_prev_row["Close"])
+    taiex_diff = round(taiex_close - taiex_prev, 2)
     taiex_diff_pct = round((taiex_diff / taiex_prev) * 100, 2)
+    taiex_high = round(float(taiex_latest_row["High"]), 2)
+    taiex_low = round(float(taiex_latest_row["Low"]), 2)
+
+    # 抓取台積電與國際總經指標 (供第 2 分頁深度解析使用)
+    macro = {
+        "tsmc": get_quote("2330.TW"),
+        "us10y": get_quote("^TNX"),
+        "dxy": get_quote("DX-Y.NYB"),
+        "usdtwd": get_quote("TWD=X"),
+        "nasdaq": get_quote("^IXIC"),
+        "sox": get_quote("^SOX"),
+    }
 
     return {
         "trade_date": latest_date_str,
@@ -91,10 +128,14 @@ def fetch_stock_data():
         "baseline_diff": total_value - BASELINE_VALUE,
         "baseline_diff_pct": round(((total_value - BASELINE_VALUE) / BASELINE_VALUE) * 100, 2),
         "taiex": {
-            "close": taiex_latest,
+            "close": taiex_close,
             "change": taiex_diff,
             "change_pct": taiex_diff_pct,
+            "high": taiex_high,
+            "low": taiex_low,
+            "range": round(taiex_high - taiex_low, 2),
         },
+        "macro": macro,
         "etfs": etf_results,
         "chart": chart_points,
     }
@@ -127,4 +168,4 @@ if __name__ == "__main__":
 
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"更新完成！資料日期: {output['trade_date']}，總市值: {output['total_value']}")
+    print(f"更新完成！資料日期: {output['trade_date']}，大盤: {output['taiex']['close']}")
