@@ -467,7 +467,7 @@
                     if (!res.ok) throw new Error('尚無 data.json');
                     const data = await res.json();
 
-                    // 更新標題日期與最後更新時間
+                    // 更新標題日期
                     document.getElementById('today-date').innerText = `🗓️ 資料日期：${data.trade_date} (更新於 ${data.updated_at})`;
 
                     // 更新總市值與基準損益
@@ -510,12 +510,12 @@
                         }).join('');
                     }
 
-                    // 重畫 SVG 走勢圖與游標
+                    // 重畫第 1 分頁走勢圖
                     if (data.chart && data.chart.length >= 2) {
                         renderChart(data.chart);
                     }
 
-                    // 渲染由背景抓好的 Yahoo 新聞 (無 CORS 問題)
+                    // 更新第 1 分頁 Yahoo 新聞
                     const newsBox = document.getElementById('yahoo-news-container');
                     if (newsBox && data.news && data.news.length > 0) {
                         newsBox.innerHTML = data.news.slice(0, 4).map(item => {
@@ -528,9 +528,108 @@
                             `;
                         }).join('');
                     }
+
+                    // ★ 自動更新第 2 分頁：深度解析與策略
+                    renderAnalysis(data);
                 } catch (err) {
                     console.log('使用預設靜態資料顯示:', err);
                 }
+            }
+
+            function renderAnalysis(data) {
+                const tab = document.getElementById('tab-analysis');
+                if (!tab || !data.taiex || !data.etfs) return;
+
+                const t = data.taiex;
+                const m = data.macro || {};
+                const tUp = t.change >= 0;
+                const tColor = tUp ? 'var(--up-red)' : 'var(--down-green)';
+                const tArrow = tUp ? '▲' : '▼';
+
+                // 找出今日表現最強與最弱的 ETF，以及贏過大盤的檔數
+                const sorted = [...data.etfs].sort((a, b) => b.change_pct - a.change_pct);
+                const best = sorted[0];
+                const worst = sorted[sorted.length - 1];
+                const beatCount = data.etfs.filter(e => e.change_pct > t.change_pct).length;
+
+                const lastChart = data.chart[data.chart.length - 1];
+                const weekSpread = (lastChart.lu - lastChart.taiex).toFixed(2);
+
+                const fmtQ = (q, suffix = '') => q ? `${q.close.toLocaleString()}${suffix} (${q.change >= 0 ? '+' : ''}${q.change_pct.toFixed(2)}%)` : '暫無資料';
+
+                const marketComment = tUp
+                    ? `今日大盤止穩反彈，收在 ${t.close.toLocaleString()} 點。後續觀察量能是否延續，以及權值股與高股息族群的輪動節奏。`
+                    : `今日大盤承壓回檔 ${Math.abs(t.change).toLocaleString()} 點，盤中高低震盪達 ${t.range.toLocaleString()} 點。短線留意整數關卡支撐與外資籌碼動向。`;
+
+                tab.innerHTML = `
+                    <div class="section-title" style="border-top:none;">📈 ${data.trade_date} 個人 ETF 與市場財經摘要</div>
+                    <div class="report-container">
+                        <div class="report-card">
+                            <div class="report-header">🌍 一、今日市場總覽</div>
+                            <div class="report-body">
+                                <div style="display:flex; gap:24px; flex-wrap:wrap; margin-bottom:12px;">
+                                    <div>
+                                        <span style="font-size:12px; color:#666;">加權指數收盤</span><br>
+                                        <span style="font-size:20px; font-weight:900; color:${tColor};">${t.close.toLocaleString()} (${tArrow} ${Math.abs(t.change).toLocaleString()} / ${t.change_pct >= 0 ? '+' : ''}${t.change_pct.toFixed(2)}%)</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-size:12px; color:#666;">今日盤中高低震盪</span><br>
+                                        <span style="font-size:20px; font-weight:900;">${t.range.toLocaleString()} 點</span>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li>盤中最高 <strong>${t.high.toLocaleString()}</strong> 點、最低 <strong>${t.low.toLocaleString()}</strong> 點。</li>
+                                    <li>台積電 (2330.TW) 最新收盤：<strong>${fmtQ(m.tsmc, ' 元')}</strong>。</li>
+                                </ul>
+                                <div class="highlight-box">💡 盤勢解讀：${marketComment}</div>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">🛡️ 二、ETF 表現與投組分析</div>
+                            <div class="report-body">
+                                <p>今日五檔追蹤 ETF 中，共有 <strong>${beatCount} 檔</strong>表現優於大盤；目前總持倉市值 <strong>$${data.total_value.toLocaleString()}</strong>，相較 11/16 起算基準變動 <strong>${data.baseline_diff >= 0 ? '+' : ''}${data.baseline_diff.toLocaleString()} 元 (${data.baseline_diff_pct >= 0 ? '+' : ''}${data.baseline_diff_pct.toFixed(2)}%)</strong>。</p>
+                                <div class="insight-grid">
+                                    <div class="insight-item green">
+                                        <h4>今日最強：${best.id.replace('.TW','')} ${best.name}</h4>
+                                        收盤 ${best.close.toFixed(2)} 元，漲跌幅 <strong>${best.change_pct >= 0 ? '+' : ''}${best.change_pct.toFixed(2)}%</strong>，展現組合防禦與撐盤力道。
+                                    </div>
+                                    <div class="insight-item orange">
+                                        <h4>今日偏弱：${worst.id.replace('.TW','')} ${worst.name}</h4>
+                                        收盤 ${worst.close.toFixed(2)} 元，漲跌幅 <strong>${worst.change_pct >= 0 ? '+' : ''}${worst.change_pct.toFixed(2)}%</strong>，短線波動相對較大。
+                                    </div>
+                                </div>
+                                <div class="highlight-box">
+                                    📌 除息權益備忘：00878 已於 11/17 除息 1.25 元，17 張預計 12/11 發放 <strong>21,250 元</strong>配息（尚未入帳前不計入實收股息）。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">🌐 三、國際政經與環境變數 (自動同步最新報價)</div>
+                            <div class="report-body">
+                                <ul>
+                                    <li><strong>美股科技風向：</strong> Nasdaq ${fmtQ(m.nasdaq)}；費城半導體指數 ${fmtQ(m.sox)}。</li>
+                                    <li><strong>利率與美元：</strong> 美國 10 年期公債殖利率約 <strong>${m.us10y ? m.us10y.close.toFixed(2) + '%' : '暫無資料'}</strong>；美元指數約 <strong>${m.dxy ? m.dxy.close.toFixed(2) : '暫無資料'}</strong>。</li>
+                                    <li><strong>匯率動態：</strong> 美元兌新台幣約 <strong>${m.usdtwd ? m.usdtwd.close.toFixed(3) : '暫無資料'}</strong>，持續牽動外資現貨與期貨資金流向。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">🎯 四、波段追蹤結論</div>
+                            <div class="report-body">
+                                <ol style="margin-left:16px; line-height:1.7; font-weight:bold; color:var(--yahoo-purple);">
+                                    <li>近一週投組累計 ${lastChart.lu >= 0 ? '+' : ''}${lastChart.lu.toFixed(2)}%，相較大盤 (${lastChart.taiex >= 0 ? '+' : ''}${lastChart.taiex.toFixed(2)}%) ${weekSpread >= 0 ? '跑贏' : '落後'} ${Math.abs(weekSpread)}%。</li>
+                                    <li>持續追蹤 00878 填息進度，以及美股科技股與美債殖利率變化。</li>
+                                </ol>
+                                <div class="highlight-box">
+                                    📌 操作紀律：高股息 ETF 組合以分散配置與穩定現金流為核心，無須隨短線震盪恐慌殺低，可善用後續入帳股息逢低分批加碼。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
             }
 
             function renderChart(points) {
@@ -631,6 +730,6 @@
             });
             rows.forEach(r => tbody.appendChild(r));
         }
-</script>
+ </script>
 </body>
 </html>
