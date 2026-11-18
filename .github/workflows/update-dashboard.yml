@@ -1,0 +1,36 @@
+name: 自動更新股市儀表板
+
+on:
+  schedule:
+    # 設定每天台灣時間下午 4:30（UTC 08:30）自動執行一次
+    - cron: '30 8 * * 1-5'
+  workflow_dispatch:允许手動觸發
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 簽出專案程式碼
+        uses: actions/checkout@v4
+
+      - name: 設定 Node.js 環境
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 執行資料更新與編譯
+        run: |
+          echo "正在抓取最新市場資料..."
+          # 您可以在這裡加入自動抓取 API 或更新 index.html 的指令
+          date -u "+%Y-%m-%d %H:%M:%S UTC" > last-update.txt
+
+      - name: 自動提交並推送到 GitHub
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "自動更新每日股市與新聞資料 (自動化執行)" || exit 0
+          git push
