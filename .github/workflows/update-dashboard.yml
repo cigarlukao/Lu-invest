@@ -2,27 +2,28 @@ name: 自動更新股市儀表板
 
 on:
   schedule:
+    # 每天台灣時間下午 4:30（UTC 08:30）自動執行
     - cron: '30 8 * * 1-5'
-  workflow_dispatch:
+  workflow_dispatch: # 支援隨時手動點擊執行
 
 permissions:
   contents: write
 
 jobs:
-  update-dashboard:
+  keep-alive:
     runs-on: ubuntu-latest
     steps:
       - name: 簽出專案
         uses: actions/checkout@v4
 
-      - name: 更新狀態檔
+      - name: 更新最後同步時間
         run: |
-          echo "Last updated on $(date)" > last-update.txt
+          date -u "+%Y-%m-%d %H:%M:%S UTC" > sync-log.txt
 
-      - name: 提交並推送更新
+      - name: 自動提交更新
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          git add .
-          git commit -m "自動更新儀表板狀態 [skip ci]" || exit 0
+          git add sync-log.txt
+          git commit -m "系統自動同步狀態 [skip ci]" || exit 0
           git push
