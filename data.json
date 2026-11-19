@@ -29,20 +29,20 @@
       "range": 0.07
     },
     "dxy": {
-      "close": 103.82,
-      "change": -0.04,
-      "change_pct": -0.04,
+      "close": 103.69,
+      "change": -0.17,
+      "change_pct": -0.16,
       "high": 103.97,
-      "low": 103.77,
-      "range": 0.2
+      "low": 103.66,
+      "range": 0.31
     },
     "usdtwd": {
-      "close": 32.92,
-      "change": 0.01,
-      "change_pct": 0.03,
+      "close": 32.94,
+      "change": 0.03,
+      "change_pct": 0.09,
       "high": 33.03,
-      "low": 32.91,
-      "range": 0.12
+      "low": 32.9,
+      "range": 0.13
     },
     "nasdaq": {
       "close": 24429.88,
@@ -150,32 +150,32 @@
       "taiex": -10.83
     }
   ],
-  "updated_at": "2026年11月19日 15:48",
+  "updated_at": "2026年11月19日 17:32",
   "news": [
     {
-      "title": "台股摔破3萬9！小資族搶買0050 零股一天爆3775萬股股市",
-      "link": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxNWmhvMDZFWnBsRjJwSkx0bU9UbU1sN2lIdVdoS0xYTW95NFZSUVgwSmRuX19vSjhYSGNnVnMwcGhnaHJVQWV5QURhanRwUHNiMmo3Y0pWakJzbWlLRGlrbnFxZGQ1cDdCd3lpa0lRaGxYUllsTUR1MjZFVEQtb1JuRHNtMF84ajBTUnM2X1Awc3BLeWhPTFhndW40V25pNUFvcHpZS1c1UlNnemp2Y3FpcFNwZ2F2akNWU2h5eXEtdzZBTWRBVWFqR21XOENoWXRYdjN0RFI1WjBSQ3FIWUYxTFlUZnJkOTQydUdfYmx1bWRxRF9HeWJOUk1zTmRiaTlvX3FWSTJhUGRqTEMwUmotN1JWLTE0Ry11UTdLMi11dFV6MklOQ2txVV9jM0xEWUVSbnVvRUJpRnVYbTdpTXZLbGVn?oc=5",
-      "pubDate": "Thu, 19 Nov 2026 05:51:25 GMT"
+      "title": "台股暴跌國家隊出手救！八大公股砸狂掃「6檔ETF」股市",
+      "link": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxPY04xNGcyWHlkWDdPTTJ6eUZtcU9WTjB0aGJ1d1owTmZCeXVpZmdESVlSRk5semxVdWtlWWNjSk5KdHVvcEt1UEd0b21PUFl1RGgwd2JFYTZRU3BSYWpIUzk3bHBLekxMWmlzNGJzLW10a1p5Q0NoMkN2dnFpdUlubkNKTldVTHlya1FwNk1zak1mNE1aaEl2Q3F3WUdSRzd2NThuV3NVaXlWSTlQTlp0ekJKcjI4aUQ5WTU4VkVJWi03aWx4Yk12ZWJOemlVTjlNSHppaFF1QjRXa0RzckY1VXJZeDlCa3dCY0ttYkgta19hVmY0TFU3Sk53bWdKckFvRWhJcHVpTmFGT09IX2NjM1pKUWNQTHRWQTU1SG9QRXJ4VXFZc0dxRklPbUhab21GbFJ6UzhEZmVMQjg?oc=5",
+      "pubDate": "Tue, 17 Nov 2026 03:50:15 GMT"
     },
     {
-      "title": "台股收盤跌1768點「史上第7大」！市值蒸發逾5兆元 等於少掉1家鴻海股市",
-      "link": "https://news.google.com/rss/articles/CBMiqgNBVV95cUxOZktXNGltR3pXX3J2eVU3LW1YSmI1Y1pUZ1FnX1I1dmdKaFBYY0FKa05UMF9kU0ZLRmJOc3RTbkxjazl5SHFBWTdWdFNqOTdPbXdxX3lhY2tWa245bUlVQVdvRXdwOXI1OURUdE1GX2ZTMkdqc3VER05hemtWYmJkQzFRNndURnBMVFUtNTZuc0pDZmhXZVJmeVNwbGd3MDRXdmJnUHo3aVE4U1Jyc3E2Sm80d3c0bG5RdjdBQ293Qm9CdTM1MzQ0eloxb2RrcnNUMXNqczY4SU1xVnF6b2F4b0dxS18xWWVnYmhiT29ubmgxTkhxTU9WVzl0bV9sYUtDeXQyeGlnbzZFQ2UtdkZ6cmZvUUtPZmNBY192TE9qMy10a0M3REZDV0lla09RbURSZW1RMHhGb3k5LXpWOXE2VXRfWmVpSnhYTmdkWWxUdWMzTXgzMHZXRUM3VkRUWTlmT1B2TFhxTDlVUGEwV1RNR3luWW5vc0J1Ul9veDh6TkpqbDZkN213ajFIMl9JMFVsdUEtS1VWS0x5b3FKUVhLaWNkYnVFbnBGZkE?oc=5",
-      "pubDate": "Thu, 19 Nov 2026 06:22:30 GMT"
+      "title": "5檔ETF換股！00940「10進10出」 刪英業達、聯發科增南亞科股市",
+      "link": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxQRDVXdEVwNUhRZWlFRXIzS003QTlZX1VSVkRmdHAxWXN4WXBaZ08xdnFhRjYxaDJYeGVPTUFiYnczNFZDSDllV2NGQ2JZNE5FbEpadzc4d2JoQjFPbnNyeHlReDVwX2txZ1Y4a01KblpSdlFtZUl3NWlKd05Vci1iQ2l2ZEdtTlFGLUlVUy1xSWdyVDhMbkgxVGZlU2pXbkdkcEhQdlRxMGdva056Qm9NbFg4VHozX3BRdEZzdUVDbzdVWjJMWTBfLVBNcXF6SFoxRGkzRUtLOG8tXzBCMGhVYVo4MHdZeUxXU19yeHVHckZxaUZiMzJkcHlsOHdaTGgxRm8wTnlselFTZWpRTS1tUWNKcTJPM1VXcEhtajI1cXlQd2JSWWd4S3JTdWFzeGFGSzFtOXgyX1lKaDFMbjFaWTFEMGtYVGpDYjVmOEd5SnZhQ3dkX01mUFAwMTZjZw?oc=5",
+      "pubDate": "Tue, 17 Nov 2026 09:25:11 GMT"
+    },
+    {
+      "title": "Bitwise申請德州交易所掛牌Zcash現貨ETF股市",
+      "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOYi1WTXdZRkIzZE4zNEh5RzBsSGZ0TENkaGlVWDZPbzVnVjNqQTJLSzhYY2JLNVlnNHR6LVpRc29sS1ZOMEdVbVcyX0NPOHdIcVQzalROVTNIaHVqUzdVMk9lbDE5U21oSEE1ZHBZc0ZaZUVRMEVLOUhwYUVTNXIyYURiLWZCU3lnbXRlc05pXzY5UnhpZVcyVUpqWFpka1JBTVFIdlVSTlNHeUcxZlZueDkxT3FHb0lGMk95TnhaVnYwd0Jzak1mNlJBVHFTSm01dHJMYjNReno0LXJha1lvN21CWVRkajhVc2tMTks4Q2JWMUU?oc=5",
+      "pubDate": "Thu, 19 Nov 2026 02:16:13 GMT"
+    },
+    {
+      "title": "台股崩盤2635點！郭哲榮預告「多頭歸隊」時間 可閉眼買股市",
+      "link": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxPV0tyYlBsLURfUTFVZWM5a1pVSFk0WGRsMFFUeEtYSTIxWTQyM0JFTm1FX0JEMDdidmRkWTg0enlnQWR6RklsXzMyajg0cW00b3RUbFRNRmlnN0hFaTlxZFNTX2FRQS1WQnUxeGxlUV8ybVVRQl9FNWJuMHhrNE9nNEdYQ2dJS0JzNXBwSXUwWEJ2dlZfQ1BfM3lRR3hQN1FMR3NXVFhFTm03Y1FaSVFGRGptX3ZXdDV3bTdSTGN6WXJwZ3RDWEVTN2lTci1KMlFYanBLSTY3OXJ3a21nYmNOenlHbms3ckFjY3hnZVV3YkRkYmpTcGRQaEZpNzF1N2RtaUNkVFZSRGdJdzNzRU9id0NzN2ZWclVHaVZfeUQ3TVFHZzlmUkFncVhDY1I1QnhNNFhoNTduZnhaanJPTlhSV2pmZU1qWGNMQ19jdjU4UWRZNmI4TGc?oc=5",
+      "pubDate": "Mon, 16 Nov 2026 22:05:30 GMT"
     },
     {
       "title": "反彈是假象？台股4天崩逾5000點 過來人揭股災血淚：親戚家破人亡股市",
       "link": "https://news.google.com/rss/articles/CBMikgNBVV95cUxPVEwwOXc5X0JrcHBVUVRLTDMzS2U5QzNXckhRTDJtLWRadDVvdEFhbEJLS01LaDlzYTVDSHkxV3B2ZWlmWUdRQWhvc21vdi0zdTVIdTlJcnlyajRTYlB3akpWUXhZSUVQSUdaWGF4VUlHMm1YWmRhZDg5RWZhWnNaQ1FXUnNFNEZWYzNQUmUxdUhFb2w1SWt0djJzYXg4ZGZKbzZuMmdXci1Ya2dlbnRiYnUtM3F6cnBVVFVkeVljemhvYkdjMGpWcWRKbEhKX080NUJDYnZjRTkxOGp1aTFyd2gzMmk3a1Y5SXJ0RDVnN3RlWWNlN2tsaGFPZzlSa0xiU0dGdXZDblNZYnlnS3JPN3pKSG1kdGZlbEJFZHhONG90QWowQTVjXzFELXRhXzFLakcxSG5yaHhRV08zZy1kdVo0SHpTV3pfMXBUVVFwQmx3NlY3SnFyb2xYUVJJQl8xREFWR1dNTUV0dk1taFNSNVZvY0V2UW9qUXkyd0Fxd0lCTl9nd3JNSEdLSUFiS3ZDYmc?oc=5",
       "pubDate": "Thu, 19 Nov 2026 05:06:28 GMT"
-    },
-    {
-      "title": "台股摔回3萬8！ 他喊電源、散熱跌過頭 網吵翻：是校正回歸股市",
-      "link": "https://news.google.com/rss/articles/CBMi6wJBVV95cUxQS3lIMTJiaEZfQ3dhOXBLSWk4QTFYaDdOTC1DT3lHX1FtcXR0WGFqeWh3RHhjLWs3QkV4WlVxSjRvR2Q3RDRORFEwU0c2LVdtZUtlUjZrQkNWUEZ1aTk3ZVJOdU5ZVHNyZEt0cnhzdmdzQjRrQUJGZmg1cUQxbHRSM05vTzRPWG5TVXdUZVhRd2VEVmJndDFxcjNqLTVvV1NBbEI4c2EwenBWRktNamtiZ2VUSWVNQUFqNXJYRkpua1Y3T093Z0F4QVlJVGlHdkJJVGtlV1I1clVpZjlJbXFKeTRaU25VVGMyRG1XYTJZOUZ4bU1oU1pEcHc2Q2hOc0wtVzBjNWFCaDdtaURHZXlzdDFranF6SEJINW1wRVBJNjE2dzNmOXhLTjExZ3dZZ2lFaTNFUFVhSzVTckFUcmREQ2NNS1V5dWNmNG0xOEJDbDMwTndscGxiYk5KallTckoxNlExSW84UnpKaWM?oc=5",
-      "pubDate": "Thu, 19 Nov 2026 05:54:22 GMT"
-    },
-    {
-      "title": "【Hot台股】台達電高點以來跌破六成 網喊「1000城牆破了」分析師：別急著抄底股市",
-      "link": "https://news.google.com/rss/articles/CBMi5gNBVV95cUxQS0dOZFlFMGF0WFVlVGtxOXRpRkR1ZS02MlpBMWRIeU0wSUxpVFp6aVo2SEpuQU44QU9UbjVFWGdfZDNRQXhsR1hvT244ZW1PWVJSRk1WclBGVl9ldlc3SVBQYl94NDVpaURCMW9lLTU1MHVnWld5bF9WR3FHTlBBWXJKZFo2M1d4NmRVMk5nUzh6U0FYVm9ZVjJISnJvWWZ1Y01WOUVORmxOY3R6LWd5YXA0THdOMU5NbFp5a01JUFZiTVd1S0dxVS1DMmQzeHFQbHFzTUo4MUpUVEtSakhpOVJHZWgyZlJyYklVajdyUndLQmlLcVkxWTdCdVNqLTFmSXE1OUdLZDhiaHNDV1BMTzVEUDJFZEkwbWc2bFA0R29vaG1FX25NMjFpZTVLNk4yNGg1NVlhbHZiRUItbDI5SENKN1BLdzgxYnJpQlE0ME1BRDA3bGY2cjBESmkyalloeUxHRUZQNTlBUWU0Y2gwZTVzaU5MemYyMkNuOUxqc2lBbjdCaTFoTU1KUzU0N0ZoOVM1TmhiaHRsTDhZdGctZllfZTE4ejdxSklrQjF5d05hVkJ4WW9WWEo2TWpSQWxXSGFnbnhsN0tQMFhfU0FZai1BTHNpWG1xNWdYcWctN3VYNjNzaGc?oc=5",
-      "pubDate": "Thu, 19 Nov 2026 03:54:57 GMT"
     }
   ]
 }
