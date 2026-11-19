@@ -1,15 +1,15 @@
 {
-  "trade_date": "2026/11/18",
-  "total_value": 3305500,
-  "baseline_diff": -85130,
-  "baseline_diff_pct": -2.51,
+  "trade_date": "2026/11/17",
+  "total_value": 3343370,
+  "baseline_diff": -47260,
+  "baseline_diff_pct": -1.39,
   "taiex": {
-    "close": 40194.91,
-    "change": 102.8,
-    "change_pct": 0.26,
-    "high": 40938.2,
-    "low": 39260.99,
-    "range": 1677.21
+    "close": 40092.11,
+    "change": -947.97,
+    "change_pct": -2.31,
+    "high": 41533.84,
+    "low": 39786.45,
+    "range": 1747.39
   },
   "macro": {
     "tsmc": {
@@ -21,44 +21,44 @@
       "range": 60.0
     },
     "us10y": {
-      "close": 5.1,
-      "change": -0.02,
-      "change_pct": -0.39,
-      "high": 5.15,
-      "low": 5.09,
-      "range": 0.06
+      "close": 5.07,
+      "change": -0.03,
+      "change_pct": -0.59,
+      "high": 5.12,
+      "low": 5.05,
+      "range": 0.07
     },
     "dxy": {
-      "close": 103.76,
-      "change": 0.27,
-      "change_pct": 0.26,
-      "high": 103.86,
-      "low": 103.59,
-      "range": 0.27
+      "close": 103.8,
+      "change": 0.31,
+      "change_pct": 0.3,
+      "high": 103.81,
+      "low": 103.8,
+      "range": 0.01
     },
     "usdtwd": {
-      "close": 32.9,
-      "change": -0.06,
-      "change_pct": -0.18,
-      "high": 33.02,
-      "low": 32.81,
-      "range": 0.21
+      "close": 32.93,
+      "change": 0.02,
+      "change_pct": 0.06,
+      "high": 32.96,
+      "low": 32.92,
+      "range": 0.04
     },
     "nasdaq": {
-      "close": 24328.38,
-      "change": -181.38,
-      "change_pct": -0.74,
-      "high": 24547.66,
-      "low": 23989.09,
-      "range": 558.57
+      "close": 24429.88,
+      "change": 101.5,
+      "change_pct": 0.42,
+      "high": 24538.78,
+      "low": 24225.3,
+      "range": 313.48
     },
     "sox": {
-      "close": 9642.88,
-      "change": 32.23,
-      "change_pct": 0.34,
-      "high": 9745.95,
-      "low": 9295.02,
-      "range": 450.93
+      "close": 9652.8,
+      "change": 9.92,
+      "change_pct": 0.1,
+      "high": 9828.19,
+      "low": 9493.93,
+      "range": 334.26
     }
   },
   "etfs": [
@@ -66,96 +66,101 @@
       "id": "0056.TW",
       "name": "元大高股息",
       "lots": 21,
-      "close": 49.48,
-      "change": -0.44,
-      "change_pct": -0.88,
-      "market_val": 1039080,
-      "volume": 92888,
-      "weight": 31.43
+      "close": 49.92,
+      "change": -0.68,
+      "change_pct": -1.34,
+      "market_val": 1048320,
+      "volume": 69735,
+      "weight": 31.36
     },
     {
       "id": "00919.TW",
       "name": "群益台灣精選高息",
       "lots": 25,
-      "close": 29.99,
-      "change": -0.4,
-      "change_pct": -1.32,
-      "market_val": 749750,
-      "volume": 114233,
-      "weight": 22.68
+      "close": 30.39,
+      "change": -0.11,
+      "change_pct": -0.36,
+      "market_val": 759750,
+      "volume": 65949,
+      "weight": 22.72
     },
     {
       "id": "00713.TW",
       "name": "元大台灣高息低波",
       "lots": 10,
-      "close": 61.75,
-      "change": -1.05,
-      "change_pct": -1.67,
-      "market_val": 617500,
-      "volume": 4776,
-      "weight": 18.68
+      "close": 62.8,
+      "change": -0.15,
+      "change_pct": -0.24,
+      "market_val": 628000,
+      "volume": 5344,
+      "weight": 18.78
     },
     {
       "id": "00878.TW",
       "name": "國泰永續高股息",
       "lots": 17,
-      "close": 30.65,
-      "change": -0.21,
-      "change_pct": -0.68,
-      "market_val": 521050,
-      "volume": 80447,
-      "weight": 15.76
+      "close": 30.86,
+      "change": -0.32,
+      "change_pct": -1.03,
+      "market_val": 524620,
+      "volume": 111259,
+      "weight": 15.69
     },
     {
       "id": "00918.TW",
       "name": "大華優利高填息30",
       "lots": 12,
-      "close": 31.51,
-      "change": -0.38,
-      "change_pct": -1.19,
-      "market_val": 378120,
-      "volume": 26989,
-      "weight": 11.44
+      "close": 31.89,
+      "change": -0.17,
+      "change_pct": -0.53,
+      "market_val": 382680,
+      "volume": 23930,
+      "weight": 11.45
     }
   ],
   "chart": [
     {
-      "date": "11/11",
+      "date": "11/10",
       "lu": 0.0,
       "taiex": 0.0
     },
     {
+      "date": "11/11",
+      "lu": 1.36,
+      "taiex": 3.62
+    },
+    {
       "date": "11/12",
-      "lu": -1.01,
-      "taiex": -2.63
+      "lu": 0.34,
+      "taiex": 0.89
     },
     {
       "date": "11/13",
-      "lu": 0.37,
-      "taiex": -1.32
+      "lu": 1.73,
+      "taiex": 2.26
     },
     {
       "date": "11/16",
-      "lu": -2.93,
-      "taiex": -7.27
+      "lu": -1.61,
+      "taiex": -3.91
     },
     {
       "date": "11/17",
-      "lu": -3.68,
-      "taiex": -9.41
-    },
-    {
-      "date": "11/18",
-      "lu": -4.77,
-      "taiex": -9.18
+      "lu": -2.37,
+      "taiex": -6.13
     }
   ],
-  "updated_at": "2026年11月18日 18:56",
+  "updated_at": "2026年11月19日 08:57",
   "news": [
     {
-      "title": "快訊／台股開盤「下個月有新制」！明年7月還有2優化措施 零股改1秒撮合、千金股1元1跳股市",
-      "link": "https://news.google.com/rss/articles/CBMiqANBVV95cUxPVXhZS1dWR1B1Mm5qbk1KdHBMbW1mbDI5SFV2ZUo4RkhPTWVLUS1OblM4d1ZORWxJamhzUWE2V1FPMHFRMmdTV19zWmFnNVg1R2FhYXF1TWNXSnotWVlaTGFYbUpseHVBTjRzY1Uyd3A4c0d1ZjZ5QkNzQ0ZuNkdERkdzZ0NER2N2Xzg1Sm5iaTU5d1k4WUhQb2ZPaFhCbzlwb0d2b3hNMzVSd2VrbUZQTGxhYm9UTVJmTDNBQzU2cGxHTXAwU19ZdFVFSUNxNXRwSk1laklpdDExTzBlQXdHTjhsVld0MHdiZUFlQkxjMWMxNHJJUExOVzdTY3FocUtwRWlESmplWXN3Wm9MeXliYmx0NkhTdkpKMkZWd2FPVDBrNzFfTW8xNHg5aEdUbm95WTRsWld5d3N3aXh2eGtZYzc4aGdDWmxmXzRrVndXQUw2cF9KcmNhMmswY2RuaHRhZDNxblZ6NzFkZzlkYzlPWDZfUHhaamZnVU9aWVNNTVB2S2xudC1ueFVzZlp2aXVpV01zbWJmNWZhSkVqR3pHOE5KZnVqRlh2?oc=5",
-      "pubDate": "Wed, 18 Nov 2026 09:35:00 GMT"
+      "title": "權值大軍拉一把！台股擁兆元行情守住4萬關 載板衛星齊放閃｜Yahoo財經掃描股市",
+      "link": "https://news.google.com/rss/articles/CBMi2ANBVV95cUxPdG5paFR1ODJwMHpnd2pCUGRUZnZGR19PWmtrZEdXNTdkWEpHTjc2ZmU1dlhzU0dxbldrNl9TMlRzbVJZd2lPa3pOdjRaQ3p4RzRwZy1TX0ZHTHdaVkREUlNPVWljWm9qSUwzeDhlazgxVjQxUmM3cjJUUm4teTZJd1F4ajlYaGlnRmtDS2J3V29hOXRuTFZIWlJxYUY4eFBQbXJXN0I4WEVZNVJacnpUQUZvVHJzd2ttRTRwZlBBcW9fWks4WTB2UUV6RjR2SUVBY2JuUUdYUzhXVTRMcXUxWkdNYmpBTHZDWDY4TWNkalRUbXhIcDFOQ0lWa1VjNEVTVFN0LTlSdTJfOG9OUjhCOHZTdHBYcmZ1WkZiU2tiMjVTZWRyc1BOZC00dW9MdWJKRnF0RWhLV3JZcGplSVFpZm1DcVVDT3RaLUpTQmx1em8wOHlZaDdidFlNZVJpWUFjR2NKYkF2TGZiVnE4aW85eDdKMW42OU9jLUhBdDNHNnEyQmQwNjFwSnJvT0ZRXzJvaUlfWUdSbTQ0SmxkWENxQXdJSl9PQzRLVkVKd3BUNGdlU1ZLNGItNEtkbDhscGVDNmJGWXpVZFV3TnQtYjlqaW1VNGpLQUt1?oc=5",
+      "pubDate": "Wed, 18 Nov 2026 09:25:58 GMT"
+    },
+    {
+      "title": "台股畢業文出現了！他賠234萬上半年獲利全蒸發 釣出一票苦主：這波少了2000萬股市",
+      "link": "https://news.google.com/rss/articles/CBMixgNBVV95cUxPbkxWWUYxUUExcUJJclhOZDRrYVZ2Q0ZsVDJiNndSSGMzcmkwUUtfeVFzTFNiaTl1dElEcUg3cXRXanJBcTFJRGZJbmRDdXhnWTZZWWYyRHdPN2RHLUlTTTFuRnpkMGZhQm00ZU1scjluVGlobi1TMS1TNlVjZjZKM3drcnhZUjJVTHpzMGVlLWNhekhvbmJvN2d6YXdCa1BxMWtHa0lkRml0QzhudHMxdzNlOVBUdlhHb1M0eXgwbkpNeC1NdGpwc2xMYWstcUYwQXFUMGhPUUcxbThTQ2QzWDMyVFdLVjhHSXZINEFPaUt6OU5oX3FOek9vMk16R3VIdHhVX0dGMlhWZWFWX3NBVHZ0cTc5dzRUbmJnTWJVbDFFMFNCU2JadGV0NG1oQXVVOXdncFQxckZGQmU2UVVaMnk2TmM4V0dSWDlieE5PZEhLZkJ6Y1dMR21rNExTTGY0SDVaejlnQkZQN2JDUi0yTlN2NFhELW9mVXZ3R2JuX1BuTERKQ1VJSUE4dmVQUEh5MDk2R2h5UEoyNXRSREQ3WjZrUUllbzlKZFpJR2hITGJKYlVNMUc4QmNCRUNpenhid3JTRHR3?oc=5",
+      "pubDate": "Wed, 18 Nov 2026 04:30:15 GMT"
     },
     {
       "title": "【Hot台股】股后創意連吞3根跌停...網哭「還有救嗎？」 分析師揭支撐價位股市",
@@ -166,11 +171,6 @@
       "title": "台股回測年線獲支撐，聯發科站回4,000元成反彈觀察指標股市",
       "link": "https://news.google.com/rss/articles/CBMi6wJBVV95cUxNdlhjWWhveGh5cjJQa0U3bDNqSklnRnZoTkVwQkMxQ2x1dFdfN1h2X0ZwLWhNUWxGTkdNS2Q4YkdDVUotQ0Vod1FnQmRHNWNESzYzWElQQmR5Q193Q180TERBb1NGcndSTnUzZE82S0NhZkNkcEEtdmJkZ1RiYWcyaXJqQ3VCem1icXNzbHRsdnBveDBEbTktMTRwMGxOMFRmV2FOX0swcHNHZTluTHdzcFdId29YNmdwZjNVVE1oMUo3c0pfSlA1aDhlNlp0eE9Qc3hpWVExY19hZVo3QW1YWlphQ3lpNHQ0T0ZDUkZfdzdSZklTU2lndXZZQWlHN1VrMGJ5UVBjSHViVW4wZWs5WE1oZHlobXQxcWNLazNmWlNHbl9CaEpkbHNIdVZPeFlKaDhrWEd3VkJpY09xNXRlcXh0MU00MU9TeXZreThmUnVJS2N1dW1OUG5iaGpxX0hmN3FjZ2tCMHdDTEk?oc=5",
       "pubDate": "Wed, 18 Nov 2026 04:29:13 GMT"
-    },
-    {
-      "title": "輝達大點兵！台股收漲102點 京元電漲停、景碩噴6%股市",
-      "link": "https://news.google.com/rss/articles/CBMivAJBVV95cUxNc01hRmVPQXUyMGtxY25jbWlPMC00Q2xBMVphS0dadVVwM1F3OV9LUmpPMHo2cXUwRGJyQ04tS3hWcUhab0U2SXRKcjdSOHV0bnFXRVpoWTg2bk5HOTNibTFYZHg5QWpxSW5ERFlBNWdDN1RLbERkTmVKY2xvd2xFTzdMcTdMRlI3cmtxM0x4TU5EcWExa2UtZUhPQUlWWkdjc0lqemFoaWVDTWVaTElXNHJoTXRCd0FyaWlEMzJ3cnNvVlJZUERSTTZUS2FOQk4xU1I1aFBrakIzRkhOYUlNV2NoZnBJbTNfZmxmdUZ3YlZfRDhCQnZzZ1ZOd09FVXc0MFZ1dEZpRW5UcDNTeE1SalQwZHNpYmFYOXI0YWZsbFBXMkowZFc5VXNaRVJkQjZvakJaQ0UzaHN3dGhY?oc=5",
-      "pubDate": "Wed, 18 Nov 2026 06:50:03 GMT"
     },
     {
       "title": "【Yahoo早盤】台指期結算台股強彈800點後急墜翻黑 分析師陳石輝：拚守住4萬點股市",
