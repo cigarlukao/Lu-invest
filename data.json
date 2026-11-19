@@ -29,12 +29,12 @@
       "range": 0.07
     },
     "dxy": {
-      "close": 103.8,
-      "change": 0.31,
-      "change_pct": 0.3,
+      "close": 103.79,
+      "change": 0.3,
+      "change_pct": 0.29,
       "high": 103.81,
-      "low": 103.8,
-      "range": 0.01
+      "low": 103.79,
+      "range": 0.02
     },
     "usdtwd": {
       "close": 32.93,
@@ -150,7 +150,7 @@
       "taiex": -6.13
     }
   ],
-  "updated_at": "2026年11月19日 08:57",
+  "updated_at": "2026年11月19日 09:00",
   "news": [
     {
       "title": "權值大軍拉一把！台股擁兆元行情守住4萬關 載板衛星齊放閃｜Yahoo財經掃描股市",
