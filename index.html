@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>LU's 投資理財 - 股市儀表板</title>
 
-    <!-- 1. PWA & 多裝置 Icon 設定 (加入 ?v=2 強制 Chrome/iOS 更新快取) -->
+    <!-- 1. PWA & 多裝置 Icon 設定 (加入 ?v=2 強制瀏覽器更新快取) -->
     <link rel="icon" type="image/png" sizes="32x32" href="./icon-512.png?v=2">
     <link rel="icon" type="image/png" sizes="192x192" href="./icon-512.png?v=2">
     <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png?v=2">
@@ -166,7 +166,7 @@
             <div class="summary-section">
                 <div>
                     <span class="total-value-title">持有股票市值</span>
-                    <span class="total-value">$3,343,370</span><span class="total-currency">TWD</span>
+                    <span class="total-value" id="total-value">$3,343,370</span><span class="total-currency">TWD</span>
                 </div>
                 <div class="pl-box">
                     <div>
@@ -175,7 +175,7 @@
                     </div>
                     <div>
                         <div class="total-value-title">未實現損益 (未含應收配息)</div>
-                        <div class="text-down num-strong" style="font-size:17px;">▼ 47,260.00 (1.39%)</div>
+                        <div class="text-down num-strong" id="unrealized-pl" style="font-size:17px;">▼ 47,260.00 (1.39%)</div>
                     </div>
                 </div>
             </div>
@@ -194,22 +194,9 @@
                             <th onclick="sortTable(7)">成交量(張) ⇅</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- 資料將由 loadLiveData() 從 data.json 中動態生成 -->
+                    <tbody id="etf-tbody">
                         <tr>
-                            <td>
-                                <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:4px;">
-                                    <a href="https://tw.stock.yahoo.com/quote/0056.TW" target="_blank" class="stock-id">0056.TW</a>
-                                </div>
-                                <span class="stock-name">元大高股息</span>
-                            </td>
-                            <td class="sort-val" style="color:var(--text-main); font-weight:bold;">21 張</td>
-                            <td class="text-down num-strong sort-val">49.92</td>
-                            <td class="text-down num-strong sort-val">▼ 0.68</td>
-                            <td class="text-down num-strong sort-val">▼ 1.34%</td>
-                            <td class="num-strong sort-val">31.36%</td>
-                            <td class="num-strong sort-val">1,048,320</td>
-                            <td class="num-strong sort-val">69,210</td>
+                            <td colspan="8" style="text-align: center; padding: 20px; font-weight: bold;">正在同步最新走勢與股價數據...</td>
                         </tr>
                     </tbody>
                 </table>
@@ -219,7 +206,7 @@
             <div class="chart-wrapper" id="chartArea">
                 <div class="chart-header">
                     <h3 class="chart-title-text">📉 走勢對照圖 (近一週)</h3>
-                    <div class="chart-legend">
+                    <div class="chart-legend" id="chart-legend">
                         <span style="color:#6001d2;">── LU's 組合 (-1.39%)</span>
                         <span style="color:#00a600;">- - 大盤 (-6.13%)</span>
                     </div>
@@ -227,30 +214,29 @@
 
                 <div id="chartTooltip"></div>
                 
-                <div class="chart-container-box">
+                <div class="chart-container-box" id="chart-svg-box">
                     <!-- SVG 由 JavaScript 自動渲染點位，提供 RWD 支援 -->
-                    <svg viewBox="0 0 1000 200" preserveAspectRatio="none" style="width:100%; height:100%; border-bottom: 2px solid #e0e4e9; border-left: 2px solid #e0e4e9; overflow:visible;"></svg>
                 </div>
                 
-                <div class="chart-performance" style="margin-top: 20px;">防禦韌性展現：本週跑贏大盤 +4.74%</div>
+                <div class="chart-performance" id="chart-perf" style="margin-top: 20px;">防禦韌性展現：本週跑贏大盤 +4.74%</div>
             </div>
 
             <div class="section-title">📰 Yahoo 股市焦點 & 市場動態</div>
             <div class="report-container" id="yahoo-news-container" style="padding-top: 8px;">
-                <div style="padding: 15px; color: #5a6673; font-weight: bold;">⏳ 正在透過 Python 背景爬蟲與 data.json 同步焦點新聞...</div>
+                <div style="padding: 15px; color: #5a6673; font-weight: bold;">⏳ 正在與焦點新聞同步...</div>
             </div>
 
         </div>
 
-        <!-- ================= 分頁 2：深度解析與策略 (會由 JS 自動代入當日數據) ================= -->
+        <!-- ================= 分頁 2：深度解析與策略 ================= -->
         <div id="tab-analysis" class="tab-content">
-            <div class="section-title" style="border-top:none;">⏳ 正在加載深度解析資料，請稍候...</div>
+            <div class="section-title" style="border-top:none;">⏳ 正在加載深度解析資料...</div>
         </div>
 
-        <!-- ================= 分頁 3：持股明細 (滾動歷史紀錄，不常變動，保持自適應) ================= -->
+        <!-- ================= 分頁 3：持股明細 ================= -->
         <div id="tab-details" class="tab-content">
             
-            <div class="section-title" style="border-top:none;">💰 2026年 (民國115年) 股息與交易明細統計</div>
+            <div class="section-title" style="border-top:none;">💰 民國115年 股息與交易明細統計</div>
             
             <div class="div-subtitle">📌 依 ETF 小計 (累計收益)</div>
             <div class="details-table-responsive">
@@ -277,7 +263,7 @@
                     </tbody>
                 </table>
                 <div style="margin-top: 6px; font-size: 12px; color: var(--text-muted);">
-                    註：00878 已於今日（11/17）除息 1.25 元，在 12/11 正式發放入帳前，暫不納入實收股息 [cite: 23, 24]。
+                    註：00878 已於 11/17 除息 1.25 元，在 12/11 正式發放入帳前，暫不納入實收股息 [cite: 23, 24]。
                 </div>
             </div>
 
@@ -313,8 +299,46 @@
 
     <!-- 腳本與自動化渲染模組 -->
     <script>
+        // 【100% 安全備用數據 (Fallback Data)】: 當 data.json 讀取失敗時，自動無縫接軌！
+        const FALLBACK_DATA = {
+            "trade_date": "民國115年11月18日",
+            "updated_at": "13:30:00 (歷史收盤基準)",
+            "total_value": 3343370,
+            "baseline_diff": -47260,
+            "baseline_diff_pct": -1.39,
+            "etfs": [
+                { "id": "0056.TW", "name": "元大高股息", "lots": 21, "close": 49.92, "change": -0.68, "change_pct": -1.34, "weight": 31.36, "market_val": 1048320, "volume": 69210 },
+                { "id": "00919.TW", "name": "群益台灣精選高息", "lots": 25, "close": 30.39, "change": -0.05, "change_pct": -0.16, "weight": 22.72, "market_val": 759750, "volume": 128440 },
+                { "id": "00713.TW", "name": "元大台灣高息低波", "lots": 10, "close": 62.80, "change": -0.40, "change_pct": -0.63, "weight": 18.78, "market_val": 628000, "volume": 32110 },
+                { "id": "00878.TW", "name": "國泰永續高股息", "lots": 17, "close": 30.86, "change": -0.14, "change_pct": -0.45, "weight": 15.69, "market_val": 524620, "volume": 84320 },
+                { "id": "00918.TW", "name": "大華優利高填息30", "lots": 12, "close": 31.89, "change": -0.11, "change_pct": -0.34, "weight": 11.45, "market_val": 382680, "volume": 41530 }
+            ],
+            "chart": [
+                { "date": "11/12", "lu": 0.50, "taiex": 1.10 },
+                { "date": "11/13", "lu": -0.10, "taiex": -0.85 },
+                { "date": "11/14", "lu": -0.45, "taiex": -2.30 },
+                { "date": "11/15", "lu": -1.15, "taiex": -4.20 },
+                { "date": "11/18", "lu": -1.39, "taiex": -6.13 }
+            ],
+            "taiex": { "close": 39701, "change": -1873, "change_pct": -4.51, "range": 3700, "high": 40150, "low": 36450 },
+            "macro": {
+                "tsmc": { "close": 880, "change": -15, "change_pct": -1.68 },
+                "nasdaq": { "close": 18139, "change": -120, "change_pct": -0.66 },
+                "sox": { "close": 4820, "change": -45, "change_pct": -0.92 },
+                "us10y": { "close": 4.43 },
+                "dxy": { "close": 106.68 },
+                "usdtwd": { "close": 32.54 }
+            },
+            "news": [
+                { "title": "【市場分析】0050吸金近7000億還輸了？高股息ETF跌幅與波動性全面解析", "pubDate": "2026-11-02", "link": "https://wantrich.chinatimes.com/news/20261102900002-420401" },
+                { "title": "外資倒貨免驚？投信砸187億護盤台積電、防禦型金控股", "pubDate": "2026-11-08", "link": "https://wantrich.chinatimes.com/news/20261108900081-420101" },
+                { "title": "台股大震盪失守年線！國家隊砸 221 億銀彈強勢護盤 搶救名單曝光", "pubDate": "2026-11-06", "link": "https://wantrich.chinatimes.com/news/20261106900370-420101" },
+                { "title": "外資大砍 1073 億創史上第 8 大紀錄 網友熱議：『大的要來了？』", "pubDate": "2026-11-03", "link": "https://fnc.ebc.net.tw/fncnews/stock/221829" }
+            ]
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. 分頁切換邏輯
+            // ================= 1. 事件優先註冊：切換分頁功能 (絕對不會死機) =================
             const tabs = document.querySelectorAll('.toolbar-tab');
             const contents = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => {
@@ -323,37 +347,318 @@
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
                     this.classList.add('active');
-                    const target = document.getElementById(this.getAttribute('data-target'));
-                    if (target) target.classList.add('active');
+                    const targetId = this.getAttribute('data-target');
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) targetEl.classList.add('active');
                 });
             });
 
-            // 2. 動態讀取由 GitHub Actions 背景產出的 data.json [cite: 22, 23, 24]
+            // ================= 2. 動態讀取 / 防禦數據載入邏輯 =================
             async function loadLiveData() {
+                let data = FALLBACK_DATA; // 預設使用防禦數據
+
                 try {
                     const res = await fetch('./data.json?t=' + Date.now());
-                    if (!res.ok) throw new Error('無法讀取 data.json');
-                    const data = await res.json();
-
-                    // 更新標題與最晚同步時間 [cite: 22, 23]
-                    document.getElementById('today-date').innerText = `🗓️ 資料日期：${data.trade_date} (更新於 ${data.updated_at})`;
-
-                    // 更新首頁總資產數值
-                    const totalEl = document.querySelector('.total-value');
-                    if (totalEl) totalEl.innerText = '$' + data.total_value.toLocaleString();
-
-                    const plEl = document.querySelector('.pl-box .num-strong[style]');
-                    if (plEl) {
-                        const isUp = data.baseline_diff >= 0;
-                        const arrow = isUp ? '▲' : '▼';
-                        plEl.className = (isUp ? 'text-up' : 'text-down') + ' num-strong';
-                        plEl.innerText = `${arrow} ${Math.abs(data.baseline_diff).toLocaleString()} (${Math.abs(data.baseline_diff_pct).toFixed(2)}%)`;
+                    if (res.ok) {
+                        data = await res.json();
+                        console.log('成功同步最新線上 data.json 數據');
+                    } else {
+                        console.warn('線上 data.json 不存在或載入失敗，已自動啟用預置防禦數據');
                     }
+                } catch (err) {
+                    console.error('資料讀取異常，已無縫切換為 11/18 歷史備用數據', err);
+                }
 
-                    // 更新首頁 ETF 表格
-                    const tbody = document.querySelector('#etfTable tbody');
-                    if (tbody && data.etfs) {
-                        tbody.innerHTML = data.etfs.map(etf => {
-                            const isUp = etf.change > 0;
-                            const isFlat = etf.change === 0;
-                            const colorCls = isFlat ? '' : (isUp ? 'text-up' : 'text
+                // 開始安全渲染 (有 try/catch 保護，不怕變數缺失)
+                try { renderUI(data); } catch(e) { console.error('UI 渲染出錯：', e); }
+            }
+
+            function renderUI(data) {
+                // (1) 更新日期、市值與損益 [cite: 22]
+                const dateEl = document.getElementById('today-date');
+                if (dateEl) {
+                    dateEl.innerText = `🗓️ 資料日期：${data.trade_date || '讀取中...'} (最晚同步於 ${data.updated_at || ''})`;
+                }
+
+                const valueEl = document.getElementById('total-value');
+                if (valueEl) {
+                    valueEl.innerText = '$' + (data.total_value || 0).toLocaleString();
+                }
+
+                const plEl = document.getElementById('unrealized-pl');
+                if (plEl) {
+                    const diff = data.baseline_diff || 0;
+                    const diffPct = data.baseline_diff_pct || 0;
+                    const isUp = diff >= 0;
+                    const arrow = isUp ? '▲' : '▼';
+                    plEl.className = (isUp ? 'text-up' : 'text-down') + ' num-strong';
+                    plEl.innerText = `${arrow} ${Math.abs(diff).toLocaleString()} (${Math.abs(diffPct).toFixed(2)}%)`;
+                }
+
+                // (2) 更新首頁 ETF 行情表格
+                const tbody = document.getElementById('etf-tbody');
+                if (tbody && data.etfs) {
+                    tbody.innerHTML = data.etfs.map(etf => {
+                        const isUp = etf.change > 0;
+                        const isFlat = etf.change === 0;
+                        const colorCls = isFlat ? '' : (isUp ? 'text-up' : 'text-down');
+                        const arrow = isFlat ? '-' : (isUp ? '▲' : '▼');
+                        return `
+                            <tr>
+                                <td>
+                                    <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:4px;">
+                                        <a href="https://tw.stock.yahoo.com/quote/${etf.id}" target="_blank" class="stock-id">${etf.id}</a>
+                                    </div>
+                                    <span class="stock-name">${etf.name}</span>
+                                </td>
+                                <td class="sort-val" style="color:var(--text-main); font-weight:bold;">${etf.lots} 張</td>
+                                <td class="${colorCls} num-strong sort-val">${(etf.close || 0).toFixed(2)}</td>
+                                <td class="${colorCls} num-strong sort-val">${arrow} ${Math.abs(etf.change || 0).toFixed(2)}</td>
+                                <td class="${colorCls} num-strong sort-val">${arrow} ${Math.abs(etf.change_pct || 0).toFixed(2)}%</td>
+                                <td class="num-strong sort-val">${(etf.weight || 0).toFixed(2)}%</td>
+                                <td class="num-strong sort-val">${(etf.market_val || 0).toLocaleString()}</td>
+                                <td class="num-strong sort-val">${(etf.volume || 0).toLocaleString()}</td>
+                            </tr>
+                        `;
+                    }).join('');
+                }
+
+                // (3) 安全繪製走勢圖 (帶上今天)
+                if (data.chart && data.chart.length >= 2) {
+                    renderChart(data.chart);
+                }
+
+                // (4) 渲染新聞
+                const newsBox = document.getElementById('yahoo-news-container');
+                if (newsBox && data.news && data.news.length > 0) {
+                    newsBox.innerHTML = data.news.slice(0, 4).map(item => {
+                        return `
+                            <a href="${item.link}" target="_blank" style="text-decoration:none; padding:12px 15px; margin-bottom:10px; background:#fff; border:1px solid var(--border-color); border-left:6px solid var(--yahoo-purple); border-radius:8px; display:flex; flex-direction:column; gap:6px; box-shadow:0 2px 5px rgba(0,0,0,0.03);">
+                                <div style="font-size:12px; color:var(--text-muted); font-weight:bold;">🕒 ${item.pubDate || data.trade_date} | 新聞剪報</div>
+                                <div style="font-size:16px; font-weight:900; color:var(--text-main);">${item.title}</div>
+                            </a>
+                        `;
+                    }).join('');
+                }
+
+                // (5) 渲染深度解析
+                renderAnalysis(data);
+            }
+
+            function renderAnalysis(data) {
+                const tab = document.getElementById('tab-analysis');
+                if (!tab || !data.taiex || !data.etfs) return;
+
+                const t = data.taiex;
+                const m = data.macro || {};
+                const tUp = t.change >= 0;
+                const tColor = tUp ? 'var(--up-red)' : 'var(--down-green)';
+                const tArrow = tUp ? '▲' : '▼';
+
+                const sorted = [...data.etfs].sort((a, b) => b.change_pct - a.change_pct);
+                const best = sorted[0];
+                const worst = sorted[sorted.length - 1];
+                const beatCount = data.etfs.filter(e => e.change_pct > t.change_pct).length;
+
+                const lastChart = data.chart && data.chart.length ? data.chart[data.chart.length - 1] : { lu: 0, taiex: 0 };
+                const weekSpread = (lastChart.lu - lastChart.taiex).toFixed(2);
+
+                const fmtQ = (q, suffix = '') => q ? `${(q.close || 0).toLocaleString()}${suffix} (${(q.change || 0) >= 0 ? '+' : ''}${(q.change_pct || 0).toFixed(2)}%)` : '暫無資料';
+
+                const marketComment = tUp
+                    ? `今日大盤止跌反彈 ${t.change.toLocaleString()} 點，守住整數關卡，成交量回升，高低震盪達 ${t.range.toLocaleString()} 點 [cite: 23, 24]。`
+                    : `今日加權指數下跌 ${Math.abs(t.change).toLocaleString()} 點，收 ${t.close.toLocaleString()} 點。盤中高低震盪達 ${t.range.toLocaleString()} 點，面臨波段保衛戰。外資賣超擴大且期貨淨空單居高不下 [cite: 23, 24]，短線波動風險仍需關注 [cite: 23, 24]。`;
+
+                tab.innerHTML = `
+                    <div class="section-title" style="border-top:none;">📈 ${data.trade_date} 個人 ETF 與市場財經摘要</div>
+                    <div class="report-container">
+                        <div class="report-card">
+                            <div class="report-header">🌍 一、今日市場總覽</div>
+                            <div class="report-body">
+                                <div style="display:flex; gap:24px; flex-wrap:wrap; margin-bottom:12px;">
+                                    <div>
+                                        <span style="font-size:12px; color:#666;">加權指數收盤</span><br>
+                                        <span style="font-size:20px; font-weight:900; color:${tColor};">${t.close.toLocaleString()} (${tArrow} ${Math.abs(t.change).toLocaleString()} / ${t.change_pct >= 0 ? '+' : ''}${t.change_pct.toFixed(2)}%)</span>
+                                    </div>
+                                    <div>
+                                        <span style="font-size:12px; color:#666;">今日盤中高低震盪</span><br>
+                                        <span style="font-size:20px; font-weight:900;">${t.range.toLocaleString()} 點</span>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li>今日最高 <strong>${t.high.toLocaleString()}</strong> 點、最低 <strong>${t.low.toLocaleString()}</strong> 點 [cite: 23]。</li>
+                                    <li>權值股台積電 (2330.TW) 今日收 <strong>${fmtQ(m.tsmc, ' 元')}</strong>，牽動大盤主流多頭。</li>
+                                </ul>
+                                <div class="highlight-box">💡 盤勢解讀：${marketComment}</div>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">🛡️ 二、ETF 表現與投組分析</div>
+                            <div class="report-body">
+                                <p>今日五檔追蹤 ETF 中，共有 <strong>${beatCount} 檔</strong>表現優於大盤；目前總持倉市值 <strong>$${data.total_value.toLocaleString()}</strong>，相較 起算基準變動 <strong>${data.baseline_diff >= 0 ? '+' : ''}${data.baseline_diff.toLocaleString()} 元 (${data.baseline_diff_pct >= 0 ? '+' : ''}${data.baseline_diff_pct.toFixed(2)}%)</strong> [cite: 22, 23]。</p>
+                                <div class="insight-grid">
+                                    <div class="insight-item green">
+                                        <h4>今日最強：${best.id.replace('.TW','')} ${best.name}</h4>
+                                        收盤 ${best.close.toFixed(2)} 元，單日漲跌幅 <strong>${best.change_pct >= 0 ? '+' : ''}${best.change_pct.toFixed(2)}%</strong>，在震盪中發揮極佳防禦力。
+                                    </div>
+                                    <div class="insight-item orange">
+                                        <h4>今日偏弱：${worst.id.replace('.TW','')} ${worst.name}</h4>
+                                        收盤 ${worst.close.toFixed(2)} 元，單日漲跌幅 <strong>${worst.change_pct >= 0 ? '+' : ''}${worst.change_pct.toFixed(2)}%</strong>，短線波動相對顯著 [cite: 23]。
+                                    </div>
+                                </div>
+                                <div class="highlight-box">
+                                    📌 除息權益備忘：00878 已於 11/17 除息 1.25 元，17 張預計 12/11 發放 <strong>21,250 元</strong>配息（尚未入帳前不計入實收股息）[cite: 23, 24]。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">🌐 三、國際政經與環境變數 (自動同步最新報價)</div>
+                            <div class="report-body">
+                                <ul>
+                                    <li><strong>美股科技風向：</strong> Nasdaq ${fmtQ(m.nasdaq)}；費城半導體指數 ${fmtQ(m.sox)} [cite: 22, 23]。</li>
+                                    <li><strong>美債與美元：</strong> 10 年期公債殖利率 <strong>${m.us10y ? m.us10y.close.toFixed(2) + '%' : '暫無資料'}</strong>；美元指數 <strong>${m.dxy ? m.dxy.close.toFixed(2) : '暫無資料'}</strong>。</li>
+                                    <li><strong>匯率動向：</strong> 美元兌新台幣約 <strong>${m.usdtwd ? m.usdtwd.close.toFixed(3) : '暫無資料'}</strong>，持續牽動外資於台股的資金流向 [cite: 23]。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">🎯 四、波段追蹤結論</div>
+                            <div class="report-body">
+                                <ol style="margin-left:16px; line-height:1.7; font-weight:bold; color:var(--yahoo-purple);">
+                                    <li>近一週投組累計 ${lastChart.lu >= 0 ? '+' : ''}${lastChart.lu.toFixed(2)}%，相較大盤 (${lastChart.taiex >= 0 ? '+' : ''}${lastChart.taiex.toFixed(2)}%) ${weekSpread >= 0 ? '跑贏' : '落後'} ${Math.abs(weekSpread)}% [cite: 22, 23]。</li>
+                                    <li>持續留意 00878 填息進度與美股 AI、科技股板塊動向 [cite: 23, 24]。</li>
+                                </ol>
+                                <div class="highlight-box">
+                                    📌 操作紀律：高股息 ETF 組合以分散配置與穩定現金流為核心，無須隨短線震盪恐慌殺低 [cite: 23, 24]。可善用後續入帳股息逢低分批加碼。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function renderChart(points) {
+                const n = points.length;
+                if (n < 2) return;
+
+                const allVals = points.flatMap(p => [p.lu, p.taiex]);
+                const minV = Math.min(...allVals);
+                const maxV = Math.max(...allVals);
+                const pad = Math.max(0.5, (maxV - minV) * 0.15);
+                const yMin = minV - pad;
+                const yMax = maxV + pad;
+
+                const toX = i => Math.round((i / (n - 1)) * 1000);
+                const toY = v => Math.round(20 + ((yMax - v) / (yMax - yMin)) * 160);
+
+                const luPts = points.map((p, i) => `${toX(i)},${toY(p.lu)}`).join(' ');
+                const taiexPts = points.map((p, i) => `${toX(i)},${toY(p.taiex)}`).join(' ');
+
+                const last = points[n - 1];
+                const diff = (last.lu - last.taiex).toFixed(2);
+
+                const legendBox = document.getElementById('chart-legend');
+                if (legendBox) {
+                    legendBox.innerHTML = `
+                        <span style="color:#6001d2;">── LU's 組合 (${last.lu >= 0 ? '+' : ''}${last.lu.toFixed(2)}%)</span>
+                        <span style="color:#00a600;">- - 大盤 (${last.taiex >= 0 ? '+' : ''}${last.taiex.toFixed(2)}%)</span>
+                    `;
+                }
+                const perfEl = document.getElementById('chart-perf');
+                if (perfEl) {
+                    perfEl.innerText = `防禦韌性展現：本週${diff >= 0 ? '跑贏' : '落後'}大盤 ${diff >= 0 ? '+' : ''}${diff}%`;
+                }
+
+                const zoneW = 1000 / n;
+                const zonesHtml = points.map((p, i) =>
+                    `<rect x="${Math.round(i * zoneW)}" y="0" width="${Math.ceil(zoneW)}" height="200" fill="transparent" class="hover-zone" data-idx="${i}"/>`
+                ).join('');
+
+                const labelsHtml = points.map((p, i) => {
+                    const anchor = i === 0 ? 'start' : (i === n - 1 ? 'end' : 'middle');
+                    return `<text x="${toX(i)}" y="220" fill="#5a6673" font-size="13" font-weight="bold" text-anchor="${anchor}">${p.date}</text>`;
+                }).join('');
+
+                const chartBox = document.getElementById('chart-svg-box');
+                if (!chartBox) return;
+
+                chartBox.innerHTML = `
+                    <svg viewBox="0 0 1000 200" preserveAspectRatio="none" style="width:100%; height:100%; border-bottom:2px solid #e0e4e9; border-left:2px solid #e0e4e9; overflow:visible;">
+                        <line x1="0" y1="40" x2="1000" y2="40" stroke="#f0f0f0" stroke-width="1.5" />
+                        <line x1="0" y1="100" x2="1000" y2="100" stroke="#f0f0f0" stroke-width="1.5" />
+                        <line x1="0" y1="160" x2="1000" y2="160" stroke="#f0f0f0" stroke-width="1.5" />
+                        <polyline points="${taiexPts}" fill="none" stroke="#00a600" stroke-width="3" stroke-dasharray="8,8" />
+                        <polyline points="${luPts}" fill="none" stroke="#6001d2" stroke-width="4" />
+                        ${zonesHtml}
+                        ${labelsHtml}
+                    </svg>
+                `;
+
+                // 游標偵測 (電腦 & 手機點擊)
+                const tooltip = document.getElementById('chartTooltip');
+                chartBox.querySelectorAll('.hover-zone').forEach(zone => {
+                    const showTip = function(e) {
+                        if (!tooltip) return;
+                        const idx = parseInt(this.getAttribute('data-idx'));
+                        const d = points[idx];
+                        if (!d) return;
+
+                        tooltip.style.display = 'block';
+                        tooltip.style.left = e.offsetX + 'px';
+                        tooltip.style.top = e.offsetY + 'px';
+                        tooltip.innerHTML = `
+                            <div style="color:#fff; margin-bottom:4px;">📅 日期：${d.date}</div>
+                            <div style="color:#c894ff;">■ LU's 組合：${d.lu >= 0 ? '+' : ''}${d.lu.toFixed(2)}%</div>
+                            <div style="color:#66ff66;">■ 台灣加權：${d.taiex >= 0 ? '+' : ''}${d.taiex.toFixed(2)}%</div>
+                        `;
+                    };
+
+                    zone.addEventListener('mousemove', showTip);
+                    zone.addEventListener('mouseleave', () => { if (tooltip) tooltip.style.display = 'none'; });
+                    zone.addEventListener('click', function(e) { 
+                        showTip.call(this, e); 
+                        e.stopPropagation(); 
+                    });
+                });
+            }
+
+            document.addEventListener('click', () => {
+                const tooltip = document.getElementById('chartTooltip');
+                if (tooltip) tooltip.style.display = 'none';
+            });
+
+            // 啟動 live 數據與自動 fallback 機制
+            loadLiveData();
+        });
+
+        // 3. 表格點擊排序功能
+        let sortDirection = {};
+        function sortTable(columnIndex) {
+            const tbody = document.getElementById("etf-tbody");
+            if (!tbody) return;
+            const rows = Array.from(tbody.querySelectorAll("tr"));
+            if (!rows.length) return;
+
+            sortDirection[columnIndex] = !sortDirection[columnIndex];
+            const isAsc = sortDirection[columnIndex];
+            rows.sort((a, b) => {
+                const tdA = a.querySelectorAll("td")[columnIndex];
+                const tdB = b.querySelectorAll("td")[columnIndex];
+                if (!tdA || !tdB) return 0;
+
+                let valA = columnIndex === 0 ? (tdA.querySelector('.stock-id')?.innerText || tdA.innerText) : tdA.innerText;
+                let valB = columnIndex === 0 ? (tdB.querySelector('.stock-id')?.innerText || tdB.innerText) : tdB.innerText;
+                valA = valA.replace(/張|▼|▲|%|,/g, '').trim();
+                valB = valB.replace(/張|▼|▲|%|,/g, '').trim();
+                const numA = parseFloat(valA), numB = parseFloat(valB);
+                if (!isNaN(numA) && !isNaN(numB)) return isAsc ? numA - numB : numB - numA;
+                return isAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+            });
+            rows.forEach(r => tbody.appendChild(r));
+        }
+    </script>
+</body>
+</html>
