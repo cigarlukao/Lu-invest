@@ -1,24 +1,24 @@
 {
-  "trade_date": "2026/11/17",
+  "trade_date": "2026/11/19",
   "total_value": 3343370,
   "baseline_diff": -47260,
   "baseline_diff_pct": -1.39,
   "taiex": {
-    "close": 40092.11,
-    "change": -947.97,
-    "change_pct": -2.31,
-    "high": 41533.84,
-    "low": 39786.45,
-    "range": 1747.39
+    "close": 40084.87,
+    "change": -7.24,
+    "change_pct": -0.02,
+    "high": 40145.73,
+    "low": 40084.87,
+    "range": 60.86
   },
   "macro": {
     "tsmc": {
-      "close": 2175.0,
-      "change": 5.0,
-      "change_pct": 0.23,
-      "high": 2210.0,
-      "low": 2150.0,
-      "range": 60.0
+      "close": 2170.0,
+      "change": -5.0,
+      "change_pct": -0.23,
+      "high": 2170.0,
+      "low": 2160.0,
+      "range": 10.0
     },
     "us10y": {
       "close": 5.07,
@@ -29,20 +29,20 @@
       "range": 0.07
     },
     "dxy": {
-      "close": 103.79,
-      "change": 0.3,
-      "change_pct": 0.29,
+      "close": 103.78,
+      "change": 0.29,
+      "change_pct": 0.28,
       "high": 103.81,
-      "low": 103.79,
-      "range": 0.02
+      "low": 103.77,
+      "range": 0.04
     },
     "usdtwd": {
-      "close": 32.93,
-      "change": 0.02,
-      "change_pct": 0.06,
-      "high": 32.96,
-      "low": 32.92,
-      "range": 0.04
+      "close": 32.95,
+      "change": 0.04,
+      "change_pct": 0.12,
+      "high": 32.98,
+      "low": 32.91,
+      "range": 0.07
     },
     "nasdaq": {
       "close": 24429.88,
@@ -120,37 +120,37 @@
   ],
   "chart": [
     {
-      "date": "11/10",
+      "date": "11/11",
       "lu": 0.0,
       "taiex": 0.0
     },
     {
-      "date": "11/11",
-      "lu": 1.36,
-      "taiex": 3.62
-    },
-    {
       "date": "11/12",
-      "lu": 0.34,
-      "taiex": 0.89
+      "lu": -1.01,
+      "taiex": -2.63
     },
     {
       "date": "11/13",
-      "lu": 1.73,
-      "taiex": 2.26
+      "lu": 0.37,
+      "taiex": -1.32
     },
     {
       "date": "11/16",
-      "lu": -1.61,
-      "taiex": -3.91
+      "lu": -2.93,
+      "taiex": -7.27
     },
     {
       "date": "11/17",
-      "lu": -2.37,
-      "taiex": -6.13
+      "lu": -3.68,
+      "taiex": -9.41
+    },
+    {
+      "date": "11/19",
+      "lu": -3.68,
+      "taiex": -9.43
     }
   ],
-  "updated_at": "2026年11月19日 09:00",
+  "updated_at": "2026年11月19日 09:20",
   "news": [
     {
       "title": "權值大軍拉一把！台股擁兆元行情守住4萬關 載板衛星齊放閃｜Yahoo財經掃描股市",
