@@ -1,64 +1,64 @@
 {
-  "trade_date": "2026/11/19",
-  "total_value": 3205820,
-  "baseline_diff": -184810,
-  "baseline_diff_pct": -5.45,
+  "trade_date": "2026/11/20",
+  "total_value": 3019990,
+  "baseline_diff": -370640,
+  "baseline_diff_pct": -10.93,
   "taiex": {
-    "close": 38426.89,
-    "change": -1768.02,
-    "change_pct": -4.4,
-    "high": 40315.53,
-    "low": 38259.7,
-    "range": 2055.83
+    "close": 36033.29,
+    "change": -2393.6,
+    "change_pct": -6.23,
+    "high": 37646.13,
+    "low": 35738.68,
+    "range": 1907.45
   },
   "macro": {
     "tsmc": {
-      "close": 2100.0,
-      "change": -75.0,
-      "change_pct": -3.45,
-      "high": 2190.0,
-      "low": 2085.0,
-      "range": 105.0
+      "close": 2000.0,
+      "change": -100.0,
+      "change_pct": -4.76,
+      "high": 2060.0,
+      "low": 1970.0,
+      "range": 90.0
     },
     "us10y": {
-      "close": 5.07,
-      "change": -0.03,
-      "change_pct": -0.59,
-      "high": 5.12,
-      "low": 5.05,
+      "close": 5.05,
+      "change": -0.02,
+      "change_pct": -0.39,
+      "high": 5.11,
+      "low": 5.04,
       "range": 0.07
     },
     "dxy": {
-      "close": 103.69,
-      "change": -0.17,
-      "change_pct": -0.16,
-      "high": 103.97,
-      "low": 103.66,
-      "range": 0.31
+      "close": 103.71,
+      "change": -0.19,
+      "change_pct": -0.18,
+      "high": 103.95,
+      "low": 103.71,
+      "range": 0.24
     },
     "usdtwd": {
-      "close": 32.94,
-      "change": 0.03,
-      "change_pct": 0.09,
-      "high": 33.03,
-      "low": 32.9,
-      "range": 0.13
+      "close": 32.95,
+      "change": 0.02,
+      "change_pct": 0.06,
+      "high": 33.04,
+      "low": 32.92,
+      "range": 0.12
     },
     "nasdaq": {
-      "close": 24429.88,
-      "change": 101.5,
-      "change_pct": 0.42,
-      "high": 24538.78,
-      "low": 24225.3,
-      "range": 313.48
+      "close": 23879.2,
+      "change": -550.68,
+      "change_pct": -2.25,
+      "high": 24939.62,
+      "low": 23870.7,
+      "range": 1068.92
     },
     "sox": {
-      "close": 9652.8,
-      "change": 9.92,
-      "change_pct": 0.1,
-      "high": 9828.19,
-      "low": 9493.93,
-      "range": 334.26
+      "close": 9419.72,
+      "change": -233.08,
+      "change_pct": -2.41,
+      "high": 10109.88,
+      "low": 9412.19,
+      "range": 697.69
     }
   },
   "etfs": [
@@ -66,116 +66,116 @@
       "id": "0056.TW",
       "name": "元大高股息",
       "lots": 21,
-      "close": 47.41,
-      "change": -2.51,
-      "change_pct": -5.03,
-      "market_val": 995610,
-      "volume": 119344,
-      "weight": 31.06
+      "close": 44.31,
+      "change": -5.17,
+      "change_pct": -10.45,
+      "market_val": 930510,
+      "volume": 187935,
+      "weight": 30.81
     },
     {
       "id": "00919.TW",
       "name": "群益台灣精選高息",
       "lots": 25,
-      "close": 29.15,
-      "change": -1.24,
-      "change_pct": -4.08,
-      "market_val": 728750,
-      "volume": 114367,
-      "weight": 22.73
+      "close": 27.49,
+      "change": -2.5,
+      "change_pct": -8.34,
+      "market_val": 687250,
+      "volume": 210576,
+      "weight": 22.76
     },
     {
       "id": "00713.TW",
       "name": "元大台灣高息低波",
       "lots": 10,
-      "close": 60.8,
-      "change": -2.0,
-      "change_pct": -3.18,
-      "market_val": 608000,
-      "volume": 6165,
-      "weight": 18.97
+      "close": 58.0,
+      "change": -3.75,
+      "change_pct": -6.07,
+      "market_val": 580000,
+      "volume": 10988,
+      "weight": 19.21
     },
     {
       "id": "00878.TW",
       "name": "國泰永續高股息",
       "lots": 17,
-      "close": 29.78,
-      "change": -1.08,
-      "change_pct": -3.5,
-      "market_val": 506260,
-      "volume": 99791,
-      "weight": 15.79
+      "close": 28.03,
+      "change": -2.62,
+      "change_pct": -8.55,
+      "market_val": 476510,
+      "volume": 173762,
+      "weight": 15.78
     },
     {
       "id": "00918.TW",
       "name": "大華優利高填息30",
       "lots": 12,
-      "close": 30.6,
-      "change": -1.29,
-      "change_pct": -4.05,
-      "market_val": 367200,
-      "volume": 34202,
+      "close": 28.81,
+      "change": -2.7,
+      "change_pct": -8.57,
+      "market_val": 345720,
+      "volume": 68975,
       "weight": 11.45
     }
   ],
   "chart": [
     {
-      "date": "11/12",
+      "date": "11/13",
       "lu": 0.0,
       "taiex": 0.0
     },
     {
-      "date": "11/13",
-      "lu": 1.39,
-      "taiex": 1.35
-    },
-    {
       "date": "11/16",
-      "lu": -1.94,
-      "taiex": -4.76
+      "lu": -3.29,
+      "taiex": -6.03
     },
     {
       "date": "11/17",
-      "lu": -2.7,
-      "taiex": -6.96
+      "lu": -4.03,
+      "taiex": -8.2
     },
     {
       "date": "11/18",
-      "lu": -2.7,
-      "taiex": -6.72
+      "lu": -5.12,
+      "taiex": -7.97
     },
     {
       "date": "11/19",
-      "lu": -6.7,
-      "taiex": -10.83
+      "lu": -5.12,
+      "taiex": -12.02
+    },
+    {
+      "date": "11/20",
+      "lu": -13.32,
+      "taiex": -17.5
     }
   ],
-  "updated_at": "2026年11月19日 17:32",
+  "updated_at": "2026年11月20日 15:46",
   "news": [
     {
-      "title": "台股暴跌國家隊出手救！八大公股砸狂掃「6檔ETF」股市",
-      "link": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxPY04xNGcyWHlkWDdPTTJ6eUZtcU9WTjB0aGJ1d1owTmZCeXVpZmdESVlSRk5semxVdWtlWWNjSk5KdHVvcEt1UEd0b21PUFl1RGgwd2JFYTZRU3BSYWpIUzk3bHBLekxMWmlzNGJzLW10a1p5Q0NoMkN2dnFpdUlubkNKTldVTHlya1FwNk1zak1mNE1aaEl2Q3F3WUdSRzd2NThuV3NVaXlWSTlQTlp0ekJKcjI4aUQ5WTU4VkVJWi03aWx4Yk12ZWJOemlVTjlNSHppaFF1QjRXa0RzckY1VXJZeDlCa3dCY0ttYkgta19hVmY0TFU3Sk53bWdKckFvRWhJcHVpTmFGT09IX2NjM1pKUWNQTHRWQTU1SG9QRXJ4VXFZc0dxRklPbUhab21GbFJ6UzhEZmVMQjg?oc=5",
-      "pubDate": "Tue, 17 Nov 2026 03:50:15 GMT"
+      "title": "台股跌2353點「史上第三大」！市值蒸發超過7兆元 等於跌掉聯發科+台達電股市",
+      "link": "https://news.google.com/rss/articles/CBMiywNBVV95cUxOeHJIUWlnMG5vWHgyQllmb202OHNsUl84N0x0MzBwNnZTY0RneE5IZ0JyQkVPS0pxNXQ1VHNMemh5TVUxMjZRZkdkOHVsanJGV2tKMDcyVVVqTEh1N2lpb1pHTGtlemJvbnY2eURBTS1NY2k0U3dTc1o4VC1EUVpKSV9FREFObEhWX1d4aWppN3VPa09Eb3Bpd3h0UWNMTjZybmJFa2xVVUJTLUZLVFVxejBfWmNKM3RDWW9sM0kwbWx6SmJZZDdsM0syZkRyWXppb3NxWk1mdUxuRGV0NVBLclhfcHNNaGwydjIwbnNhb0RfdXdUM05pbDZWTDhDYkRoOUVSSGlKa255dldZZklaby0tRU9XS3NadFpQUWVDSGxoOUJIc3pTeTVCYXlEbm5qYXRwTVFZc0ExRExRNi1ZZGtaemw2Ty1PdUYzemowek8ydHhyOWhKTjFOMy1iSW5lVG10LWExNFNDN2hCa3U4WS1UbWJWTTRld25YT05wS2xoZ0FTcWtBTDdvRmh4NWpWckpFZWR1UVJaOUg0SlZpTFoxa0VBMkQ5ak1zbzdPTTZqRG13UVl1WktRcWhsVVZDQ3ZEUEVUSlhCYk0?oc=5",
+      "pubDate": "Fri, 20 Nov 2026 06:07:16 GMT"
     },
     {
-      "title": "5檔ETF換股！00940「10進10出」 刪英業達、聯發科增南亞科股市",
-      "link": "https://news.google.com/rss/articles/CBMi3gJBVV95cUxQRDVXdEVwNUhRZWlFRXIzS003QTlZX1VSVkRmdHAxWXN4WXBaZ08xdnFhRjYxaDJYeGVPTUFiYnczNFZDSDllV2NGQ2JZNE5FbEpadzc4d2JoQjFPbnNyeHlReDVwX2txZ1Y4a01KblpSdlFtZUl3NWlKd05Vci1iQ2l2ZEdtTlFGLUlVUy1xSWdyVDhMbkgxVGZlU2pXbkdkcEhQdlRxMGdva056Qm9NbFg4VHozX3BRdEZzdUVDbzdVWjJMWTBfLVBNcXF6SFoxRGkzRUtLOG8tXzBCMGhVYVo4MHdZeUxXU19yeHVHckZxaUZiMzJkcHlsOHdaTGgxRm8wTnlselFTZWpRTS1tUWNKcTJPM1VXcEhtajI1cXlQd2JSWWd4S3JTdWFzeGFGSzFtOXgyX1lKaDFMbjFaWTFEMGtYVGpDYjVmOEd5SnZhQ3dkX01mUFAwMTZjZw?oc=5",
-      "pubDate": "Tue, 17 Nov 2026 09:25:11 GMT"
+      "title": "台股重挫「4貸同堂」恐陷死亡螺旋！他憂：怕連「這」都追繳股市",
+      "link": "https://news.google.com/rss/articles/CBMirgJBVV95cUxOMlpjdDRZaFVvXzhxcVo2Q3U2Z2VjdlgxWkdCMXlhY01WT2VidnpiR084Q1BGaTRRcUhwdVloOWdTWHk2STdnTV9QTDVaOXlLVVdya19OVjdPTkFzbThUNUtwY1k3aDdhcWphQnVwUVRIc3I4YTN6U1AxMU9UaXowM3FhRWw5LXlOOFhWSUFIck42Q3pkU0lfUWNjck9YSThMMGFnUm5IbFAxM01GOHNtZF85SGgzRmx6b0x2am9IRDBYZnZBMS1wQ0E5S0h1WjJIc2xpY3RNZGk1Q1B1N3BUQmVmWW9OOGRCeGE2QnhjcmpYSXVXU01DZTJPSDVnaGVBb3V1SHVqTXN5TlREUUNEeVZ2cGVTWmNZVm5MRmRnVUFuV0QxVy05ZVhUMVoxZw?oc=5",
+      "pubDate": "Fri, 20 Nov 2026 06:23:13 GMT"
     },
     {
-      "title": "Bitwise申請德州交易所掛牌Zcash現貨ETF股市",
-      "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOYi1WTXdZRkIzZE4zNEh5RzBsSGZ0TENkaGlVWDZPbzVnVjNqQTJLSzhYY2JLNVlnNHR6LVpRc29sS1ZOMEdVbVcyX0NPOHdIcVQzalROVTNIaHVqUzdVMk9lbDE5U21oSEE1ZHBZc0ZaZUVRMEVLOUhwYUVTNXIyYURiLWZCU3lnbXRlc05pXzY5UnhpZVcyVUpqWFpka1JBTVFIdlVSTlNHeUcxZlZueDkxT3FHb0lGMk95TnhaVnYwd0Jzak1mNlJBVHFTSm01dHJMYjNReno0LXJha1lvN21CWVRkajhVc2tMTks4Q2JWMUU?oc=5",
-      "pubDate": "Thu, 19 Nov 2026 02:16:13 GMT"
+      "title": "台股跌2393點！台積電尾盤爆量急拉 36K失而復得股市",
+      "link": "https://news.google.com/rss/articles/CBMiswJBVV95cUxPSVpBNTF1RFljcWhMYzg4WWJVamZKemxYRW5XZGJ3WjRvTDlEdWJrSjMycXR3X2ROZWVsdmJOWU9tM21JWkpaS2l2bWRMVVFPRmdsLXU4X3lYeFgyMXVJaHd0VjU3eVdFRjZxYUZYM3dPbEstUkpmYTAyVjRfaDhROVp4Y2Nla2VMMUJ3MGljU3pwT0pBTEZnSEV6TTU0NzEyWXg1RTM1X25Zal9vTWlEdW9UQ1hvWlctaWVmMW52TmI2TzBnNWlxcWlpTFU3TmhIaEFWVXQtOFBLb0paZlBSdW9GODBCLWUzcjRJVUgycmxJV3RKZ2NfR25mRjczN0ZzcDM2cXd2OHpQSnBxNWVCV19qZVJ5cjJiX3ZyWkZsOFJMU3lmNFU3cDVXZGE4OS1jRVln?oc=5",
+      "pubDate": "Fri, 20 Nov 2026 06:08:25 GMT"
     },
     {
-      "title": "台股崩盤2635點！郭哲榮預告「多頭歸隊」時間 可閉眼買股市",
-      "link": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxPV0tyYlBsLURfUTFVZWM5a1pVSFk0WGRsMFFUeEtYSTIxWTQyM0JFTm1FX0JEMDdidmRkWTg0enlnQWR6RklsXzMyajg0cW00b3RUbFRNRmlnN0hFaTlxZFNTX2FRQS1WQnUxeGxlUV8ybVVRQl9FNWJuMHhrNE9nNEdYQ2dJS0JzNXBwSXUwWEJ2dlZfQ1BfM3lRR3hQN1FMR3NXVFhFTm03Y1FaSVFGRGptX3ZXdDV3bTdSTGN6WXJwZ3RDWEVTN2lTci1KMlFYanBLSTY3OXJ3a21nYmNOenlHbms3ckFjY3hnZVV3YkRkYmpTcGRQaEZpNzF1N2RtaUNkVFZSRGdJdzNzRU9id0NzN2ZWclVHaVZfeUQ3TVFHZzlmUkFncVhDY1I1QnhNNFhoNTduZnhaanJPTlhSV2pmZU1qWGNMQ19jdjU4UWRZNmI4TGc?oc=5",
-      "pubDate": "Mon, 16 Nov 2026 22:05:30 GMT"
+      "title": "史上盤中第5大跌點！台股陷3萬6保衛戰 權王台積電跌破2千元股市",
+      "link": "https://news.google.com/rss/articles/CBMinANBVV95cUxPZU5XUTF2WDI2ckJFNnhWZTNGMk1QVFRYTEcwUkM1azFMWG1feFRFeHpjRnhWMjZ2Vjg2aEFsdmMzRkFEQ1lnY3hsbFB1LWlaeW5zSXVBMzgzU3NfSWd5dk5QNTc5U1k0alZPUm44UWd4SGI2X2h1YWl3dXRtT3ZNYnFJc2VPcjBsdm9QU09fOEhMVmJHdDVEYnRqbS1PbzRxSl90bXBNTEdzT0VJQW9wSk1Vd3dYNFB0bXZwYWdmbmZtMk1FYUQzUThoWi1jMHI4MU5QMTVadllhTnZsVkw3ZWs0TF9yVnJMbzBxX3VNTExYeTRPTmhaQmRuSEljd3hLYmRiaTdURHI0bXVndFJwa3dUbFJoU3NObl9MM0NjSWlNQjRFeVY3bU1hUmYzbkxMMVBNZ0NWMGxCZnZIT0loTTY4UTltV3ViU1BURjJCV3BqeUtrbWRfNXZHQVc3RnBHZmMwVmpUaHltZXV5Vk9kSHZ6WDJfajFIanNRdG5XeS1ZbjVXcVNSVnVhSFBTTHhrRFVyVS1JOEVENUQ0?oc=5",
+      "pubDate": "Fri, 20 Nov 2026 03:23:14 GMT"
     },
     {
-      "title": "反彈是假象？台股4天崩逾5000點 過來人揭股災血淚：親戚家破人亡股市",
-      "link": "https://news.google.com/rss/articles/CBMikgNBVV95cUxPVEwwOXc5X0JrcHBVUVRLTDMzS2U5QzNXckhRTDJtLWRadDVvdEFhbEJLS01LaDlzYTVDSHkxV3B2ZWlmWUdRQWhvc21vdi0zdTVIdTlJcnlyajRTYlB3akpWUXhZSUVQSUdaWGF4VUlHMm1YWmRhZDg5RWZhWnNaQ1FXUnNFNEZWYzNQUmUxdUhFb2w1SWt0djJzYXg4ZGZKbzZuMmdXci1Ya2dlbnRiYnUtM3F6cnBVVFVkeVljemhvYkdjMGpWcWRKbEhKX080NUJDYnZjRTkxOGp1aTFyd2gzMmk3a1Y5SXJ0RDVnN3RlWWNlN2tsaGFPZzlSa0xiU0dGdXZDblNZYnlnS3JPN3pKSG1kdGZlbEJFZHhONG90QWowQTVjXzFELXRhXzFLakcxSG5yaHhRV08zZy1kdVo0SHpTV3pfMXBUVVFwQmx3NlY3SnFyb2xYUVJJQl8xREFWR1dNTUV0dk1taFNSNVZvY0V2UW9qUXkyd0Fxd0lCTl9nd3JNSEdLSUFiS3ZDYmc?oc=5",
-      "pubDate": "Thu, 19 Nov 2026 05:06:28 GMT"
+      "title": "【Hot台股】台股崩逾2千點！國安基金也救不了？網酸「糖漿變腦漿」分析師：點火遇大雨股市",
+      "link": "https://news.google.com/rss/articles/CBMiqARBVV95cUxPR2hDaDJMR3o2dmQ2Q19EeEpSZ1E4RmR3WXJOS19nWUMwYldsdEhDWV9FcndrV3BDOTEtaHdYaWtQN2p4a2g2ei1rUnM3eGZheTg1MjBFZzlLcTVYWklSV0U4dkZuYURoZ2EtdXpIQjV2OW1MZFBpM3FXQXB2c1RTT0UxS1ZHam9Oa1o3RjYwSjUzNUgtUGxlaEVvWjlxUlRyT0FyNmJDcjhrOE83UmprMm5qb1JkTjE2U3c1eU9UYkNrbk9vMTk3RF9Xa1pNNUd4UF9GcnpmeWNrLXlHY0lqUmkxYy1KandWRUYteGE1RXJycDdtajRFMDVPTVFwS3ExYW9oU1Q5SzNBZzQyZTEwZHdYT3hPMlZ4S1RVVTBXWHJwSHpCRloxX3hPRGIyaFBlUXdGcDZIMzRxYUM4dU9mcHE3Y2VLcE1aYVdaY284Mmw5eE9tQkp4Y3l1RjBEb3ZKc2lEdjNJbmFMdzljZ3VWUHdoTkNCQ21MT2J6SC05RlNBQWJDQXNtQjB6ZnZXd0doU0N2SDlvNHlzSDNYWFBBenZqdUZLcEw2YmJOeE8zeXVRUlk2X2pkdXcyaWZycThRaWN6VVR0end5REZmVzJ2X3ZrczR0TC1valBIUVBTY2J5WWZrbE5nbnBNTWVWZXludTlMaGVDVVMtejF6OHI0cDJXZW0wX0hNcXBWcEhWUVpjWmt5RDR3NmpHcUtIeHFHQlFTYlNPd0Q?oc=5",
+      "pubDate": "Fri, 20 Nov 2026 03:41:37 GMT"
     }
   ]
 }
