@@ -29,20 +29,20 @@
       "range": 0.09
     },
     "dxy": {
-      "close": 103.6,
-      "change": -0.21,
-      "change_pct": -0.2,
+      "close": 103.77,
+      "change": -0.04,
+      "change_pct": -0.04,
       "high": 103.85,
-      "low": 103.59,
-      "range": 0.26
+      "low": 103.47,
+      "range": 0.38
     },
     "usdtwd": {
-      "close": 32.87,
-      "change": -0.16,
-      "change_pct": -0.48,
+      "close": 32.84,
+      "change": -0.19,
+      "change_pct": -0.58,
       "high": 32.99,
-      "low": 32.84,
-      "range": 0.15
+      "low": 32.82,
+      "range": 0.17
     },
     "nasdaq": {
       "close": 22617.73,
@@ -150,8 +150,13 @@
       "taiex": -10.3
     }
   ],
-  "updated_at": "2026年11月23日 16:00",
+  "updated_at": "2026年11月23日 17:48",
   "news": [
+    {
+      "title": "台股注入強心針？台達電、聯發科、南亞3檔「國安基金護盤概念股」飆漲停 吸金1155億元股市",
+      "link": "https://news.google.com/rss/articles/CBMinwRBVV95cUxQOEUtZ1VmQkZYeFFFU214M3NhSC1ocGpVLWlINEtmUXpuWW1INm9rWXlJeXZ2Nmw5M09yVVZBbld3VkFTeTNtT0pqZkdhN191LV80cURLVzFNWnB0aGM0b0JKVURjODdKTDZaWjZNVlQwLU82eDdoNWRvdHNTWnpLLWkzeFBHWVpRcjAzMFhqTUVBQ2tINmIzT1VDNHd5NWJNNk0zUXZITUJZNWh2WVBpd0RlVm5YbTJVUzh4VDRGVjhyN3FVN1l4YW1yaXNqanNNaUNRaXRrMkVJYTBrQnA3anRqVzdzMEh6Ql8zMnBVam1ualh1Nkh2SXhrUTVmd25CVkdybV9pNTNmZURwTHQ5OXVjLWRra1lXUXEwSnAtTENieU4waDRWZmVkYTVGUXdwTmQxN2NTU01MSmo5WXlTQ3MydUd6XzlyQzJaNTMtbzRGMFFiamF4MXZsOFU3eGVLZThHblowdFhKX0tWX2o0Rkd1eEMtTFRPUy1fSlE4WFVKUk1SYjZmT0lqajdjRV94STF3ckNSU01vTzBMMllOYkQtQzhPWWdVZkFSaHRTTDQ1S053N1ZhbU1Tdm9icHVkLU5mVUxnanVoRktZRmZWZjlPZHYza0t0QmNKTTVaWDlWR3RLWTdsbVhncnhuRHlIWUIyd0VTb3RBZ0xQaVdrdlg4dFpHRmExTmRDckFOSzZDSi10dTdoQ2RuZVhwWDg?oc=5",
+      "pubDate": "Mon, 23 Nov 2026 06:22:27 GMT"
+    },
     {
       "title": "房市被台股拖累？「四貸同堂」遇股災 拿房子抵押全台46萬棟 這二區最多股市",
       "link": "https://news.google.com/rss/articles/CBMi1ANBVV95cUxQUXVUTGZmTnRSQWtIRTdIbnM2R21FNDVDQUZiTGhRRW1xbmpCazkwQlZTSFQ1alhBYWRWOHozQVlZbEFlRE9URWZTS1ZDaWJpWVM3OEZCRFRYSUl3SWNqR1BZYTkyNVpQX2FEd2kwQ056TUh2T3RaSVhySld5UnRBRlIxbklmUTN4UERQcmh2V2E1MGxCUW9SUW5CMnVWZTZJSUxTWU5tUWFzZHQwMlUtbFhUQXlEQkFIWDVxUzRTS3ItNkVwdXdvTGNZRzF1ZWxCQkNQYjV2ZkYyc2Z2M09GY2haZnd4dUt2ZjRmcVFRcF9kRmk3R3ppaUs1SUduRjdFMEtoOUpLUTdCX3FqdGJubG5zRENhRVdKSVpUQ1gyVnQwVzEzcHo4TXRXOEgzTWR0RjZ0eUpoNFNIQVFBampkaG1MVktHN2xwS0V4YnMzbHZLaDNRMmxLYlNjcFkyZmczMWZFemxuYVR2RUlWZVprX1RPRF9RUFJDYVFWN0hHdUJXVmY2c0ItLWt0NWI4RXdCMFNJSXl4UmFqNGh6UUxYMUpsdkl3elpmdlhiZW9kT0NDVUFRdHRVcWtMbzFLUmhZX2dPaWFnZ053RUFqbFoxemhiUko?oc=5",
@@ -163,14 +168,9 @@
       "pubDate": "Mon, 23 Nov 2026 03:33:24 GMT"
     },
     {
-      "title": "台股噴漲千點！台積電勁揚50元 聯發科、聯電雙亮燈股市",
-      "link": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxNYlJQOUc5T3hVOFRvRVBKT3dFdDEyb1RlR2oyWHpKR0toTFpnMS1mNVktQ0tvT2hDa2tTSmtJc2daMGRkNV9tMlNiVUFNejVZUjBtTTd2RnVERU1saUVjR1g5RlBMSVJSTEQwNXF1VXBNU1BYSVFyUjRBMXNPTXpJNG1hS0hxQm04STNWbm83WWd2NDBRYk9kT2ZPa29ISGN3b1IwbVdfTWozSUVCNEVnSWZLUXhmeXl5MVpJQWJ2LUMwc1RZdmN2WUxHcFdSREk4MHpqMEdZdHBDZU0yblZZNXBoX3BOLUp0eVhWRGxxTXhIYnppRGlzNGU1NXp2VHZ2MnVKMVhRVkV1V1puSTFJcThFdTVwa0JvWnR3MHVPM01fQzBsX05fT012MDRaanlXandMNVlnem9sRXZpMzdJcl9Vd3hiQi03TG9oZTJ3T3VLZw?oc=5",
-      "pubDate": "Mon, 23 Nov 2026 04:52:57 GMT"
-    },
-    {
-      "title": "台股站回3萬6！證交所董座親筆信「催油門」 請企業買回庫藏股股市",
-      "link": "https://news.google.com/rss/articles/CBMiowNBVV95cUxPZ0R5QkhFbURqX1I2QThIQ3JJWkcyM3UwVk1CNW9aZExEX3Z4VUdXWlh1ZHlQTC1DVFZSNE9HaTR6a1JaQ0RlWk9JOW9XUzFKNGtUVUpZWldkNFRBUThQVlY0V1BuUThnQlZTdklzRzRjaDJ6WTNJM240TmFfX1FhTWFlMXJzcHM1WllSYURvZ2k3MUhqM3RGbTFOQW9mbzEtcXpkSmRHUlEtOVp3LUNvSzNEdkUtd043QXVsbjR4dGNPSExhNTFDSW5Vd0MzSy1GTlhkU1VJMTVyOFFGb0lxdUtEc0dkV2dFaHJzb3A5S0dsUG1ZY20tN1NYUzMtd0wzWGdranhKbFhGYVVkSE1JRzlSYTBpWkgzVk9PMDVQUlZ1aFdULUtwUzQxcElGdS0zT2N1dmNOT1h6VHJQdF9tajVFODFsVDRtempfMnFGeWtZVm5kQmstb1RmbW1sdHhsNFpFUlJSOFVJSE5FZXZVdXhXRU9jOU5jV2tGMC1majRSOC1YUXlSUjR3SVczeGNnSl9CMVlvTnNuTjdfaGowZ0dMWQ?oc=5",
-      "pubDate": "Mon, 23 Nov 2026 06:52:52 GMT"
+      "title": "散戶被嚇跑？台股史上最苦10月 證券劃撥餘額月減逾5千億元破紀錄股市",
+      "link": "https://news.google.com/rss/articles/CBMisANBVV95cUxQRXJBN2JqbFI5YVJjdk01RWxVLUY4ZmNKNHlGbTQzMk1uT1E1bE9sQ3dGRjVOQ3VZWnp3QW5zMG0wQml3UWc3SzlDbnF5cEFlZDFDS2VKc2RQdEJ6SEFBWEdmRllXLTlyRDJfZ1JTVTFlNGxEX25MNjVyUG1xWjlkVzlhOTJZcTA5c2hGNU1Oc0VHUDEzVWtNRjhuR0p0T3EzNlY5ckZSUFNSMWI4QUtSV2ZqLU9iWHV1Qk50bzlnT1Y0emdMUDBiVnBlekVCTGU2Wkd1b3E4NVlQZFc4R1JJRU1yWW4tTjNuN0stM1pjaUJVLTdHVGZ4RGR1a3hfRkJpWm5ISEJmbm04OV9fQlNJd1NyZVdPem42OEYyTk9qd0xYazhtaTdaMlVualBwMEkyTVJRZDdOT2VFUF90ajhVY0kzRWZFamlHY2ptU3g4a2I4cnZLaGg4M29aeXB2cE9tZjV1OU9qT1dES2JzWVZocFBma1IyM1diWmg1V2IzYkExcUFjVmJZUVRVdlc5dFZRSVFyVU1qUElvbk9aSkRjWUlBc0pmamE4S3c3bGg4S0U?oc=5",
+      "pubDate": "Mon, 23 Nov 2026 09:03:30 GMT"
     },
     {
       "title": "【Yahoo早盤】限空令3.0＋國安基金喊話！台股開低後翻紅急拉逾600點分析師萬相和：低接買盤進場股市",
