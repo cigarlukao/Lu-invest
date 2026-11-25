@@ -29,17 +29,17 @@
       "range": 0.04
     },
     "dxy": {
-      "close": 104.0,
-      "change": 0.19,
-      "change_pct": 0.18,
+      "close": 104.05,
+      "change": 0.24,
+      "change_pct": 0.23,
       "high": 104.1,
       "low": 103.81,
       "range": 0.29
     },
     "usdtwd": {
-      "close": 33.18,
-      "change": 0.33,
-      "change_pct": 1.0,
+      "close": 33.13,
+      "change": 0.28,
+      "change_pct": 0.85,
       "high": 33.18,
       "low": 32.92,
       "range": 0.26
@@ -150,7 +150,7 @@
       "taiex": -4.97
     }
   ],
-  "updated_at": "2026年11月25日 15:53",
+  "updated_at": "2026年11月25日 17:43",
   "news": [
     {
       "title": "國安基金拉尾盤？台股血洗3441點後急拉 收跌1926點「史上第六大」股市",
@@ -160,12 +160,7 @@
     {
       "title": "台股重摔3440點！千金股一度15檔跌停 股后川湖逆勢漲4%撐盤股市",
       "link": "https://news.google.com/rss/articles/CBMi-gJBVV95cUxNcmxyY2NKbml4Ylc4RnVzZUVvVURSNklMSFp4S2xVWEhrNEYzY2RXdmZIU2s4Z0FGZEplU1I2aUpEcXJqTHpJOTRPYVd0MEpKM1NGRHRJRlI2ZXhPaFhYdm9zWjRUT0NJUHl1ODljQkJNT0Fwdmc4dGxEdDdnZ0hlN3VSWXRlS1ZIZGxDTlpCLVhPbjJ6WVB3QVpaRE1NeGJJTmZLcFYzdGd4eHl3cE1rOURaME80cTV1X3o2cEtzakJzeE9RWUN4WXZYaGxnUkNhN3had1JJX0gwRVJiTFlfeThpc01IS01xYzMxMDhhUzFXcmFTNWl0Y1lmel8tbTktY0kzLUNQSVNSR09JbllKaWdnVHkwbW5GeFlIZnhVdmVaaUZLdFFKb0cxcHNJVHd4bF9wTThoOG1HUFYxZktfeVBNb0hSM0JEb3BZOTVaMmRHM1hxNkFBRkdKU0F3clN6bEwtVjNjOWFxMk81Q3RsUHAwVXY4UEQxQVE?oc=5",
-      "pubDate": "Wed, 25 Nov 2026 06:25:43 GMT"
-    },
-    {
-      "title": "台股重摔3440點！創意、聯發科15檔千金股跌停 股后川湖苦撐平盤之上股市",
-      "link": "https://news.google.com/rss/articles/CBMitANBVV95cUxOYlkzNzE0aDNkTVJBSWxPUFdVdmQzeER4Q2xvQTJucWFMSEwzdFNOczJPLUppd2dXdFlzVkI4ZVpJeElTbVRNdERuWmwydl9nQTRlMGdJOURxRVhBWlJVRGtoREFFX1hXWlF1ZjJrZ2dtWUdrT3RWenRYY0U2SEpVYnVZUUpzNTdvQjVIcVBCTVphUlVEcU5CWEpwMDktbE5HZC01OTVjVldYOWhpR1hPb2dlTDdsZ09tbElxOE5BSzZuMmlNT3h3YlFWRlZ3SnJTNmhpekVQSm1JeUh0SDBCd1BxTl9vam55SnIxUnAyQzFZUjJMREtyS2JUZGNBMG01Z2FoNGlUZ3FfY014QmNlcXVlb0NKY1NCWlZYd0ZVZkpORlNfWVZmLVQ3Y0FiZnhVRURWdjdZWWZGclhmdGZoZ2lyb0RuUm1mWmFvM3BfaWFkd3JFczcxZGM5QmZQNWdNVGdTdVNvWUJWOWozcl9IbE52dTJUMTE2UTNUZEZFRDRvM1diV0pOM0dRS3ZvOHNvN1RJOTdFay1CLU1UYWdOYnlRdy1EUlp0MzBPVGJvYjhmRDNG?oc=5",
-      "pubDate": "Wed, 25 Nov 2026 02:54:57 GMT"
+      "pubDate": "Wed, 25 Nov 2026 06:23:53 GMT"
     },
     {
       "title": "打回原形？台股再挫3400點 聯發科、聯電摔跌停股市",
@@ -176,6 +171,11 @@
       "title": "台股反彈後再度回檔，台積電、台達電與聯發科成觀察指標股市",
       "link": "https://news.google.com/rss/articles/CBMi_gJBVV95cUxQOVRfQVVsSzlpaGo5VmZ2Mjc2NjVNYVFhZEhtQk9ibUhxVUhIbzNpeW9DV1dobHNfcVl6bVBoUFdOSWhCRUN1am9qUk84eF9KUS05ZXpRMzdnTWlubURKY29vck14c1VENi1QLXdheXI1OENkdFhnaGJvRU00Mml0UXNjYnpmM0FMYWRnUXNxV19iQ29XS1ktalBEWWNyTkhnMlBwNlpOa3A5OEpJX185LTBpOUZ3ZFpWcWQ2M1NPY3Jlbl8waFd5Z3ZyVjVnWVZFMjgyOTdEaUtoWHc4QURSUlMtTEVCVU9tbU1LbUcxQzhmZUg2Um1PZDUxRURNOV9YTGhGb2RKYzFjQUoxdEcwQ0VZam1BbDdzQXBKT3VnbUtpZmU2eHhSUFFURUliOUdBMm9lU092SFgtVkY5NHJ4cnhpS01hcVMyb0dOaFhQY255TlliZVpYWFNXT2o5T1BpX243VnQ2N1kzaEtUcmRyQjJKY0xmaWZPUTBOVDVR?oc=5",
       "pubDate": "Wed, 25 Nov 2026 03:45:49 GMT"
+    },
+    {
+      "title": "台股重挫1800點！台達電、台塑化走高 資安概念逆勢強股市",
+      "link": "https://news.google.com/rss/articles/CBMi1AJBVV95cUxQUnp2S2ZpTHB0Z196c3dUaUhHOTd0UFdSZFNkNzFteFZMeTItVWo1U3l2OTUwQ1Y1bm9VcWFHR0NuSVdaU3VGRTBfcUg4U3Q3cF9pazJic294aUlxQVBCeGNoYW44bF9CNXVYNURlRXNIZkc5WlBld3lvQXNiRVV5SkRtTGxuV0pOWGNGNlhrNVM3NWdmdVhmWmRUQVJuUFJHSUdZc3FnUXhxZ3JzV0puUFV4M2xlSDk5Yk5OOVBEeExka3BCdzNSUE1oRWRyaUpBd3RxdEVlS2VoNHdWSV9DWmlvZUNYUEo4QlpOQmNqQXFlcVB6UzdBUkhjZEhGR1VfNEVCckd1TWM1a3dxYmxRajl6LUR6Vmt6bmh3aFZzXzQ3dEgwVjNzSWdPb3hQTktHcDRaeHBXMWVTNnAwMmtrTm9fbjJDQk16cGkwX0lPU05KVm5P?oc=5",
+      "pubDate": "Wed, 25 Nov 2026 01:25:52 GMT"
     }
   ]
 }
