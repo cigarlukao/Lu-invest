@@ -29,17 +29,17 @@
       "range": 0.06
     },
     "dxy": {
-      "close": 103.71,
-      "change": 0.04,
-      "change_pct": 0.04,
+      "close": 103.7,
+      "change": 0.03,
+      "change_pct": 0.03,
       "high": 103.84,
-      "low": 103.68,
-      "range": 0.16
+      "low": 103.67,
+      "range": 0.17
     },
     "usdtwd": {
-      "close": 32.97,
-      "change": 0.05,
-      "change_pct": 0.15,
+      "close": 32.95,
+      "change": 0.03,
+      "change_pct": 0.09,
       "high": 33.22,
       "low": 32.92,
       "range": 0.3
@@ -67,8 +67,8 @@
       "name": "元大高股息",
       "lots": 21,
       "close": 47.49,
-      "change": -2.45,
-      "change_pct": -4.91,
+      "change": 1.83,
+      "change_pct": 4.01,
       "market_val": 997290,
       "volume": 53149,
       "weight": 31.33
@@ -78,8 +78,8 @@
       "name": "群益台灣精選高息",
       "lots": 25,
       "close": 28.82,
-      "change": -0.68,
-      "change_pct": -2.31,
+      "change": 0.95,
+      "change_pct": 3.41,
       "market_val": 720500,
       "volume": 52782,
       "weight": 22.63
@@ -89,8 +89,8 @@
       "name": "元大台灣高息低波",
       "lots": 10,
       "close": 60.0,
-      "change": -1.4,
-      "change_pct": -2.28,
+      "change": 1.0,
+      "change_pct": 1.69,
       "market_val": 600000,
       "volume": 8669,
       "weight": 18.85
@@ -100,8 +100,8 @@
       "name": "國泰永續高股息",
       "lots": 17,
       "close": 29.52,
-      "change": -1.29,
-      "change_pct": -4.19,
+      "change": 0.92,
+      "change_pct": 3.22,
       "market_val": 501840,
       "volume": 43568,
       "weight": 15.77
@@ -111,8 +111,8 @@
       "name": "大華優利高填息30",
       "lots": 12,
       "close": 30.3,
-      "change": -1.08,
-      "change_pct": -3.44,
+      "change": 0.87,
+      "change_pct": 2.96,
       "market_val": 363600,
       "volume": 20428,
       "weight": 11.42
@@ -141,7 +141,7 @@
     },
     {
       "date": "11/25",
-      "lu": 2.96,
+      "lu": -3.77,
       "taiex": -0.6
     },
     {
@@ -150,7 +150,7 @@
       "taiex": 1.89
     }
   ],
-  "updated_at": "2026年11月26日 15:52",
+  "updated_at": "2026年11月26日 17:40",
   "news": [
     {
       "title": "政院關稅拚15%不疊加！台股漲927點 大立光、國巨攻漲停股市",
@@ -158,24 +158,24 @@
       "pubDate": "Thu, 26 Nov 2026 01:32:45 GMT"
     },
     {
-      "title": "台股重挫1926點！ 網見外資賣超嘆：就是在逃命很急股市",
-      "link": "https://news.google.com/rss/articles/CBMixwJBVV95cUxNV0tKYm5NZzZVRHRQNWx0UGpwUEF4R0NsVmlQUGV6RXI1RURPXzAwSE9KRjZXMG55M1Vudm1tVjljV3FsQnRPa0NPdHZmWFNZaDlRcHloQlNtdWh5ZFY3THRWcGxBazcwMVk2OWM5LUlycFZpeUw3Qll3azRsUjF3endxdlFrMzdaOXVYYzVubFI2WGN5QzlHSXNHS0JoS1Jza1d2UElWNUpMdGlfOVh3eDRjLVVNMnVNRkdLZWVmR3E2Nkg5bkpvai1TVEYzeE1GRXFxa2c1ajUxVF9zclAycDJ3S2VVcXN0NkdmWDhNVTZIbGMtY1BxUmpCcjY0cnRPSG1zUHFWX2Z0QTZIVGk0NFpLYUozVGRCb2JPZXBxUGZ6TW45Uk0zVmUxblRIR1hYU3h5OXVNemFwN3ZjUWR6RmhuQmdBTXc?oc=5",
-      "pubDate": "Wed, 25 Nov 2026 08:09:11 GMT"
-    },
-    {
       "title": "台股「只紅一天」川普關稅砍出史上第六慘！賣壓籠罩全市場資安概念逆勢撐出一點紅｜Yahoo財經掃描股市",
       "link": "https://news.google.com/rss/articles/CBMi5wRBVV95cUxPUnNnSEhxXzVLcEtIcy1rdHM3RnNQMXotNGc5bWIyZmFSd3kxRG1tSmdaRUR3VUVObnJ1TERtc2ZuX0x6SjN6R2FnQlJZLU5aVGowbDNLUW9FQnRkX3dkS2l4N1FSS3BUSG9scVFCTTB0S3hoOENCNkJ4VEp5NGlZZVp3OXZ4X3VUV1gzbVlCN1pGSkYtck1yYzdEaWtVb2NRS1daZFBfU09JV3FYQ1RwN1J2WlRZVHl3R3kzNGNBQ3ZDZW5GTEEtZ2dIRGg3UWJiNW5zaURZZC03WHRDbThIaENaUnYxeERHOUNBRUhMV0JGOE9lOERCcEkzam5nZnU5Nk9sRlpSNFNUb0o1cXY3RGItbi1ObnVfQzM3Z3ZDSXNUMTJVU0NkNXIzVVU3MEs2OTNaYWZLbG5adzZvbmYyVVFXSmdLNUVtb2w4TjdLS1ZaWEgxLU14RXY4MU9obU5oM3BsSUo3OG1CX3NtNzdaaXNwZnNDNElHTFM4bDVFcVduczRmdlJ0Wk9obl9vQ2U5bE9IQlRZdGJ5V0ZtVUFnNjhkQ1EtUHpWR0UtX2RsdnJKOGdnRnlaa2dOMzBuandaT2NWSUJNY0VRRUN6dE1mTDVETEZ4c3lOWXRLbVdZYVFObkhtWm82ektZNDlqb1JTU0lKbHd5UjVBdF8tUWo1NkFhMjc5Z3J4ZFVqakpmZnAyWllDLUJNSUtNU0Z0WVRORjJWb0dVYWpjZHFfZVlVV2QyTFZmbW5PV05WUGdyRTFfVmpRZy1UZ2VUeTlXQTg2NV93LUh3eXdMU2ZhN2RDUjJSSnRwTFE?oc=5",
       "pubDate": "Wed, 25 Nov 2026 09:10:48 GMT"
     },
     {
-      "title": "國安基金拉尾盤？台股血洗3441點後急拉 收跌1926點「史上第六大」股市",
-      "link": "https://news.google.com/rss/articles/CBMinwNBVV95cUxQZFhlNmNvZHc4Z2ZIcEdveFZrVmg1UUtlRm5DMVFzbGhrbk9jZHNLZEJMcFhjaU1Mc1BwcjAwRzRxeHNLcnpkZnJGd204ZEt1V0RpSExlaVFMc0VlUFRaTzM5RnVZdXFsZDllVjk0LXVHenh6bTJVcU9JSlJkM2xnNVczMGRIQk1GRkpHRE9LZW96SXZhektuZ1hOTGxGMnN4dHhBY0VSMjg1RUdmQU1oUTg0S1dUQ3BVeDJtc3Z2M09ObFJoRV92bnpmRU9KUG5WVFJ3Z1psRGVmQWRhM3l5dVJiVHA3YmJxTndVTGJFVUZKWUFPQkI1dGoyX1NVTDhObHpROFh3M1dpcFV2Ynl4bjBtLVJnSzE5MVFjdExhX0lYX1RtbzhMdWpXVnlHY1FSSm1abUVRbEJZNEdaY05yUlhaalFET3prNDIyenFJcFdSTzNVRFpZbFFNMmFTcmQ3SDc1NEh6VUd1SG5GS0Uta0JzbTN5eHptLWZSTDNFd3EzdEx4cEZGY1ZSUkhKM0NiMjZjSkpxM2NORlZHQVA4?oc=5",
-      "pubDate": "Wed, 25 Nov 2026 05:55:08 GMT"
+      "title": "【Follow法人】外資提款台積電、鴻海合計逾663億元 再砍聯電逾6萬張股市",
+      "link": "https://news.google.com/rss/articles/CBMiogNBVV95cUxORUJTOXBrSmtfOFMxNGVza3lpd0NjRDRGSTQxTHc3SFNJMEtzVUEtbDVVeEc5TElfUVVFZjh5cC1mdXRaVnd2ZVllSlVQT3FKRXp3bFl5SjZkUUprMkl4U1pUMlVVdW9JaVZVVVdabHNnUVBhaGlYTFpnQ2xtWHhCWVZZTVp5b0ltLWN4WHVpaFExOWhaWVpabkI2Um1uNGszYlJEX1hXUlBYTXExd3RUR01TbFlKUUl4cmxWbjczYjczaDhMa09fV1NNRlIwZGpxVFBESHRzLV9xZ1JSc0szcC0tZlJnSGNhM3RUcjNqRzk0Tk1zUW9MOTNYNWJSejBuSWpwWm9wX0tVMm44TmF4UWlFS2lwZmlYOXktZ0FhNnpIT2V0UlZmSlRRNkh5bTMwOUdjaXV0ZGIxbk82ZS16WGU0b2RSajY0bGlob1BuaU9jLW85Yk1QbzJWVlVzWGk2QlBkZkI0OUhPdmZEY2dHRnRra0paWGo4Z3RiaXNHVk1reGJYMnFaSnhSRlpPWUMwYUZ5RTVVYVBWS2JOUEVZOTRn?oc=5",
+      "pubDate": "Wed, 25 Nov 2026 08:47:40 GMT"
     },
     {
-      "title": "昨噴3310點今崩3400點！台股恐怖血洗4大兇手 這變數最致命股市",
-      "link": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxNb3RMVjNaOFByaWpVLWNXRHRMN1FHcFloQjh5T2hnY2UzOWtWUlBFYlZYRjNGNkZrNUMybEY1WlhLSTJzdEVwTXlOMkVuaTdCM1JBcEs3aF9HaXZDV0d3ZF9hZlBYbjZSbVJKUWtQNDJ3U000RERBdGFzWjdsakNROEQza3BJZ255bTZXRnRlTUlKeXdlMXNqMVZqUW1Pdm95b25YcEJFRXhDcUc3bkxKeDVWbnh6TTlWVnNQXzUzWlFoR0VkLVk0SDNBcEpuQVJnUFNqZjd4Y0VoUGtxSnM2eVliNzNIV2dhLWdnZFZ4a0tES2M5VmVJbGdvSk05WUxIamg5cDBwWlIzS0FwWGZRRktpbmdfM1l2VEtUNkFSWEY0dXJ6SHNjTGRMcDhOUjhEcFpSUWQ4TnY1cElLSDF5UHZOUUlfeHBpZTdEWV9EUVZsSll6SFhrQVB1Ylp3TjZiM3lmQkd3?oc=5",
-      "pubDate": "Wed, 25 Nov 2026 04:51:56 GMT"
+      "title": "1張「21萬元變3萬元」、不到0050的一半！006208擬1拆7 明起電子投票股市",
+      "link": "https://news.google.com/rss/articles/CBMihgNBVV95cUxNd0p4RjRlOVZ0amRleUZfN3lQZ0pTb01UdFY0WUFIcUEzRkE2WXdSSU8tS1lFX1RjMkppVHpKc3BSNGFfblRxdXlOOXoyZXZocjFpUUNaLVBMUWtvR1VrVXZFc01USmJpa2lsOGNoakRpS1ZuZnBQQVZ1YUdWRzVPaVZHNTZVUFpwVm5BaGRSczJiM1AySGl0VHFSdW9TWlJMN3p2Nm92UWFnWElRQjI3RFdieXRQdHFHb1NzWDJfNlJoVUpnRUsyT2h1Mlp6c3FLel9DcGh5eUk4MWVTdWFlWjg3UmNYaWhfRGhMTmxoNGRmeG9uaG9peWRiSVdPcFI0UzFwNjgtTGJEcU4wdnVDY25vYXB5RUpfRjFCX2tMZklFSUpaeVN3OGIxaEozMDZRNWtMN2FkTDhrWm9BRkZFYVRlWmhqU2RuZTZFYlFiRDBmZENnV0JURjN2VFlVTnhHN0lRUy1LUE16OGh3dHZrOGxVZjRINC01WHUxS2cyQkhqOV9sSlE?oc=5",
+      "pubDate": "Thu, 26 Nov 2026 03:39:02 GMT"
+    },
+    {
+      "title": "【台股盤中】美國301關稅利空淡化 台股盤中勁揚逾1200點股市",
+      "link": "https://news.google.com/rss/articles/CBMi1wJBVV95cUxPbVNodFdaTGo1NHM1MXA0NjRBY3JhYldXaUVoOVJOS0hmdm1ZanlMckdYTXExNzFsckdMbTNpQjZ5aVZLQmtmSWxmTTJIcjJhTWdlVU45dGFGZ3c4dmtaa2tuTWktUHRaMjNHVGxRZEtQV0FaSW1fS2tQYWVyTzlkci1wMWpSR0xjWlE4bTVxWjJvVnRuMjVLRFMzVl9SZ09fSmVLdW9ZMEZ6QURhRi00MkI0bXN4Z3psdXlRNmJfUHhCTmMzUVZldG9FM1JQVktPaFkwZThaalRtRXR0R2RndENuaERvY1dVMF9OZHRrRW1WMzdqdm1pOXd3WUtaRnVwcWxPVWRnSmJRMm9HcnZfUW5Uc1k5THZTR0FjOXFzeGlrRElwakpLNndSb21WcXJIeUl3ekpKUGpSLU9kMVJkQ2JMalo3WjQxUEg3UG56ZVdkNkZLd3Bn?oc=5",
+      "pubDate": "Thu, 26 Nov 2026 03:42:05 GMT"
     }
   ]
 }
