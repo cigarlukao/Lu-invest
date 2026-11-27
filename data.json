@@ -29,12 +29,12 @@
       "range": 0.06
     },
     "dxy": {
-      "close": 103.75,
-      "change": 0.08,
-      "change_pct": 0.08,
-      "high": 103.86,
+      "close": 103.83,
+      "change": 0.16,
+      "change_pct": 0.15,
+      "high": 103.87,
       "low": 103.64,
-      "range": 0.22
+      "range": 0.23
     },
     "usdtwd": {
       "close": 32.93,
@@ -67,8 +67,8 @@
       "name": "元大高股息",
       "lots": 21,
       "close": 46.97,
-      "change": 1.31,
-      "change_pct": 2.87,
+      "change": -0.52,
+      "change_pct": -1.09,
       "market_val": 986370,
       "volume": 34921,
       "weight": 31.2
@@ -78,8 +78,8 @@
       "name": "群益台灣精選高息",
       "lots": 25,
       "close": 28.72,
-      "change": 0.85,
-      "change_pct": 3.05,
+      "change": -0.1,
+      "change_pct": -0.35,
       "market_val": 718000,
       "volume": 36682,
       "weight": 22.71
@@ -89,8 +89,8 @@
       "name": "元大台灣高息低波",
       "lots": 10,
       "close": 59.75,
-      "change": 0.75,
-      "change_pct": 1.27,
+      "change": -0.25,
+      "change_pct": -0.42,
       "market_val": 597500,
       "volume": 5100,
       "weight": 18.9
@@ -100,8 +100,8 @@
       "name": "國泰永續高股息",
       "lots": 17,
       "close": 29.26,
-      "change": 0.66,
-      "change_pct": 2.31,
+      "change": -0.26,
+      "change_pct": -0.88,
       "market_val": 497420,
       "volume": 30684,
       "weight": 15.73
@@ -111,8 +111,8 @@
       "name": "大華優利高填息30",
       "lots": 12,
       "close": 30.18,
-      "change": 0.75,
-      "change_pct": 2.55,
+      "change": -0.12,
+      "change_pct": -0.4,
       "market_val": 362160,
       "volume": 13741,
       "weight": 11.46
@@ -141,7 +141,7 @@
     },
     {
       "date": "11/26",
-      "lu": 2.15,
+      "lu": 5.41,
       "taiex": 8.65
     },
     {
@@ -150,17 +150,12 @@
       "taiex": 9.09
     }
   ],
-  "updated_at": "2026年11月27日 15:51",
+  "updated_at": "2026年11月27日 17:40",
   "news": [
     {
       "title": "台股狂飆956點別高興太早！陳嘉偉喊「最後逃命」示警12月五大利空：恐跌破35542點股市",
       "link": "https://news.google.com/rss/articles/CBMiygNBVV95cUxOeXczbmF0OEVpNUJFNC05dS1GRldpRXIzeDhMNkRHQnVrVXlMaXFPTklxRFM1NXZ3Sm5oY1BfODdQamdCSktsWGlnWExqVUZJNjNpZ3RFTjBNdmZPNk4tYWlxY1hObnVSWnZvUUNXWEtTeXVjUnF4ZWtBRE5wU1NTai1xT3lXZERhOEctQTFKNFlpcWZ3T2wxZVozNEdTYTZ5Y0dVNlhZVFBWZlNaWVg1MGdhYkZsb2FLdnRiYjNnT292R1E1ck9uTlN2b3pRbXJ2NDdLNkJtaVhtaXM2QlFZNzN6TnE4LWhBSW82ZlZUUmpWa2NocmJvNWxFOE5FdGNGNmQ0d2szcmNMd2s5d0JEeUNJa3ZzNmgycjdiQU5oODd6MEpoVWZoelhPR2RGNlBkUGxRZjJabkh2X1dSQVhXYm53UHJhbzRNS2Y3UFl5LUtuVHhLS05qTWVMaFZHQ2RMOUxWa3FSTlJuQXVzQy1yQ0ZfZXBIRGlzRkNjbEZjVk5FOEhQSG91UHpBeGR2RkdmeF81QjZfTkJ5WWpKeVdMOGpEMEtBa0FMbFFvZWlPdl9UMVAxOW03aDFRNFpUelBiWUlZREpKdUY1UQ?oc=5",
       "pubDate": "Thu, 26 Nov 2026 14:12:00 GMT"
-    },
-    {
-      "title": "統一期貨：國安基金進場護盤，台股跌深反彈，外資仍賣超492億元股市",
-      "link": "https://news.google.com/rss/articles/CBMihANBVV95cUxPUmZoRVphdGRiVm9QVE1aUml1NWJwcXVJSTlUcExfdHZOcEZhTlRGek1NSF9UTUx2OGFndng0WU04dVlwdVVDd0NlUHBqRHdXcnYtSUFzSktPZDcyNDZsNWlZYVJoNHpyZGJjeFNaaWEtcFNjaTdBQ05pczJ4ZHBXN0ZyS2UyYXBuTHF5dDYxbmdlTnI2SVdxbmhnVE5hd2JVMlMwcnZvdmg0ekp3RERNeElueDFMQ2JITV8zZktFOWZnVTY0TFZmM1M0cEZnMjNXUE41LVRHWnBlMTd2eG9acXJqNUZmSlJqTS0weDdpaC0wWW1BVGNLRkxUc3JJQjFzZmNHNjBLVndLNFhzdmk3SFA1LXQwaVZGYVBoLThmbVpLZW4yLTZXQWc5VVluakp5eHlIOUNyNHEwN0JNek00bFdLV3hJQXFXclJjb3k2dlFpMWxWQmVJbUZQRlY2N0pFU1l1MFhib08wMmhueDcxZlJGSEo2Q1VTVUJMcF9GSHVUNmpF?oc=5",
-      "pubDate": "Thu, 26 Nov 2026 07:29:19 GMT"
     },
     {
       "title": "大立光國巨紅燈雙響炮！台積尾盤挨刀翻黑 台股照漲956點攻回3萬9｜Yahoo財經掃描股市",
@@ -173,9 +168,14 @@
       "pubDate": "Thu, 26 Nov 2026 07:13:13 GMT"
     },
     {
-      "title": "國家隊只拉尾盤！選舉前夕…台股成交量好冷「1天縮近1,800億元」股市",
-      "link": "https://news.google.com/rss/articles/CBMimgNBVV95cUxNcnk4SjhlRlNaRlBGM1EtWlhSQlBtdzlmWFRteVJwbmt5SDdLdkNYWGs4M3cxMjRMVzNqeXB1XzdKZXh2SVVTeHlLQ3gyRXdyYkkwTTFZMnA0T2t4cE9yd29PRmg4THRxaS1KSlRoWFE0QmJFUm15SVlZNU1NbDN1QVVTelRyMEVmUjYzZTdxQlMxT29zaXhqeDUtZkZQQkR3YUU5NU1aMVRyZnBDcWpKR0VMNG9NOFZSdW44eGxTOXNsSUU1dGI3WVVoQnF4XzJlbHo0NDNIXzY2andBbjNNeWpWaEdvVHhiV3p1MUhGeXFvN0RPSlZXQl92MVB0UXRGMzk4UGhfT0E5ZzBTWUEzRF82VHFhTWFmczE1TGMxR09LdlFESU5jMFhHQjZORy1FMkpEb05VcTlFN1JRWThqeGxuQlZDUTFYUFhBcllZZEt6bnNGS1R1UEQyWUxJY2JCdkpuVVAzdUM2aktDYWhtU1JySUkwbFVpVk5YS0kwZ2Y1c2loLW5RWmtkRFNnMzVHVmQ2ZHQ0NHVHUQ?oc=5",
-      "pubDate": "Fri, 27 Nov 2026 07:01:05 GMT"
+      "title": "三大法人再賣200億元！台股強拉尾盤站穩3萬9 股民怨：放假加班也要賣股市",
+      "link": "https://news.google.com/rss/articles/CBMiqgNBVV95cUxNTVZxaGt6VEllQWhHMVlOSHlid2paVU0zaWMyczJTLU12R1FMY1A0TVFfaXRkUGRDSklWWDFOVlV1NENNNnZxbUVzclFiM0RJcHNQSGo4QnJlaEpUNGdiQXlUM3RZV0o4V2tMeFphTE1qUmR1bGIyVnVwX25za2lOekdqY2ZYWHNBb2FsNW12dlhsZEVocFZjSmJFRjJWQ09CQWgtNjJGOEVYN3o3cXNqMy1mSkJYd3VoY0tlaDk3N3JUOTlHUW11eEIxNU1YTS1UZmZ5YTJjdHUtNDBrMXNGSk1pbDB1T2t6QzM4UkxYbzdyeGdtU25xby1Oc2dObHh2SmZYS1lkUWdFb3hrdXhpWG9KTHdJUjhzZEg4dzVzTldnUllKYkV1UENTMjFwanBLQnJNMjVCbFFrVW9fTnFyWWxxS0JmRFlDTHFVSFpTcXRlN2FkX2hhZHhHZS15eDFoQnpqQngxdlJOdmpfWmlFWHc0LVpPakxaR1h1ZzlUUlNpczFnM3J2Q1EwRWhwUUstOU1KUFlVTFVnYzZybjdWZUtmN0EzZlNqSlE?oc=5",
+      "pubDate": "Fri, 27 Nov 2026 09:08:00 GMT"
+    },
+    {
+      "title": "最受歡迎10大ETF一表看！0050、00878…前4大規模、人氣都完全制霸 00406A也上榜股市",
+      "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOVmFjUWUxT0pOY3B6NDZLUVlsRVoxbnFMcUFVd05nR1VzRGJ3UWlRNUp0eEtnZ25FakYtY1dfZnZuX2pPQkpZd1k4SGZjbW56azRFSVhOWl93UElLbnpndFNOWjFOV2F6cllHM0lGUEE2Mmt1N0k4UTVfQkZKU05HdG5wOVFmRTZaRHJIU09tX2EzQUI3NTI3V1FlcGphdXJ5aUhfTDJjRzdIRDl1NTREZG00ZDdVYXpna0d6YUE1ZERINXMwOEQwQllyNHFoVVFjc2ZlZVgyNXlHRkkyYzFIS21QWmtWc01NVXM3SlZnTmFaaWs5Wkltaw?oc=5",
+      "pubDate": "Fri, 27 Nov 2026 09:03:04 GMT"
     }
   ]
 }
